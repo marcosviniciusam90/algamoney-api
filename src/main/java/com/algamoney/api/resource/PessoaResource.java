@@ -3,8 +3,10 @@ package com.algamoney.api.resource;
 import com.algamoney.api.event.RecursoCriadoEvent;
 import com.algamoney.api.model.Pessoa;
 import com.algamoney.api.repository.PessoaRepository;
+import com.algamoney.api.service.PessoaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEventPublisher;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -20,6 +22,9 @@ public class PessoaResource {
 
     @Autowired
     private PessoaRepository pessoaRepository;
+
+    @Autowired
+    private PessoaService pessoaService;
 
     @Autowired
     private ApplicationEventPublisher publisher;
@@ -42,6 +47,24 @@ public class PessoaResource {
         publisher.publishEvent(new RecursoCriadoEvent(this, pessoaSalva.getCodigo(), response));
 
         return ResponseEntity.status(HttpStatus.CREATED).body(pessoaSalva);
+    }
+
+    @DeleteMapping("/{codigo}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void excluir (@PathVariable Long codigo) {
+        pessoaRepository.deleteById(codigo);
+    }
+
+    @PutMapping("/{codigo}")
+    public ResponseEntity<Pessoa> atualizar(@PathVariable Long codigo, @Valid @RequestBody Pessoa pessoa) {
+        Pessoa pessoaAtualizada = pessoaService.atualizar(codigo, pessoa);
+        return ResponseEntity.ok(pessoaAtualizada);
+    }
+
+    @PutMapping("/{codigo}/ativo")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void atualizarPropriedadeAtivo(@PathVariable Long codigo, @RequestBody Boolean ativo) {
+        pessoaService.atualizarPropriedadeAtivo(codigo, ativo);
     }
 
 
