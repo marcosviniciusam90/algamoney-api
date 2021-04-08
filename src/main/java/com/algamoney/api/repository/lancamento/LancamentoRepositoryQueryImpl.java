@@ -40,7 +40,6 @@ public class LancamentoRepositoryQueryImpl implements LancamentoRepositoryQuery 
 
         String descricao = lancamentoFilter.getDescricao();
 
-        System.out.println("ENTROU AQUIII");
         if(StringUtils.hasText(descricao)) {
             predicates.add(
                     builder.like(
