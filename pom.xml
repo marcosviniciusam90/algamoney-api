@@ -21,6 +21,19 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<mainClass>com.algamoney.api.AlgamoneyApiApplication</mainClass>
+				</configuration>
+			</plugin>
+
+			<!-- Configurando plugin para gerar Metamodels no src/main/java -->
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+					<generatedSourcesDirectory>src/main/java</generatedSourcesDirectory>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
@@ -81,6 +94,12 @@
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-lang3</artifactId>
 			<version>3.4</version>
+		</dependency>
+
+		<!-- Para gerar Metamodels no projeto que serão utilizados na construção de querys Criteria -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-jpamodelgen</artifactId>
 		</dependency>
 
 	</dependencies>
