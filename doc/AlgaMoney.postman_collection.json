@@ -1,0 +1,489 @@
+{
+	"info": {
+		"_postman_id": "cf769264-b7bb-459c-b628-090b8eb5f9c8",
+		"name": "AlgaMoney",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Categoria",
+			"item": [
+				{
+					"name": "Categoria - listar",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/categorias",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"categorias"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Categoria - buscar por código",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/categorias/8",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"categorias",
+								"8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Categoria - criar",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"nome\" : \"Restaurantes123\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/categorias",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"categorias"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Pessoas",
+			"item": [
+				{
+					"name": "Pessoas - listar",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/pessoas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"pessoas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pessoas - listar (paginação)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/pessoas?nome=mar&sort=nome&size=3&page=0",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"pessoas"
+							],
+							"query": [
+								{
+									"key": "nome",
+									"value": "mar"
+								},
+								{
+									"key": "sort",
+									"value": "nome"
+								},
+								{
+									"key": "size",
+									"value": "3"
+								},
+								{
+									"key": "page",
+									"value": "0"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pessoas - buscar",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/pessoas/10",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"pessoas",
+								"10"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pessoas - criar",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nome\": \"Natalia Fortes\",\n    \"ativo\": true,\n    \"endereco\": {\n        \"logradouro\": \"Rua dos Escoteiros\",\n        \"numero\": \"70\",\n        \"complemento\": \"Proximo a Preta\",\n        \"bairro\": \"Jardim Cairi\",\n        \"cep\": \"86690000\",\n        \"cidade\": \"Alto Alegre\",\n        \"estado\": \"Paraná\"\n    }\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/pessoas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"pessoas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pessoas - excluir",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/pessoas/12",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"pessoas",
+								"12"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pessoas - atualizar",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nome\": \"Erenilda Bassi dos Reis\",\n    \"ativo\": true,\n    \"endereco\": {\n        \"logradouro\": \"Rua dos Escoteiros\",\n        \"numero\": \"100\",\n        \"bairro\": \"Centro\",\n        \"cep\": \"86695000\",\n        \"cidade\": \"Alto Alegre\",\n        \"estado\": \"Paraná\"\n    }\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/pessoas/10",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"pessoas",
+								"10"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pessoas - ativo (propriedade)",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "true"
+						},
+						"url": {
+							"raw": "http://localhost:8080/pessoas/10/ativo",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"pessoas",
+								"10",
+								"ativo"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Lançamentos",
+			"item": [
+				{
+					"name": "Lançamento - filtrar",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/lancamentos?dataVencimentoDe=2017-06-10&dataVencimentoAte=2018-03-10&descricao=inglaterra",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"lancamentos"
+							],
+							"query": [
+								{
+									"key": "dataVencimentoDe",
+									"value": "2017-06-10"
+								},
+								{
+									"key": "dataVencimentoAte",
+									"value": "2018-03-10"
+								},
+								{
+									"key": "descricao",
+									"value": "inglaterra"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lançamento - filtrar (paginação)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/lancamentos?size=3&page=1&dataVencimentoDe=2017-06-10",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"lancamentos"
+							],
+							"query": [
+								{
+									"key": "size",
+									"value": "3"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "dataVencimentoDe",
+									"value": "2017-06-10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lançamento - buscar por código",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/lancamentos/25",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"lancamentos",
+								"25"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lançamento - criar",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"descricao\": \"Viagem pra Inglaterra\",\n    \"dataVencimento\": \"2018-03-10\",\n    \"dataPagamento\": \"2018-03-10\",\n    \"valor\": 400.32,\n    \"observacao\": null,\n    \"tipo\": \"DESPESA\",\n    \"categoria\": {\n        \"codigo\": 5\n    },\n    \"pessoa\": {\n        \"codigo\": 10\n    }\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/lancamentos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"lancamentos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lançamento - atualizar",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"descricao\": \"Viagem internacional\",\n    \"dataVencimento\": \"2018-03-10\",\n    \"dataPagamento\": \"2018-03-10\",\n    \"valor\": 400.32,\n    \"observacao\": \"Torrei toda minha reserva\",\n    \"tipo\": \"DESPESA\",\n    \"categoria\": {\n        \"codigo\": 5\n    },\n    \"pessoa\": {\n        \"codigo\": 5\n    }\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/lancamentos/16",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"lancamentos",
+								"16"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lançamento - excluir",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/lancamentos/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"lancamentos",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
