@@ -6,7 +6,8 @@ import com.algamoney.api.repository.PessoaRepository;
 import com.algamoney.api.service.PessoaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEventPublisher;
-import org.springframework.dao.EmptyResultDataAccessException;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -29,9 +30,20 @@ public class PessoaResource {
     @Autowired
     private ApplicationEventPublisher publisher;
 
+    /*
     @GetMapping
     public List<Pessoa> listar() {
         return pessoaRepository.findAll();
+    }
+     */
+
+    @GetMapping
+    public Page<Pessoa> buscarTodosPeloNomeContendoPaginado(String nome, Pageable pageable) {
+        //O ideal é utilizar Criteria query em consultas complexas/dinâmicas
+        if(nome == null) {
+            nome = "";
+        }
+        return pessoaRepository.findAllByNomeContaining(nome, pageable);
     }
 
     @GetMapping("/{codigo}")
