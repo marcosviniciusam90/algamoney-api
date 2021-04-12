@@ -32,6 +32,10 @@
 				<configuration>
 					<source>1.8</source>
 					<target>1.8</target>
+					<!-- Depois que gerar Metamodels adicione o argumento abaixo, pois se não toda vez que
+					tentar compilar vai falhar, pelo fato de tentar regerar os Metamodels, vai ocorrer erro
+					por estar tentando duplicar essas classes geradas -->
+					<proc>none</proc>
 					<generatedSourcesDirectory>src/main/java</generatedSourcesDirectory>
 				</configuration>
 			</plugin>
