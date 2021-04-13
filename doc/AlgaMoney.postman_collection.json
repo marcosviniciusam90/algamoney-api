@@ -550,12 +550,12 @@
 								},
 								{
 									"key": "username",
-									"value": "admin",
+									"value": "maria@algamoney.com",
 									"type": "text"
 								},
 								{
 									"key": "password",
-									"value": "admin",
+									"value": "maria",
 									"type": "text"
 								},
 								{
