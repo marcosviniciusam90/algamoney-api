@@ -1,5 +1,7 @@
 package com.algamoney.api.cors;
 
+import com.algamoney.api.config.property.AlgamoneyApiProperty;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
@@ -13,9 +15,8 @@ import java.io.IOException;
 @Order(Ordered.HIGHEST_PRECEDENCE)
 public class CorsFilter implements Filter {
 
-
-    // TODO: Configurar para diferentes ambientes
-    private static final String ALLOW_ORIGIN = "http://localhost:8000";
+    @Autowired
+    private AlgamoneyApiProperty algamoneyApiProperty;
 
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain)
@@ -23,11 +24,13 @@ public class CorsFilter implements Filter {
         HttpServletRequest request = (HttpServletRequest) servletRequest;
         HttpServletResponse response = (HttpServletResponse) servletResponse;
 
+        final String originPermitida = algamoneyApiProperty.getOriginPermitida();
+
         //estes Headers precisam estar na resposta
-        response.setHeader("Access-Control-Allow-Origin", ALLOW_ORIGIN);
+        response.setHeader("Access-Control-Allow-Origin", originPermitida);
         response.setHeader("Access-Control-Allow-Credentials", "true"); //true para permitir o envio do cookie
 
-        if("OPTIONS".equals(request.getMethod()) && ALLOW_ORIGIN.equals(request.getHeader("Origin"))) {
+        if("OPTIONS".equals(request.getMethod()) && originPermitida.equals(request.getHeader("Origin"))) {
             response.setHeader("Access-Control-Allow-Methods", "POST, GET, DELETE, PUT, OPTIONS");
             response.setHeader("Access-Control-Allow-Headers", "Authorization, Content-Type, Accept");
             response.setHeader("Access-Control-Max-Age", "3600");
@@ -37,7 +40,7 @@ public class CorsFilter implements Filter {
         }
 
     }
-    
+
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
         //Not necessary

@@ -126,6 +126,13 @@
 			<version>1.0.11.RELEASE</version>
 		</dependency>
 
+		<!-- Para configurar propriedades externamente -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-configuration-processor</artifactId>
+			<optional>true</optional> <!-- Pois se for pegar esse projeto e empacotar dentro de outro, não é obrigatório essa dependencia ir -->
+		</dependency>
+
 	</dependencies>
 
 </project>
