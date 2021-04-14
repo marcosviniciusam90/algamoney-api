@@ -3,6 +3,7 @@ package com.algamoney.api.resource;
 import com.algamoney.api.event.RecursoCriadoEvent;
 import com.algamoney.api.exceptionhandler.Erro;
 import com.algamoney.api.model.Lancamento;
+import com.algamoney.api.projection.ResumoLancamento;
 import com.algamoney.api.repository.LancamentoRepository;
 import com.algamoney.api.repository.filter.LancamentoFilter;
 import com.algamoney.api.service.LancamentoService;
@@ -44,6 +45,12 @@ public class LancamentoResource {
     @GetMapping
     public Page<Lancamento> filtrar (LancamentoFilter lancamentoFilter, Pageable pageable) {
         return lancamentoRepository.filtrar(lancamentoFilter, pageable);
+    }
+
+    @PreAuthorize("hasAuthority('ROLE_PESQUISAR_LANCAMENTO') and #oauth2.hasScope('read')")
+    @GetMapping(params = "resumo")
+    public Page<ResumoLancamento> filtrarResumir (LancamentoFilter lancamentoFilter, Pageable pageable) {
+        return lancamentoRepository.filtrarResumir(lancamentoFilter, pageable);
     }
 
     @PreAuthorize("hasAuthority('ROLE_PESQUISAR_LANCAMENTO') and #oauth2.hasScope('read')")
