@@ -1,9 +1,9 @@
-**Pr?-requisito**
+**Pré-requisito**
 
 1. Instale o cliente do Heroku (www.heroku.com)
 
 
-**Deploy da API em produ??o**
+**Deploy da API em produção**
 
 1. Criando projeto e configurando Heroku (ver imagem abaixo)
 
