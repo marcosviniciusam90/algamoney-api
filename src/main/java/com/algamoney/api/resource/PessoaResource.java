@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
-import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -31,20 +30,9 @@ public class PessoaResource {
     @Autowired
     private ApplicationEventPublisher publisher;
 
-    /*
-    @GetMapping
-    public List<Pessoa> listar() {
-        return pessoaRepository.findAll();
-    }
-     */
-
     @PreAuthorize("hasAuthority('ROLE_PESQUISAR_PESSOA') and #oauth2.hasScope('read')")
     @GetMapping
-    public Page<Pessoa> buscarTodosPeloNomeContendoPaginado(String nome, Pageable pageable) {
-        //O ideal é utilizar Criteria query em consultas complexas/dinâmicas
-        if(nome == null) {
-            nome = "";
-        }
+    public Page<Pessoa> pesquisar(@RequestParam(required = false, defaultValue = "") String nome, Pageable pageable) {
         return pessoaRepository.findAllByNomeContaining(nome, pageable);
     }
 
