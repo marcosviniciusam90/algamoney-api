@@ -2,6 +2,7 @@ package com.algamoney.api.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
 import org.springframework.security.access.expression.method.MethodSecurityExpressionHandler;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -11,6 +12,7 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.R
 import org.springframework.security.oauth2.config.annotation.web.configurers.ResourceServerSecurityConfigurer;
 import org.springframework.security.oauth2.provider.expression.OAuth2MethodSecurityExpressionHandler;
 
+@Profile("oauth-security")
 @Configuration
 @EnableResourceServer
 @EnableGlobalMethodSecurity(prePostEnabled = true)
@@ -22,8 +24,9 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
                 .antMatchers("/categorias").permitAll() //permite todas requisições em /categorias
                 .anyRequest().authenticated() //as demais requisições devem ser autenticadas
                 .and()
-            .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and() //a API não vai guardar estado/sessão
-            .csrf().disable(); //desabilita crossite
+                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS) //a API não vai guardar estado/sessão
+                .and()
+                .csrf().disable(); //desabilita crossite
     }
 
     @Override
