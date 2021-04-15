@@ -100,12 +100,6 @@
 			<version>3.4</version>
 		</dependency>
 
-		<!-- Para gerar Metamodels no projeto que serão utilizados na construção de querys Criteria -->
-		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-jpamodelgen</artifactId>
-		</dependency>
-
 		<!-- Para autenticação Basic das requisições -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
