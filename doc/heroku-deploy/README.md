@@ -12,21 +12,21 @@
 
 2. Configurar no projeto os arquivos:
 
-- application-prod.properties : ativar HTTPS, definir origem, colocar as vari?veis referenciadas 
-								e setadas no Heroku para conex?o ao BD (ver imagem acima)
+- application-prod.properties : ativar HTTPS, definir origem, colocar as variáveis referenciadas 
+								e setadas no Heroku para conexão ao BD (ver imagem acima)
 - Procfile : configurar este arquivo, indicando o nome do profile spring (prod), este nome 
-             ser? utilizado para carregar o arquivo properties apropriado
+             será utilizado para carregar o arquivo properties apropriado
 			 
 
 3. Commitar os arquivos;
 
 
-4. Fazer push/deploy das altera??es.
+4. Fazer push/deploy das alterações.
 - `git push heroku [branch]`
-- Ex: `git push heroku master`      (vai subir todos os commits para o servidor do Heroku que j? est? em execu??o)
+- Ex: `git push heroku master`      (vai subir todos os commits para o servidor do Heroku que já está em execução)
 
 
-5. Para ver os logs da aplica??o:
+5. Para ver os logs da aplicaçãoo:
 - `heroku logs --tail`
 
 
@@ -37,4 +37,4 @@
 
 - Tive o erro acima ao tentar fazer push para o Heroku
 - Meus arquivos .properties estavam com encoding diferente de UTF-8. 
-- **SOLU??O**: S? foi preciso excluir e recriar os arquivos (Bloco de notas) com UTF-8.
+- **SOLUÇÃO**: Só foi preciso excluir e recriar os arquivos (Bloco de notas) com UTF-8.
