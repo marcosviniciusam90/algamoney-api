@@ -448,6 +448,49 @@
 					"response": []
 				},
 				{
+					"name": "Lançamento - filtrar (resumo)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2MTg0MTI2MDksInVzZXJfbmFtZSI6ImFkbWluQGFsZ2Ftb25leS5jb20iLCJhdXRob3JpdGllcyI6WyJST0xFX0NBREFTVFJBUl9DQVRFR09SSUEiLCJST0xFX1BFU1FVSVNBUl9QRVNTT0EiLCJST0xFX1JFTU9WRVJfUEVTU09BIiwiUk9MRV9DQURBU1RSQVJfTEFOQ0FNRU5UTyIsIlJPTEVfUEVTUVVJU0FSX0xBTkNBTUVOVE8iLCJST0xFX1JFTU9WRVJfTEFOQ0FNRU5UTyIsIlJPTEVfQ0FEQVNUUkFSX1BFU1NPQSIsIlJPTEVfUEVTUVVJU0FSX0NBVEVHT1JJQSJdLCJqdGkiOiI1NzFmODJjYy1mNmU3LTRmN2QtYTEzMi05YTgxODRlYzBmODEiLCJjbGllbnRfaWQiOiJhbmd1bGFyIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl19.kbON0qVCo_zFHqclrCdZGPf38EaJ_CUyTlQxZ-KPiK4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/lancamentos?resumo&descricao=Top Club",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"lancamentos"
+							],
+							"query": [
+								{
+									"key": "resumo",
+									"value": null
+								},
+								{
+									"key": "descricao",
+									"value": "Top Club"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "Lançamento - filtrar (paginação)",
 					"request": {
 						"auth": {
@@ -656,12 +699,12 @@
 							"basic": [
 								{
 									"key": "password",
-									"value": "mobile123",
+									"value": "angular123",
 									"type": "string"
 								},
 								{
 									"key": "username",
-									"value": "mobile",
+									"value": "angular",
 									"type": "string"
 								}
 							]
@@ -680,7 +723,7 @@
 							"urlencoded": [
 								{
 									"key": "client",
-									"value": "mobile",
+									"value": "angular",
 									"type": "text"
 								},
 								{
@@ -770,6 +813,493 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "Revoke Token",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2MTgzNTMyNjgsInVzZXJfbmFtZSI6ImFkbWluQGFsZ2Ftb25leS5jb20iLCJhdXRob3JpdGllcyI6WyJST0xFX0NBREFTVFJBUl9DQVRFR09SSUEiLCJST0xFX1BFU1FVSVNBUl9QRVNTT0EiLCJST0xFX1JFTU9WRVJfUEVTU09BIiwiUk9MRV9DQURBU1RSQVJfTEFOQ0FNRU5UTyIsIlJPTEVfUEVTUVVJU0FSX0xBTkNBTUVOVE8iLCJST0xFX1JFTU9WRVJfTEFOQ0FNRU5UTyIsIlJPTEVfQ0FEQVNUUkFSX1BFU1NPQSIsIlJPTEVfUEVTUVVJU0FSX0NBVEVHT1JJQSJdLCJqdGkiOiJjZWIyNTU1Zi1jZjM2LTQ0OGQtYmFmNi0yOWZhMDgwMTU0NTIiLCJjbGllbnRfaWQiOiJtb2JpbGUiLCJzY29wZSI6WyJyZWFkIl19.XFQ5vXV2uIkgYIQoTFcDIDA4fn2lR3b7L88edgC5kBk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "localhost:8080/tokens/revoke",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"tokens",
+								"revoke"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "PRODUÇÃO",
+			"item": [
+				{
+					"name": "Autenticação Copy",
+					"item": [
+						{
+							"name": "Access Token",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "angular123",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "angular",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/x-www-form-urlencoded",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "client",
+											"value": "angular",
+											"type": "text"
+										},
+										{
+											"key": "username",
+											"value": "admin@algamoney.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "admin",
+											"type": "text"
+										},
+										{
+											"key": "grant_type",
+											"value": "password",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "https://algamoney-api-mvam.herokuapp.com/oauth/token",
+									"protocol": "https",
+									"host": [
+										"algamoney-api-mvam",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"oauth",
+										"token"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Refresh Token",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "angular123",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "angular",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/x-www-form-urlencoded"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "grant_type",
+											"value": "refresh_token",
+											"type": "text"
+										},
+										{
+											"key": "refresh_token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJhZG1pbiIsInNjb3BlIjpbInJlYWQiLCJ3cml0ZSJdLCJhdGkiOiIxNmUyODQ1My0wOWZmLTRmODMtYjJjZS05MmRhNWVhNzFjYTAiLCJleHAiOjE2MTgzNjg3ODMsImF1dGhvcml0aWVzIjpbIlJPTEVfUk9MRSJdLCJqdGkiOiIwMDU4ZjJiOS0zOTRkLTQxNTgtOTRhOS05NWQ0MzBjMTcyOTYiLCJjbGllbnRfaWQiOiJhbmd1bGFyIn0.4po3x-TPXrzI42br7Abdult_uf5WIDpAwNebY2IAaLY",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:8080/oauth/token",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"oauth",
+										"token"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Revoke Token",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2MTgzNTMyNjgsInVzZXJfbmFtZSI6ImFkbWluQGFsZ2Ftb25leS5jb20iLCJhdXRob3JpdGllcyI6WyJST0xFX0NBREFTVFJBUl9DQVRFR09SSUEiLCJST0xFX1BFU1FVSVNBUl9QRVNTT0EiLCJST0xFX1JFTU9WRVJfUEVTU09BIiwiUk9MRV9DQURBU1RSQVJfTEFOQ0FNRU5UTyIsIlJPTEVfUEVTUVVJU0FSX0xBTkNBTUVOVE8iLCJST0xFX1JFTU9WRVJfTEFOQ0FNRU5UTyIsIlJPTEVfQ0FEQVNUUkFSX1BFU1NPQSIsIlJPTEVfUEVTUVVJU0FSX0NBVEVHT1JJQSJdLCJqdGkiOiJjZWIyNTU1Zi1jZjM2LTQ0OGQtYmFmNi0yOWZhMDgwMTU0NTIiLCJjbGllbnRfaWQiOiJtb2JpbGUiLCJzY29wZSI6WyJyZWFkIl19.XFQ5vXV2uIkgYIQoTFcDIDA4fn2lR3b7L88edgC5kBk",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "localhost:8080/tokens/revoke",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"tokens",
+										"revoke"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Lançamentos Copy",
+					"item": [
+						{
+							"name": "Lançamento - filtrar",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2MTg0NjY5ODAsInVzZXJfbmFtZSI6ImFkbWluQGFsZ2Ftb25leS5jb20iLCJhdXRob3JpdGllcyI6WyJST0xFX0NBREFTVFJBUl9DQVRFR09SSUEiLCJST0xFX1BFU1FVSVNBUl9QRVNTT0EiLCJST0xFX1JFTU9WRVJfUEVTU09BIiwiUk9MRV9DQURBU1RSQVJfTEFOQ0FNRU5UTyIsIlJPTEVfUEVTUVVJU0FSX0xBTkNBTUVOVE8iLCJST0xFX1JFTU9WRVJfTEFOQ0FNRU5UTyIsIlJPTEVfQ0FEQVNUUkFSX1BFU1NPQSIsIlJPTEVfUEVTUVVJU0FSX0NBVEVHT1JJQSJdLCJqdGkiOiI4ODE5ZjhkNi03MzVhLTRkYTItYjJlYi05NGI0MWRmNjc1NTYiLCJjbGllbnRfaWQiOiJhbmd1bGFyIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl19.KWxWpTkMCx2tDD7mPS_rUzlXA67ghaYIauQ7R8QzALY",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "https://algamoney-api-mvam.herokuapp.com/lancamentos?descricao=Top Club",
+									"protocol": "https",
+									"host": [
+										"algamoney-api-mvam",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"lancamentos"
+									],
+									"query": [
+										{
+											"key": "descricao",
+											"value": "Top Club"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Lançamento - filtrar (resumo)",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2MTg0MTI2MDksInVzZXJfbmFtZSI6ImFkbWluQGFsZ2Ftb25leS5jb20iLCJhdXRob3JpdGllcyI6WyJST0xFX0NBREFTVFJBUl9DQVRFR09SSUEiLCJST0xFX1BFU1FVSVNBUl9QRVNTT0EiLCJST0xFX1JFTU9WRVJfUEVTU09BIiwiUk9MRV9DQURBU1RSQVJfTEFOQ0FNRU5UTyIsIlJPTEVfUEVTUVVJU0FSX0xBTkNBTUVOVE8iLCJST0xFX1JFTU9WRVJfTEFOQ0FNRU5UTyIsIlJPTEVfQ0FEQVNUUkFSX1BFU1NPQSIsIlJPTEVfUEVTUVVJU0FSX0NBVEVHT1JJQSJdLCJqdGkiOiI1NzFmODJjYy1mNmU3LTRmN2QtYTEzMi05YTgxODRlYzBmODEiLCJjbGllbnRfaWQiOiJhbmd1bGFyIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl19.kbON0qVCo_zFHqclrCdZGPf38EaJ_CUyTlQxZ-KPiK4",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:8080/lancamentos?resumo&descricao=Top Club",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"lancamentos"
+									],
+									"query": [
+										{
+											"key": "resumo",
+											"value": null
+										},
+										{
+											"key": "descricao",
+											"value": "Top Club"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Lançamento - filtrar (paginação)",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2MTgzNTIzMDksInVzZXJfbmFtZSI6ImFkbWluQGFsZ2Ftb25leS5jb20iLCJhdXRob3JpdGllcyI6WyJST0xFX0NBREFTVFJBUl9DQVRFR09SSUEiLCJST0xFX1BFU1FVSVNBUl9QRVNTT0EiLCJST0xFX1JFTU9WRVJfUEVTU09BIiwiUk9MRV9DQURBU1RSQVJfTEFOQ0FNRU5UTyIsIlJPTEVfUEVTUVVJU0FSX0xBTkNBTUVOVE8iLCJST0xFX1JFTU9WRVJfTEFOQ0FNRU5UTyIsIlJPTEVfQ0FEQVNUUkFSX1BFU1NPQSIsIlJPTEVfUEVTUVVJU0FSX0NBVEVHT1JJQSJdLCJqdGkiOiJmOGRhMjhhMS04MWU2LTQ4MzEtOGUyZi05MWVmZWM1OGQ3ODEiLCJjbGllbnRfaWQiOiJtb2JpbGUiLCJzY29wZSI6WyJyZWFkIl19.JXznbECxO7m1KbbyWUUh4QID8ZaUjZLTaV7lJIqbAkA",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:8080/lancamentos?size=3&page=1&dataVencimentoDe=2017-06-10",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"lancamentos"
+									],
+									"query": [
+										{
+											"key": "size",
+											"value": "3"
+										},
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "dataVencimentoDe",
+											"value": "2017-06-10"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Lançamento - buscar por código",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2MTgzNTIzMDksInVzZXJfbmFtZSI6ImFkbWluQGFsZ2Ftb25leS5jb20iLCJhdXRob3JpdGllcyI6WyJST0xFX0NBREFTVFJBUl9DQVRFR09SSUEiLCJST0xFX1BFU1FVSVNBUl9QRVNTT0EiLCJST0xFX1JFTU9WRVJfUEVTU09BIiwiUk9MRV9DQURBU1RSQVJfTEFOQ0FNRU5UTyIsIlJPTEVfUEVTUVVJU0FSX0xBTkNBTUVOVE8iLCJST0xFX1JFTU9WRVJfTEFOQ0FNRU5UTyIsIlJPTEVfQ0FEQVNUUkFSX1BFU1NPQSIsIlJPTEVfUEVTUVVJU0FSX0NBVEVHT1JJQSJdLCJqdGkiOiJmOGRhMjhhMS04MWU2LTQ4MzEtOGUyZi05MWVmZWM1OGQ3ODEiLCJjbGllbnRfaWQiOiJtb2JpbGUiLCJzY29wZSI6WyJyZWFkIl19.JXznbECxO7m1KbbyWUUh4QID8ZaUjZLTaV7lJIqbAkA",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:8080/lancamentos/25",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"lancamentos",
+										"25"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Lançamento - criar",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2MTgzNTIzMDksInVzZXJfbmFtZSI6ImFkbWluQGFsZ2Ftb25leS5jb20iLCJhdXRob3JpdGllcyI6WyJST0xFX0NBREFTVFJBUl9DQVRFR09SSUEiLCJST0xFX1BFU1FVSVNBUl9QRVNTT0EiLCJST0xFX1JFTU9WRVJfUEVTU09BIiwiUk9MRV9DQURBU1RSQVJfTEFOQ0FNRU5UTyIsIlJPTEVfUEVTUVVJU0FSX0xBTkNBTUVOVE8iLCJST0xFX1JFTU9WRVJfTEFOQ0FNRU5UTyIsIlJPTEVfQ0FEQVNUUkFSX1BFU1NPQSIsIlJPTEVfUEVTUVVJU0FSX0NBVEVHT1JJQSJdLCJqdGkiOiJmOGRhMjhhMS04MWU2LTQ4MzEtOGUyZi05MWVmZWM1OGQ3ODEiLCJjbGllbnRfaWQiOiJtb2JpbGUiLCJzY29wZSI6WyJyZWFkIl19.JXznbECxO7m1KbbyWUUh4QID8ZaUjZLTaV7lJIqbAkA",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"descricao\": \"Viagem pra Inglaterra\",\n    \"dataVencimento\": \"2018-03-10\",\n    \"dataPagamento\": \"2018-03-10\",\n    \"valor\": 400.32,\n    \"observacao\": null,\n    \"tipo\": \"DESPESA\",\n    \"categoria\": {\n        \"codigo\": 5\n    },\n    \"pessoa\": {\n        \"codigo\": 10\n    }\n}"
+								},
+								"url": {
+									"raw": "http://localhost:8080/lancamentos",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"lancamentos"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Lançamento - atualizar",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2MTgzNTIzMDksInVzZXJfbmFtZSI6ImFkbWluQGFsZ2Ftb25leS5jb20iLCJhdXRob3JpdGllcyI6WyJST0xFX0NBREFTVFJBUl9DQVRFR09SSUEiLCJST0xFX1BFU1FVSVNBUl9QRVNTT0EiLCJST0xFX1JFTU9WRVJfUEVTU09BIiwiUk9MRV9DQURBU1RSQVJfTEFOQ0FNRU5UTyIsIlJPTEVfUEVTUVVJU0FSX0xBTkNBTUVOVE8iLCJST0xFX1JFTU9WRVJfTEFOQ0FNRU5UTyIsIlJPTEVfQ0FEQVNUUkFSX1BFU1NPQSIsIlJPTEVfUEVTUVVJU0FSX0NBVEVHT1JJQSJdLCJqdGkiOiJmOGRhMjhhMS04MWU2LTQ4MzEtOGUyZi05MWVmZWM1OGQ3ODEiLCJjbGllbnRfaWQiOiJtb2JpbGUiLCJzY29wZSI6WyJyZWFkIl19.JXznbECxO7m1KbbyWUUh4QID8ZaUjZLTaV7lJIqbAkA",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"descricao\": \"Viagem internacional\",\n    \"dataVencimento\": \"2018-03-10\",\n    \"dataPagamento\": \"2018-03-10\",\n    \"valor\": 400.32,\n    \"observacao\": \"Torrei toda minha reserva\",\n    \"tipo\": \"DESPESA\",\n    \"categoria\": {\n        \"codigo\": 5\n    },\n    \"pessoa\": {\n        \"codigo\": 5\n    }\n}"
+								},
+								"url": {
+									"raw": "http://localhost:8080/lancamentos/16",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"lancamentos",
+										"16"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Lançamento - excluir",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2MTgzNTIzMDksInVzZXJfbmFtZSI6ImFkbWluQGFsZ2Ftb25leS5jb20iLCJhdXRob3JpdGllcyI6WyJST0xFX0NBREFTVFJBUl9DQVRFR09SSUEiLCJST0xFX1BFU1FVSVNBUl9QRVNTT0EiLCJST0xFX1JFTU9WRVJfUEVTU09BIiwiUk9MRV9DQURBU1RSQVJfTEFOQ0FNRU5UTyIsIlJPTEVfUEVTUVVJU0FSX0xBTkNBTUVOVE8iLCJST0xFX1JFTU9WRVJfTEFOQ0FNRU5UTyIsIlJPTEVfQ0FEQVNUUkFSX1BFU1NPQSIsIlJPTEVfUEVTUVVJU0FSX0NBVEVHT1JJQSJdLCJqdGkiOiJmOGRhMjhhMS04MWU2LTQ4MzEtOGUyZi05MWVmZWM1OGQ3ODEiLCJjbGllbnRfaWQiOiJtb2JpbGUiLCJzY29wZSI6WyJyZWFkIl19.JXznbECxO7m1KbbyWUUh4QID8ZaUjZLTaV7lJIqbAkA",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:8080/lancamentos/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"lancamentos",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
 				}
 			]
 		}
