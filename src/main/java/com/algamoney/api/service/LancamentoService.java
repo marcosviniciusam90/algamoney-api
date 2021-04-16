@@ -1,9 +1,12 @@
 package com.algamoney.api.service;
 
+import com.algamoney.api.model.Categoria;
 import com.algamoney.api.model.Lancamento;
 import com.algamoney.api.model.Pessoa;
+import com.algamoney.api.repository.CategoriaRepository;
 import com.algamoney.api.repository.LancamentoRepository;
 import com.algamoney.api.repository.PessoaRepository;
+import com.algamoney.api.service.exception.CategoriaInexistenteException;
 import com.algamoney.api.service.exception.PessoaInexistenteOuInativaException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
@@ -20,7 +23,18 @@ public class LancamentoService {
     @Autowired
     private PessoaRepository pessoaRepository;
 
+    @Autowired
+    private CategoriaRepository categoriaRepository;
+
     public Lancamento atualizar(Long codigo, Lancamento lancamento) {
+
+        if(!isPessoaValida(lancamento.getPessoa().getCodigo())) {
+            throw new PessoaInexistenteOuInativaException();
+        }
+
+        if(!isCategoriaValida(lancamento.getCategoria().getCodigo())) {
+            throw new CategoriaInexistenteException();
+        }
 
         Lancamento lancamentoExistente = buscaLancamentoPorCodigo(codigo);
         lancamento.setCodigo(lancamentoExistente.getCodigo());
@@ -37,12 +51,26 @@ public class LancamentoService {
     }
 
     public Lancamento salvar(Lancamento lancamento) {
-        Optional<Pessoa> pessoaOptional = pessoaRepository.findById(lancamento.getPessoa().getCodigo());
-        if(!pessoaOptional.isPresent() || pessoaOptional.get().isInativo()) {
+
+        if(!isPessoaValida(lancamento.getPessoa().getCodigo())) {
             throw new PessoaInexistenteOuInativaException();
+        }
+
+        if(!isCategoriaValida(lancamento.getCategoria().getCodigo())) {
+            throw new CategoriaInexistenteException();
         }
 
         return lancamentoRepository.save(lancamento);
 
+    }
+
+    private boolean isPessoaValida(Long codigo) {
+        Optional<Pessoa> pessoaOptional = pessoaRepository.findById(codigo);
+        return pessoaOptional.isPresent() && pessoaOptional.get().isAtivo();
+    }
+
+    private boolean isCategoriaValida(Long codigo) {
+        Optional<Categoria> categoriaOptional = categoriaRepository.findById(codigo);
+        return categoriaOptional.isPresent();
     }
 }

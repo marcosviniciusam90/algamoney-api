@@ -7,6 +7,7 @@ import com.algamoney.api.projection.ResumoLancamento;
 import com.algamoney.api.repository.LancamentoRepository;
 import com.algamoney.api.repository.filter.LancamentoFilter;
 import com.algamoney.api.service.LancamentoService;
+import com.algamoney.api.service.exception.CategoriaInexistenteException;
 import com.algamoney.api.service.exception.PessoaInexistenteOuInativaException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEventPublisher;
@@ -84,9 +85,19 @@ public class LancamentoResource {
 
     @ExceptionHandler(PessoaInexistenteOuInativaException.class)
     public ResponseEntity<Object> handlePessoaInexistenteOuInativaException(PessoaInexistenteOuInativaException ex) {
-        String mensagemUsuario = messageSource.getMessage("pessoa.inexistente-ou-inativa", null, LocaleContextHolder.getLocale());
-        String mensagemDesenvolvedor = ex.toString();
-        List<Erro> erro = Arrays.asList(new Erro(mensagemUsuario, mensagemDesenvolvedor));
+        List<Erro> erro = criaErro(ex, "pessoa.inexistente-ou-inativa");
         return ResponseEntity.badRequest().body(erro);
+    }
+
+    @ExceptionHandler(CategoriaInexistenteException.class)
+    public ResponseEntity<Object> handleCategoriaInexistenteException(CategoriaInexistenteException ex) {
+        List<Erro> erro = criaErro(ex, "categoria.inexistente");
+        return ResponseEntity.badRequest().body(erro);
+    }
+
+    private List<Erro> criaErro(Exception ex, String identificador) {
+        String mensagemUsuario = messageSource.getMessage(identificador, null, LocaleContextHolder.getLocale());
+        String mensagemDesenvolvedor = ex.toString();
+        return Arrays.asList(new Erro(mensagemUsuario, mensagemDesenvolvedor));
     }
 }
