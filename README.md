@@ -5,9 +5,9 @@ O projeto ainda está em construção (**40% concluido**)
 Projeto com arquitetura SOFEA, no qual o frontend (Angular) da aplicação irá manipular dados de um servidor via requisições REST.<br/>
 Será feito deploy no Heroku, tanto do frontend como da API (backend).
 
-## Backend
+## Backend (https://algamoney-api-mvam.herokuapp.com)
 Java, Spring, REST, MySQL, Flyway, Hibernate/JPA, Maven, Criteria, entre outras tecnologias. 
 
 **Conceitos**<br/>
-Bean Validation, Bean Configuration, Exceptions Handler, Spring Events, Metamodels, Query Methods, Pagination/Sorting, CORS, 
-Spring Security (Basic, OAuth2 + JWT, Roles/Privileges), Spring Profiles, etc. 
+Bean Validation, Bean Configuration, Properties Configuration, Exceptions Handler, Spring Events, Metamodels, 
+Query Methods, Pagination/Sorting, CORS, Spring Security (Basic, OAuth2 + JWT, Roles/Privileges), Spring Profiles, etc. 
