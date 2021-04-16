@@ -1,6 +1,6 @@
 # Algamoney-api
 
-Curso para o aprendizado: https://www.algaworks.com/curso/fullstack-angular-e-spring
+Fonte do aprendizado: https://www.algaworks.com/curso/fullstack-angular-e-spring
 
 O projeto ainda está em construção (**40% concluido**)
 
