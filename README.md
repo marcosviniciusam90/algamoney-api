@@ -11,3 +11,6 @@ Java, Spring, REST, MySQL, Flyway, Hibernate/JPA, Maven, Criteria, entre outras 
 **Conceitos**<br/>
 Bean Validation, Bean Configuration, Properties Configuration, Exceptions Handler, Spring Events, Metamodels, 
 Query Methods, Pagination/Sorting, CORS, Spring Security (Basic, OAuth2 + JWT, Roles/Privileges), Spring Profiles, etc. 
+
+
+## Frontend (em construção)
