@@ -1,5 +1,7 @@
 # Algamoney-api
 
+Curso para o aprendizado: https://www.algaworks.com/curso/fullstack-angular-e-spring
+
 O projeto ainda está em construção (**40% concluido**)
 
 Projeto com arquitetura SOFEA, no qual o frontend (Angular) da aplicação irá manipular dados de um servidor via requisições REST.<br/>
