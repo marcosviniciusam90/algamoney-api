@@ -32,7 +32,15 @@ Será feito deploy no Heroku, tanto do frontend como da API (backend).
 - CORS
 - Spring Security (Basic, OAuth2 + JWT, Roles/Privileges)
 - Spring Profiles
+- Lombok
 - entre outros;
 
 
 ## Frontend (em construção)
+
+## TODO
+- No Lombok, adicionar instância do Logger para fazer log de execução dos serviços
+- No Lombok, adicionar anotação @AllArgsConstructor(onConstructor = @__(@Autowired))
+- Converter Entidade/DTO para trabalhar nas requisições -> Mapper (https://mapstruct.org/)
+- Criar testes automáticos testando o Mapper (utilizar builder do lombok para construir objetos)
+- Gerar documentação swagger da API usando SpringFox / io.swagger.annotations
