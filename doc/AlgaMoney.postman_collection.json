@@ -455,7 +455,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJhZG1pbkBhbGdhbW9uZXkuY29tIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sIm5vbWUiOiJBZG1pbmlzdHJhZG9yIiwiZXhwIjoxNjE5Mjk0MTg5LCJhdXRob3JpdGllcyI6WyJST0xFX0NBREFTVFJBUl9DQVRFR09SSUEiLCJST0xFX1BFU1FVSVNBUl9QRVNTT0EiLCJST0xFX1JFTU9WRVJfUEVTU09BIiwiUk9MRV9DQURBU1RSQVJfTEFOQ0FNRU5UTyIsIlJPTEVfUEVTUVVJU0FSX0xBTkNBTUVOVE8iLCJST0xFX1JFTU9WRVJfTEFOQ0FNRU5UTyIsIlJPTEVfQ0FEQVNUUkFSX1BFU1NPQSIsIlJPTEVfUEVTUVVJU0FSX0NBVEVHT1JJQSJdLCJqdGkiOiIwMjA2NGE3NC0xM2JhLTQ4NzctYmU4Ni00YWJlNzA1ZTdjZmEiLCJjbGllbnRfaWQiOiJhbmd1bGFyIn0.8xtJHa058U4q2sGojU2L2-YLrAMlpVsd5Wztz6hWOtQ",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJhZG1pbkBhbGdhbW9uZXkuY29tIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sIm5vbWUiOiJBZG1pbmlzdHJhZG9yIiwiZXhwIjoxNjE5NTk2ODEwLCJhdXRob3JpdGllcyI6WyJST0xFX0NBREFTVFJBUl9DQVRFR09SSUEiLCJST0xFX1BFU1FVSVNBUl9QRVNTT0EiLCJST0xFX1JFTU9WRVJfUEVTU09BIiwiUk9MRV9DQURBU1RSQVJfTEFOQ0FNRU5UTyIsIlJPTEVfUEVTUVVJU0FSX0xBTkNBTUVOVE8iLCJST0xFX1JFTU9WRVJfTEFOQ0FNRU5UTyIsIlJPTEVfQ0FEQVNUUkFSX1BFU1NPQSIsIlJPTEVfUEVTUVVJU0FSX0NBVEVHT1JJQSJdLCJqdGkiOiJjYmRmNDQ3MC1jMDc1LTQ1YzEtOTBiMC02NzM2MmU3OTU3OTciLCJjbGllbnRfaWQiOiJhbmd1bGFyIn0.2-FiyyALodgDVq-33-ISEfBl1gtWZGPlPjpjugPD_m8",
 									"type": "string"
 								}
 							]
@@ -467,7 +467,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "http://localhost:8080/lancamentos?resumo&descricao=Club",
+							"raw": "http://localhost:8080/lancamentos?resumo&page=0&descricao=Viagem",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -482,8 +482,12 @@
 									"value": null
 								},
 								{
+									"key": "page",
+									"value": "0"
+								},
+								{
 									"key": "descricao",
-									"value": "Club"
+									"value": "Viagem"
 								}
 							]
 						}
@@ -545,7 +549,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJhZG1pbkBhbGdhbW9uZXkuY29tIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sIm5vbWUiOiJBZG1pbmlzdHJhZG9yIiwiZXhwIjoxNjE5NDkzMzY2LCJhdXRob3JpdGllcyI6WyJST0xFX0NBREFTVFJBUl9DQVRFR09SSUEiLCJST0xFX1BFU1FVSVNBUl9QRVNTT0EiLCJST0xFX1JFTU9WRVJfUEVTU09BIiwiUk9MRV9DQURBU1RSQVJfTEFOQ0FNRU5UTyIsIlJPTEVfUEVTUVVJU0FSX0xBTkNBTUVOVE8iLCJST0xFX1JFTU9WRVJfTEFOQ0FNRU5UTyIsIlJPTEVfQ0FEQVNUUkFSX1BFU1NPQSIsIlJPTEVfUEVTUVVJU0FSX0NBVEVHT1JJQSJdLCJqdGkiOiJlYWFmZGVlYS1jMzFjLTQ0N2ItYTVlOS02ZTE5ODhiZThlMTgiLCJjbGllbnRfaWQiOiJhbmd1bGFyIn0.za3huJ_tQQndmlN6Bnx2-IgdLXYVobbz6fZN9Gq-ADo",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJhZG1pbkBhbGdhbW9uZXkuY29tIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sIm5vbWUiOiJBZG1pbmlzdHJhZG9yIiwiZXhwIjoxNjE5NTk4Nzg0LCJhdXRob3JpdGllcyI6WyJST0xFX0NBREFTVFJBUl9DQVRFR09SSUEiLCJST0xFX1BFU1FVSVNBUl9QRVNTT0EiLCJST0xFX1JFTU9WRVJfUEVTU09BIiwiUk9MRV9DQURBU1RSQVJfTEFOQ0FNRU5UTyIsIlJPTEVfUEVTUVVJU0FSX0xBTkNBTUVOVE8iLCJST0xFX1JFTU9WRVJfTEFOQ0FNRU5UTyIsIlJPTEVfQ0FEQVNUUkFSX1BFU1NPQSIsIlJPTEVfUEVTUVVJU0FSX0NBVEVHT1JJQSJdLCJqdGkiOiJkYjNkNzkxZC02OWRiLTRkZmUtODVmNi03ZDkzZjU4MzEyZTciLCJjbGllbnRfaWQiOiJhbmd1bGFyIn0.gwASlbpmyaVVXzqUPD19gWQqkiOFQcqRnlN6Fr6F8Cw",
 									"type": "string"
 								}
 							]
@@ -557,7 +561,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "http://localhost:8080/lancamentos/11",
+							"raw": "http://localhost:8080/lancamentos/10",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -565,7 +569,7 @@
 							"port": "8080",
 							"path": [
 								"lancamentos",
-								"11"
+								"10"
 							]
 						}
 					},
@@ -579,7 +583,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJhZG1pbkBhbGdhbW9uZXkuY29tIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sIm5vbWUiOiJBZG1pbmlzdHJhZG9yIiwiZXhwIjoxNjE4NTQ1NTgzLCJhdXRob3JpdGllcyI6WyJST0xFX0NBREFTVFJBUl9DQVRFR09SSUEiLCJST0xFX1BFU1FVSVNBUl9QRVNTT0EiLCJST0xFX1JFTU9WRVJfUEVTU09BIiwiUk9MRV9DQURBU1RSQVJfTEFOQ0FNRU5UTyIsIlJPTEVfUEVTUVVJU0FSX0xBTkNBTUVOVE8iLCJST0xFX1JFTU9WRVJfTEFOQ0FNRU5UTyIsIlJPTEVfQ0FEQVNUUkFSX1BFU1NPQSIsIlJPTEVfUEVTUVVJU0FSX0NBVEVHT1JJQSJdLCJqdGkiOiIyNDRiOTQ1Ni0yMzliLTRjMmMtOWNhZS03YWEyNTNmM2I3YWYiLCJjbGllbnRfaWQiOiJhbmd1bGFyIn0.y3deW8EZeVxsWw-DKMLjRNElwTFJf9NSK5Lshusa9yI",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJhZG1pbkBhbGdhbW9uZXkuY29tIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sIm5vbWUiOiJBZG1pbmlzdHJhZG9yIiwiZXhwIjoxNjE5NTk2ODEwLCJhdXRob3JpdGllcyI6WyJST0xFX0NBREFTVFJBUl9DQVRFR09SSUEiLCJST0xFX1BFU1FVSVNBUl9QRVNTT0EiLCJST0xFX1JFTU9WRVJfUEVTU09BIiwiUk9MRV9DQURBU1RSQVJfTEFOQ0FNRU5UTyIsIlJPTEVfUEVTUVVJU0FSX0xBTkNBTUVOVE8iLCJST0xFX1JFTU9WRVJfTEFOQ0FNRU5UTyIsIlJPTEVfQ0FEQVNUUkFSX1BFU1NPQSIsIlJPTEVfUEVTUVVJU0FSX0NBVEVHT1JJQSJdLCJqdGkiOiJjYmRmNDQ3MC1jMDc1LTQ1YzEtOTBiMC02NzM2MmU3OTU3OTciLCJjbGllbnRfaWQiOiJhbmd1bGFyIn0.2-FiyyALodgDVq-33-ISEfBl1gtWZGPlPjpjugPD_m8",
 									"type": "string"
 								}
 							]
@@ -595,7 +599,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"descricao\": \"Viagem pra Inglaterra\",\n    \"dataVencimento\": \"2018-03-10\",\n    \"dataPagamento\": \"2018-03-10\",\n    \"valor\": 400.32,\n    \"observacao\": null,\n    \"tipo\": \"DESPESA\",\n    \"categoria\": {\n        \"codigo\": 6\n    },\n    \"pessoa\": {\n        \"codigo\": 10\n    }\n}"
+							"raw": "{\n    \"descricao\": \"Viagem pra China\",\n    \"dataVencimento\": \"2018-03-10\",\n    \"dataPagamento\": \"2018-03-10\",\n    \"valor\": 400.32,\n    \"observacao\": null,\n    \"tipo\": \"DESPESA\",\n    \"categoria\": {\n    \t\"codigo\" : 1\n    },\n    \"pessoa\": {\n    \t\"codigo\" : 1\n    }\n}"
 						},
 						"url": {
 							"raw": "http://localhost:8080/lancamentos",
@@ -619,7 +623,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJhZG1pbkBhbGdhbW9uZXkuY29tIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sIm5vbWUiOiJBZG1pbmlzdHJhZG9yIiwiZXhwIjoxNjE5NDkzMzY2LCJhdXRob3JpdGllcyI6WyJST0xFX0NBREFTVFJBUl9DQVRFR09SSUEiLCJST0xFX1BFU1FVSVNBUl9QRVNTT0EiLCJST0xFX1JFTU9WRVJfUEVTU09BIiwiUk9MRV9DQURBU1RSQVJfTEFOQ0FNRU5UTyIsIlJPTEVfUEVTUVVJU0FSX0xBTkNBTUVOVE8iLCJST0xFX1JFTU9WRVJfTEFOQ0FNRU5UTyIsIlJPTEVfQ0FEQVNUUkFSX1BFU1NPQSIsIlJPTEVfUEVTUVVJU0FSX0NBVEVHT1JJQSJdLCJqdGkiOiJlYWFmZGVlYS1jMzFjLTQ0N2ItYTVlOS02ZTE5ODhiZThlMTgiLCJjbGllbnRfaWQiOiJhbmd1bGFyIn0.za3huJ_tQQndmlN6Bnx2-IgdLXYVobbz6fZN9Gq-ADo",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJhZG1pbkBhbGdhbW9uZXkuY29tIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sIm5vbWUiOiJBZG1pbmlzdHJhZG9yIiwiZXhwIjoxNjE5NTk2ODEwLCJhdXRob3JpdGllcyI6WyJST0xFX0NBREFTVFJBUl9DQVRFR09SSUEiLCJST0xFX1BFU1FVSVNBUl9QRVNTT0EiLCJST0xFX1JFTU9WRVJfUEVTU09BIiwiUk9MRV9DQURBU1RSQVJfTEFOQ0FNRU5UTyIsIlJPTEVfUEVTUVVJU0FSX0xBTkNBTUVOVE8iLCJST0xFX1JFTU9WRVJfTEFOQ0FNRU5UTyIsIlJPTEVfQ0FEQVNUUkFSX1BFU1NPQSIsIlJPTEVfUEVTUVVJU0FSX0NBVEVHT1JJQSJdLCJqdGkiOiJjYmRmNDQ3MC1jMDc1LTQ1YzEtOTBiMC02NzM2MmU3OTU3OTciLCJjbGllbnRfaWQiOiJhbmd1bGFyIn0.2-FiyyALodgDVq-33-ISEfBl1gtWZGPlPjpjugPD_m8",
 									"type": "string"
 								}
 							]
@@ -635,10 +639,10 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"descricao\": \"Padaria Parati\",\n    \"dataVencimento\": \"2017-06-10\",\n    \"dataPagamento\": null,\n    \"valor\": 8.32,\n    \"observacao\": null,\n    \"tipo\": \"DESPESA\",\n    \"categoria\": {\n        \"codigo\": 1\n    },\n    \"pessoa\": {\n        \"codigo\": 10\n    }\n}"
+							"raw": "{\n    \"descricao\": \"Viagem pra Argentina\",\n    \"dataVencimento\": \"2017-06-10\",\n    \"dataPagamento\": null,\n    \"valor\": 8.32,\n    \"observacao\": null,\n    \"tipo\": \"DESPESA\",\n    \"categoria\": {\n        \"codigo\": 5\n    },\n    \"pessoa\": {\n        \"codigo\": 6\n    }\n}"
 						},
 						"url": {
-							"raw": "http://localhost:8080/lancamentos/11",
+							"raw": "http://localhost:8080/lancamentos/43",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -646,7 +650,7 @@
 							"port": "8080",
 							"path": [
 								"lancamentos",
-								"11"
+								"43"
 							]
 						}
 					},
