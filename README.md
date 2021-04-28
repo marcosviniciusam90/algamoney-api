@@ -33,6 +33,7 @@ Será feito deploy no Heroku, tanto do frontend como da API (backend).
 - Spring Security (Basic, OAuth2 + JWT, Roles/Privileges)
 - Spring Profiles
 - Lombok
+- ModelMapper
 - entre outros;
 
 
