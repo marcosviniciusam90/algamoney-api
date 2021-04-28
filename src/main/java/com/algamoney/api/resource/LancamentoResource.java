@@ -1,14 +1,16 @@
 package com.algamoney.api.resource;
 
+import com.algamoney.api.dto.LancamentoInputDTO;
+import com.algamoney.api.dto.LancamentoResultDTO;
 import com.algamoney.api.event.RecursoCriadoEvent;
 import com.algamoney.api.exceptionhandler.Erro;
 import com.algamoney.api.model.Lancamento;
-import com.algamoney.api.projection.ResumoLancamento;
 import com.algamoney.api.repository.LancamentoRepository;
 import com.algamoney.api.repository.filter.LancamentoFilter;
 import com.algamoney.api.service.LancamentoService;
 import com.algamoney.api.service.exception.CategoriaInexistenteException;
 import com.algamoney.api.service.exception.PessoaInexistenteOuInativaException;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.context.MessageSource;
@@ -31,6 +33,9 @@ import java.util.Optional;
 public class LancamentoResource {
 
     @Autowired
+    private ModelMapper modelMapper;
+
+    @Autowired
     private LancamentoRepository lancamentoRepository;
 
     @Autowired
@@ -50,30 +55,36 @@ public class LancamentoResource {
 
     @PreAuthorize("hasAuthority('ROLE_PESQUISAR_LANCAMENTO') and #oauth2.hasScope('read')")
     @GetMapping(params = "resumo")
-    public Page<ResumoLancamento> filtrarResumir (LancamentoFilter lancamentoFilter, Pageable pageable) {
+    public Page<LancamentoResultDTO> filtrarResumir (LancamentoFilter lancamentoFilter, Pageable pageable) {
         return lancamentoRepository.filtrarResumir(lancamentoFilter, pageable);
     }
 
     @PreAuthorize("hasAuthority('ROLE_PESQUISAR_LANCAMENTO') and #oauth2.hasScope('read')")
     @GetMapping("/{codigo}")
-    public ResponseEntity<Lancamento> buscar(@PathVariable Long codigo) {
+    public ResponseEntity<LancamentoResultDTO> buscar(@PathVariable Long codigo) {
         Optional<Lancamento> lancamentoExistente = lancamentoRepository.findById(codigo);
-        return lancamentoExistente.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
+
+        if(!lancamentoExistente.isPresent()) {
+            return ResponseEntity.notFound().build();
+        }
+
+        LancamentoResultDTO result = modelMapper.map(lancamentoExistente.get(), LancamentoResultDTO.class);
+        return ResponseEntity.ok(result);
     }
 
     @PreAuthorize("hasAuthority('ROLE_CADASTRAR_LANCAMENTO') and #oauth2.hasScope('write')")
     @PostMapping
-    public ResponseEntity<Lancamento> criar(@Valid @RequestBody Lancamento lancamento, HttpServletResponse response) {
-        Lancamento lancamentoSalvo = lancamentoService.salvar(lancamento);
-        publisher.publishEvent(new RecursoCriadoEvent(this, lancamentoSalvo.getCodigo(), response));
-        return ResponseEntity.status(HttpStatus.CREATED).body(lancamentoSalvo);
+    public ResponseEntity<LancamentoResultDTO> criar(@Valid @RequestBody LancamentoInputDTO lancamentoInputDTO, HttpServletResponse response) {
+        LancamentoResultDTO result = lancamentoService.salvar(lancamentoInputDTO);
+        publisher.publishEvent(new RecursoCriadoEvent(this, result.getCodigo(), response));
+        return ResponseEntity.status(HttpStatus.CREATED).body(result);
     }
 
     @PreAuthorize("hasAuthority('ROLE_CADASTRAR_LANCAMENTO') and #oauth2.hasScope('write')")
     @PutMapping("/{codigo}")
-    public ResponseEntity<Lancamento> atualizar(@PathVariable Long codigo, @Valid @RequestBody Lancamento lancamento) {
-        Lancamento lancamentoAtualizado = lancamentoService.atualizar(codigo, lancamento);
-        return ResponseEntity.ok(lancamentoAtualizado);
+    public ResponseEntity<LancamentoResultDTO> atualizar(@PathVariable Long codigo, @Valid @RequestBody LancamentoInputDTO lancamentoInputDTO) {
+        LancamentoResultDTO result = lancamentoService.atualizar(codigo, lancamentoInputDTO);
+        return ResponseEntity.ok(result);
     }
 
     @PreAuthorize("hasAuthority('ROLE_REMOVER_LANCAMENTO') and #oauth2.hasScope('write')")
