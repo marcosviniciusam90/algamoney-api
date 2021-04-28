@@ -17,6 +17,9 @@ Será feito deploy no Heroku, tanto do frontend como da API (backend).
 - Flyway
 - Hibernate/JPA
 - Maven
+- Lombok
+- ModelMapper
+
 - entre outras;
 
 **Conceitos**<br/>
@@ -25,15 +28,12 @@ Será feito deploy no Heroku, tanto do frontend como da API (backend).
 - Properties Configuration
 - Exceptions Handler
 - Spring Events
-- Metamodels
 - Query Methods
-- Criteria Query
+- Criteria Query (com uso de classes Metamodel)
 - Pagination/Sorting
 - CORS
 - Spring Security (Basic, OAuth2 + JWT, Roles/Privileges)
 - Spring Profiles
-- Lombok
-- ModelMapper
 - entre outros;
 
 
