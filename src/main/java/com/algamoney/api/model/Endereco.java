@@ -1,18 +1,16 @@
 package com.algamoney.api.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.Embeddable;
 import javax.validation.constraints.Size;
 
 @Embeddable
-@Data
-@Builder
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class Endereco {
     @Size(min = 3, max = 50)
     private String logradouro;

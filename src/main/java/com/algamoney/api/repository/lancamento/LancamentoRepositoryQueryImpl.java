@@ -31,7 +31,6 @@ public class LancamentoRepositoryQueryImpl implements LancamentoRepositoryQuery 
     public Page<Lancamento> filtrar(LancamentoFilter lancamentoFilter, Pageable pageable) {
         CriteriaBuilder builder = manager.getCriteriaBuilder();
         CriteriaQuery<Lancamento> criteria = builder.createQuery(Lancamento.class);
-
         Root<Lancamento> root = criteria.from(Lancamento.class);
 
         Predicate[] predicates = criarRestricoes(lancamentoFilter, builder, root);
@@ -46,12 +45,12 @@ public class LancamentoRepositoryQueryImpl implements LancamentoRepositoryQuery 
     }
 
     @Override
-    public Page<LancamentoResultDTO> filtrarResumir(LancamentoFilter lancamentoFilter, Pageable pageable) {
+    public Page<LancamentoResultDTO> resumir(LancamentoFilter lancamentoFilter, Pageable pageable) {
         CriteriaBuilder builder = manager.getCriteriaBuilder();
         CriteriaQuery<LancamentoResultDTO> criteria = builder.createQuery(LancamentoResultDTO.class);
         Root<Lancamento> root = criteria.from(Lancamento.class);
 
-        criteriaSelect(builder, criteria, root);
+        criteriaSelectNewLancamentoResultDTO(builder, criteria, root);
 
         Predicate[] predicates = criarRestricoes(lancamentoFilter, builder, root);
         criteria.where(predicates);
@@ -64,7 +63,7 @@ public class LancamentoRepositoryQueryImpl implements LancamentoRepositoryQuery 
 
     }
 
-    private void criteriaSelect(CriteriaBuilder builder, CriteriaQuery<LancamentoResultDTO> criteria, Root<Lancamento> root) {
+    private void criteriaSelectNewLancamentoResultDTO(CriteriaBuilder builder, CriteriaQuery<LancamentoResultDTO> criteria, Root<Lancamento> root) {
         criteria.select(builder.construct(LancamentoResultDTO.class
                 , root.get(Lancamento_.codigo), root.get(Lancamento_.descricao)
                 , root.get(Lancamento_.dataVencimento), root.get(Lancamento_.dataPagamento)

@@ -4,6 +4,7 @@ import com.algamoney.api.event.RecursoCriadoEvent;
 import com.algamoney.api.model.Pessoa;
 import com.algamoney.api.repository.PessoaRepository;
 import com.algamoney.api.service.PessoaService;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.data.domain.Page;
@@ -19,38 +20,34 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/pessoas")
+@AllArgsConstructor(onConstructor = @__(@Autowired))
 public class PessoaController {
 
-    @Autowired
-    private PessoaRepository pessoaRepository;
-
-    @Autowired
-    private PessoaService pessoaService;
-
-    @Autowired
-    private ApplicationEventPublisher publisher;
+    private final PessoaRepository pessoaRepository;
+    private final PessoaService pessoaService;
+    private final ApplicationEventPublisher publisher;
 
     @PreAuthorize("hasAuthority('ROLE_PESQUISAR_PESSOA') and #oauth2.hasScope('read')")
     @GetMapping
-    public Page<Pessoa> pesquisar(@RequestParam(required = false, defaultValue = "") String nome, Pageable pageable) {
+    public Page<Pessoa> findAllByNomeContaining(@RequestParam(required = false, defaultValue = "") String nome, Pageable pageable) {
         return pessoaRepository.findAllByNomeContaining(nome, pageable);
     }
 
     @PreAuthorize("hasAuthority('ROLE_PESQUISAR_PESSOA') and #oauth2.hasScope('read')")
     @GetMapping("/{codigo}")
-    public ResponseEntity<Pessoa> buscar(@PathVariable Long codigo) {
+    public ResponseEntity<Pessoa> findById(@PathVariable Long codigo) {
+        //return pessoaService.findById(codigo);
         Optional<Pessoa> pessoa = pessoaRepository.findById(codigo);
         return pessoa.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
     @PreAuthorize("hasAuthority('ROLE_CADASTRAR_PESSOA') and #oauth2.hasScope('write')")
     @PostMapping
-    public ResponseEntity<Pessoa> criar (@Valid @RequestBody Pessoa pessoa, HttpServletResponse response) {
+    @ResponseStatus(HttpStatus.CREATED)
+    public Pessoa criar (@Valid @RequestBody Pessoa pessoa, HttpServletResponse response) {
         Pessoa pessoaSalva = pessoaRepository.save(pessoa);
-
         publisher.publishEvent(new RecursoCriadoEvent(this, pessoaSalva.getCodigo(), response));
-
-        return ResponseEntity.status(HttpStatus.CREATED).body(pessoaSalva);
+        return pessoaSalva;
     }
 
     @PreAuthorize("hasAuthority('ROLE_REMOVER_PESSOA') and #oauth2.hasScope('write')")
@@ -62,9 +59,9 @@ public class PessoaController {
 
     @PreAuthorize("hasAuthority('ROLE_CADASTRAR_PESSOA') and #oauth2.hasScope('write')")
     @PutMapping("/{codigo}")
-    public ResponseEntity<Pessoa> atualizar(@PathVariable Long codigo, @Valid @RequestBody Pessoa pessoa) {
-        Pessoa pessoaAtualizada = pessoaService.atualizar(codigo, pessoa);
-        return ResponseEntity.ok(pessoaAtualizada);
+    @ResponseStatus(HttpStatus.OK)
+    public Pessoa atualizar(@PathVariable Long codigo, @Valid @RequestBody Pessoa pessoa) {
+        return pessoaService.atualizar(codigo, pessoa);
     }
 
     @PreAuthorize("hasAuthority('ROLE_CADASTRAR_PESSOA') and #oauth2.hasScope('write')")

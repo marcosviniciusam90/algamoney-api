@@ -1,32 +1,29 @@
 package com.algamoney.api.exceptionhandler;
 
-import org.apache.commons.lang3.exception.ExceptionUtils;
+import com.algamoney.api.exceptionhandler.util.ErroUtil;
+import com.algamoney.api.service.exception.LancamentoInexistenteException;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
-import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.HttpMessageNotReadableException;
-import org.springframework.validation.BindingResult;
-import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 @ControllerAdvice
+@AllArgsConstructor(onConstructor = @__(@Autowired))
 public class AlgamoneyExceptionHandler extends ResponseEntityExceptionHandler {
 
-    @Autowired
-    private MessageSource messageSource;
+    private final MessageSource messageSource;
 
     /**
      * Tratamento de exceção quando o corpo da requisição está mal formado
@@ -34,53 +31,45 @@ public class AlgamoneyExceptionHandler extends ResponseEntityExceptionHandler {
      */
     @Override
     protected ResponseEntity<Object> handleHttpMessageNotReadable(HttpMessageNotReadableException ex, HttpHeaders headers, HttpStatus status, WebRequest request) {
-        List<Erro> erros = criarErro("mensagem.invalida", ex);
+        List<Erro> erros = ErroUtil.criarErro("mensagem.invalida", ex);
         return handleExceptionInternal(ex, erros, headers, HttpStatus.BAD_REQUEST, request);
     }
 
     /**
-     * Tratamento de exceção quando um ou mais parâmetros do corpo da requisição não passam pelas validações
-     * Ex: parâmetro obrigatório, size (min/max), etc
+     * Tratamento de exceção quando um ou mais parâmetros do corpo da requisição falham nas validações
+     * (@NotNull, @NotBlank, @Size, etc)
      */
     @Override
     protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex, HttpHeaders headers, HttpStatus status, WebRequest request) {
-        List<Erro> erros = criarListaDeErrosDosCampos(ex.getBindingResult());
+        List<Erro> erros = ErroUtil.criarListaDeErrosDosCampos(ex.getBindingResult());
         return handleExceptionInternal(ex, erros, headers, HttpStatus.BAD_REQUEST, request);
     }
 
     /**
-     * Tratamento de exceção quando tenta atualizar/deletar um recurso que não existe
+     * Tratamento de exceção quando tenta deletar um recurso que não existe
+     * @see org.springframework.data.jpa.repository.support.SimpleJpaRepository#deleteById(Object) 
      */
     @ExceptionHandler({ EmptyResultDataAccessException.class })
     public ResponseEntity<Object> handleEmptyResultDataAccessException(EmptyResultDataAccessException ex, WebRequest request) {
-        List<Erro> erros = criarErro("recurso.nao-encontrado", ex);
+        List<Erro> erros = ErroUtil.criarErro("recurso.nao-encontrado", ex);
         return handleExceptionInternal(ex, erros, new HttpHeaders(), HttpStatus.NOT_FOUND, request);
     }
 
     /**
-     * Tratamento de exceção quando tenta, por exemplo, inserir um lançamento associado a uma categoria inexistente, ocorre um erro de FK
+     * Tratamento de exceção quando tenta, por exemplo, inserir um lançamento associado a uma categoria inexistente,
+     * o que resultaria em erro de FK
      */
     @ExceptionHandler({ DataIntegrityViolationException.class })
     public ResponseEntity<Object> handleDataIntegrityViolationException(DataIntegrityViolationException ex, WebRequest request) {
-        List<Erro> erros = criarErro("recurso.operacao-nao-permitida", ex);
+        List<Erro> erros = ErroUtil.criarErro("recurso.operacao-nao-permitida", ex);
         return handleExceptionInternal(ex, erros, new HttpHeaders(), HttpStatus.BAD_REQUEST, request);
     }
 
-    private List<Erro> criarErro(String identificadorMensagem, Exception ex) {
-        String mensagemUsuario = messageSource.getMessage(identificadorMensagem, null, LocaleContextHolder.getLocale());
-        String mensagemDesenvolvedor = ExceptionUtils.getRootCauseMessage(ex);
-        return Arrays.asList(new Erro(mensagemUsuario, mensagemDesenvolvedor));
+    @ExceptionHandler(LancamentoInexistenteException.class)
+    public ResponseEntity<Object> handleLancamentoInexistenteException(LancamentoInexistenteException ex, WebRequest request) {
+        List<Erro> erros = ErroUtil.criarErro("lancamento.inexistente", ex);
+        return handleExceptionInternal(ex, erros, new HttpHeaders(), HttpStatus.NOT_FOUND, request);
     }
 
-    private List<Erro> criarListaDeErrosDosCampos(BindingResult bindingResult) {
-        List<Erro> erros = new ArrayList<>();
 
-        for (FieldError fieldError : bindingResult.getFieldErrors()) {
-            String mensagemUsuario = messageSource.getMessage(fieldError, LocaleContextHolder.getLocale());
-            String mensagemDesenvolvedor = fieldError.toString();
-            erros.add(new Erro(mensagemUsuario, mensagemDesenvolvedor));
-        }
-
-        return erros;
-    }
 }

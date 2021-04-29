@@ -2,35 +2,31 @@ package com.algamoney.api.service;
 
 import com.algamoney.api.model.Pessoa;
 import com.algamoney.api.repository.PessoaRepository;
+import com.algamoney.api.service.exception.PessoaInexistenteException;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
-
 @Service
+@AllArgsConstructor(onConstructor = @__(@Autowired))
 public class PessoaService {
 
-    @Autowired
-    private PessoaRepository pessoaRepository;
+    private final PessoaRepository pessoaRepository;
 
     public Pessoa atualizar(Long codigo, Pessoa pessoa) {
-        Pessoa pessoaExistente = buscarPessoaPorCodigo(codigo);
+        Pessoa pessoaExistente = findById(codigo);
         pessoa.setCodigo(pessoaExistente.getCodigo());
         return pessoaRepository.save(pessoa);
     }
 
     public void atualizarPropriedadeAtivo(Long codigo, Boolean ativo) {
-        Pessoa pessoaExistente = buscarPessoaPorCodigo(codigo);
+        Pessoa pessoaExistente = findById(codigo);
         pessoaExistente.setAtivo(ativo);
         pessoaRepository.save(pessoaExistente);
     }
 
-    private Pessoa buscarPessoaPorCodigo(Long codigo) {
-        Optional<Pessoa> pessoaExistente = pessoaRepository.findById(codigo);
-        if(!pessoaExistente.isPresent()) {
-            throw new EmptyResultDataAccessException(1);
-        }
-        return pessoaExistente.get();
+    public Pessoa findById(Long codigo) {
+        return pessoaRepository.findById(codigo)
+                .orElseThrow(() -> new PessoaInexistenteException(codigo));
     }
 }

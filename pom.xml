@@ -46,6 +46,7 @@
 				<configuration>
 					<source>${java.version}</source>
 					<target>${java.version}</target>
+					<encoding>UTF-8</encoding>
 
 					<!-- Para gerar classes Metamodel no src/main/java -->
 					<generatedSourcesDirectory>src/main/java</generatedSourcesDirectory>

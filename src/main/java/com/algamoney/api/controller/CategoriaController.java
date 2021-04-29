@@ -3,6 +3,7 @@ package com.algamoney.api.controller;
 import com.algamoney.api.event.RecursoCriadoEvent;
 import com.algamoney.api.model.Categoria;
 import com.algamoney.api.repository.CategoriaRepository;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.http.HttpStatus;
@@ -17,38 +18,32 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/categorias")
+@AllArgsConstructor(onConstructor = @__(@Autowired))
 public class CategoriaController {
 
-    @Autowired
-    private CategoriaRepository categoriaRepository;
-
-    @Autowired
-    private ApplicationEventPublisher publisher;
+    private final CategoriaRepository categoriaRepository;
+    private final ApplicationEventPublisher publisher;
 
     @PreAuthorize("hasAuthority('ROLE_PESQUISAR_CATEGORIA') and #oauth2.hasScope('read')")
     @GetMapping
-    public List<Categoria> listar() {
+    public List<Categoria> findAll() {
          return categoriaRepository.findAll();
     }
 
     @PreAuthorize("hasAuthority('ROLE_CADASTRAR_CATEGORIA') and #oauth2.hasScope('write')")
     @PostMapping
-    public ResponseEntity<Categoria> criar(@Valid @RequestBody Categoria categoria, HttpServletResponse response) {
+    @ResponseStatus(HttpStatus.CREATED)
+    public Categoria create(@Valid @RequestBody Categoria categoria, HttpServletResponse response) {
         Categoria categoriaSalva = categoriaRepository.save(categoria);
-
         publisher.publishEvent(new RecursoCriadoEvent(this, categoriaSalva.getCodigo(), response));
-
-        return ResponseEntity.status(HttpStatus.CREATED).body(categoriaSalva);
+        return categoriaSalva;
     }
 
     @PreAuthorize("hasAuthority('ROLE_PESQUISAR_CATEGORIA') and #oauth2.hasScope('read')")
     @GetMapping("/{codigo}")
-    public ResponseEntity<Categoria> buscar(@PathVariable Long codigo) {
+    public ResponseEntity<Categoria> findById(@PathVariable Long codigo) {
         Optional<Categoria> categoria = categoriaRepository.findById(codigo);
-        if(categoria.isPresent()) {
-            return ResponseEntity.ok(categoria.get());
-        }
-        return ResponseEntity.notFound().build();
+        return categoria.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
 }

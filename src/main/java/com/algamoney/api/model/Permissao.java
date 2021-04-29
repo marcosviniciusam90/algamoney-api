@@ -12,9 +12,9 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "permissao")
 @Data
-@Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class Permissao {
 
     @Id

@@ -2,28 +2,25 @@ package com.algamoney.api.dto;
 
 import com.algamoney.api.model.TipoLancamento;
 import com.fasterxml.jackson.annotation.JsonFormat;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.validation.Valid;
-import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
-@Data
 @Builder
-@NoArgsConstructor
+@Getter
+@Setter
 @AllArgsConstructor
+@NoArgsConstructor
 public class LancamentoInputDTO {
 
-    @NotBlank
-    @Size(max = 50)
+    @NotNull
+    @Size(min = 3, max = 50)
     private String descricao;
 
     @NotNull
