@@ -1,4 +1,4 @@
-package com.algamoney.api.resource;
+package com.algamoney.api.controller;
 
 import com.algamoney.api.config.property.AlgamoneyApiProperty;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 
 @RestController
 @RequestMapping("/tokens")
-public class TokenResource {
+public class TokenController {
 
     @Autowired
     private AlgamoneyApiProperty algamoneyApiProperty;

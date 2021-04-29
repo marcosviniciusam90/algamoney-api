@@ -1,4 +1,4 @@
-package com.algamoney.api.resource;
+package com.algamoney.api.controller;
 
 import com.algamoney.api.event.RecursoCriadoEvent;
 import com.algamoney.api.model.Pessoa;
@@ -19,7 +19,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/pessoas")
-public class PessoaResource {
+public class PessoaController {
 
     @Autowired
     private PessoaRepository pessoaRepository;

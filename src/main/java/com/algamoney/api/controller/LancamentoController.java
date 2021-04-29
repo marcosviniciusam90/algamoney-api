@@ -1,4 +1,4 @@
-package com.algamoney.api.resource;
+package com.algamoney.api.controller;
 
 import com.algamoney.api.dto.LancamentoInputDTO;
 import com.algamoney.api.dto.LancamentoResultDTO;
@@ -30,7 +30,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/lancamentos")
-public class LancamentoResource {
+public class LancamentoController {
 
     @Autowired
     private ModelMapper modelMapper;

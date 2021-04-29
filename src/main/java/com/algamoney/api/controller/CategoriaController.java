@@ -1,4 +1,4 @@
-package com.algamoney.api.resource;
+package com.algamoney.api.controller;
 
 import com.algamoney.api.event.RecursoCriadoEvent;
 import com.algamoney.api.model.Categoria;
@@ -17,7 +17,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/categorias")
-public class CategoriaResource {
+public class CategoriaController {
 
     @Autowired
     private CategoriaRepository categoriaRepository;
