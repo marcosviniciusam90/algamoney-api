@@ -361,7 +361,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJhZG1pbkBhbGdhbW9uZXkuY29tIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sIm5vbWUiOiJBZG1pbmlzdHJhZG9yIiwiZXhwIjoxNjE5NzA2ODAxLCJhdXRob3JpdGllcyI6WyJST0xFX0NBREFTVFJBUl9DQVRFR09SSUEiLCJST0xFX1BFU1FVSVNBUl9QRVNTT0EiLCJST0xFX1JFTU9WRVJfUEVTU09BIiwiUk9MRV9DQURBU1RSQVJfTEFOQ0FNRU5UTyIsIlJPTEVfUEVTUVVJU0FSX0xBTkNBTUVOVE8iLCJST0xFX1JFTU9WRVJfTEFOQ0FNRU5UTyIsIlJPTEVfQ0FEQVNUUkFSX1BFU1NPQSIsIlJPTEVfUEVTUVVJU0FSX0NBVEVHT1JJQSJdLCJqdGkiOiI0OTNhNTZlOC1lNWNlLTQzZjktOWZjNi03NTM4ZDVhNzVjOTciLCJjbGllbnRfaWQiOiJhbmd1bGFyIn0.lN9aIiNYhLupYQfULT84ezzKCRqj3aOnRBTxoBegBuM",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJhZG1pbkBhbGdhbW9uZXkuY29tIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sIm5vbWUiOiJBZG1pbmlzdHJhZG9yIiwiZXhwIjoxNjE5NzgyMTA3LCJhdXRob3JpdGllcyI6WyJST0xFX0NBREFTVFJBUl9DQVRFR09SSUEiLCJST0xFX1BFU1FVSVNBUl9QRVNTT0EiLCJST0xFX1JFTU9WRVJfUEVTU09BIiwiUk9MRV9DQURBU1RSQVJfTEFOQ0FNRU5UTyIsIlJPTEVfUEVTUVVJU0FSX0xBTkNBTUVOVE8iLCJST0xFX1JFTU9WRVJfTEFOQ0FNRU5UTyIsIlJPTEVfQ0FEQVNUUkFSX1BFU1NPQSIsIlJPTEVfUEVTUVVJU0FSX0NBVEVHT1JJQSJdLCJqdGkiOiI5YTA4YzhjYi03YWJlLTQyMWItYTg5Mi0wOTA5MDc1ZmIwODEiLCJjbGllbnRfaWQiOiJhbmd1bGFyIn0.c8rFD5tlhLRsd7XiBfu-IXquMsRH31clBmtnpaFp9MM",
 									"type": "string"
 								}
 							]
@@ -377,7 +377,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "false"
+							"raw": "true"
 						},
 						"url": {
 							"raw": "http://localhost:8080/pessoas/10/ativo",
@@ -583,7 +583,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJhZG1pbkBhbGdhbW9uZXkuY29tIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sIm5vbWUiOiJBZG1pbmlzdHJhZG9yIiwiZXhwIjoxNjE5Njk4NjU2LCJhdXRob3JpdGllcyI6WyJST0xFX0NBREFTVFJBUl9DQVRFR09SSUEiLCJST0xFX1BFU1FVSVNBUl9QRVNTT0EiLCJST0xFX1JFTU9WRVJfUEVTU09BIiwiUk9MRV9DQURBU1RSQVJfTEFOQ0FNRU5UTyIsIlJPTEVfUEVTUVVJU0FSX0xBTkNBTUVOVE8iLCJST0xFX1JFTU9WRVJfTEFOQ0FNRU5UTyIsIlJPTEVfQ0FEQVNUUkFSX1BFU1NPQSIsIlJPTEVfUEVTUVVJU0FSX0NBVEVHT1JJQSJdLCJqdGkiOiJkNzBkM2Q0MC1jOTM4LTQxZTUtYjY3Ni02NGE3MzE1MzJjZjgiLCJjbGllbnRfaWQiOiJhbmd1bGFyIn0.6AiXJToYZ45uZ2tRXWesU0ThrlnXzKwBVc18VZDknAs",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJhZG1pbkBhbGdhbW9uZXkuY29tIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sIm5vbWUiOiJBZG1pbmlzdHJhZG9yIiwiZXhwIjoxNjE5NzgzOTE5LCJhdXRob3JpdGllcyI6WyJST0xFX0NBREFTVFJBUl9DQVRFR09SSUEiLCJST0xFX1BFU1FVSVNBUl9QRVNTT0EiLCJST0xFX1JFTU9WRVJfUEVTU09BIiwiUk9MRV9DQURBU1RSQVJfTEFOQ0FNRU5UTyIsIlJPTEVfUEVTUVVJU0FSX0xBTkNBTUVOVE8iLCJST0xFX1JFTU9WRVJfTEFOQ0FNRU5UTyIsIlJPTEVfQ0FEQVNUUkFSX1BFU1NPQSIsIlJPTEVfUEVTUVVJU0FSX0NBVEVHT1JJQSJdLCJqdGkiOiJmMDA4MGU0OS04YmMxLTRkMWYtODNkOS1hYWNiMzI1M2U4YjIiLCJjbGllbnRfaWQiOiJhbmd1bGFyIn0.FY-PJTC0C9nMm5KBjWXQh01QYE_lEFjA2HhTZoP1eiw",
 									"type": "string"
 								}
 							]
@@ -599,7 +599,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"descricao\": \"Viagem pra China\",\n    \"dataVencimento\": \"2018-03-10\",\n    \"dataPagamento\": \"2018-03-10\",\n    \"valor\": 400.32,\n    \"observacao\": null,\n    \"tipo\": \"DESPESA\",\n    \"categoria\": {\n    \t\"codigo\" : 11\n    },\n    \"pessoa\": {\n    \t\"codigo\" : 1\n    }\n}"
+							"raw": "{\n    \"descricao\": \"Saque Bet365\",\n    \"dataVencimento\": \"2018-03-10\",\n    \"dataPagamento\": \"2018-03-10\",\n    \"valor\": 50.25,\n    \"observacao\": \"só na boa\",\n    \"tipo\": \"RECEITA\",\n    \"categoria\": {\n    \t\"codigo\" : 5\n    },\n    \"pessoa\": {\n    \t\"codigo\" : 10\n    }\n}"
 						},
 						"url": {
 							"raw": "http://localhost:8080/lancamentos",
