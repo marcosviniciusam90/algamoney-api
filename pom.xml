@@ -56,6 +56,7 @@
 					<source>${java.version}</source>
 					<target>${java.version}</target>
 					<encoding>${project.encoding}</encoding>
+					<compilerArgument>-AaddSuppressWarningsAnnotation=true</compilerArgument>
 
 					<annotationProcessorPaths>
 						<path>
