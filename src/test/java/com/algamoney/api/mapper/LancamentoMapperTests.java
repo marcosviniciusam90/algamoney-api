@@ -3,9 +3,10 @@ package com.algamoney.api.mapper;
 import com.algamoney.api.dto.LancamentoInputDTO;
 import com.algamoney.api.dto.LancamentoResultDTO;
 import com.algamoney.api.model.Lancamento;
-import com.algamoney.api.utils.LancamentoUtils;
 import org.junit.jupiter.api.Test;
 
+import static com.algamoney.api.utils.LancamentoUtils.createLancamento;
+import static com.algamoney.api.utils.LancamentoUtils.createLancamentoInputDTO;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class LancamentoMapperTests {
@@ -14,7 +15,7 @@ class LancamentoMapperTests {
 
     @Test
     void givenInputDTOMapToEntity() {
-        LancamentoInputDTO inputDTO = LancamentoUtils.createLancamentoInputDTO();
+        LancamentoInputDTO inputDTO = createLancamentoInputDTO();
         Lancamento lancamento = lancamentoMapper.inputDTOToEntity(inputDTO);
 
         assertInputDTOMapToEntity(inputDTO, lancamento);
@@ -22,7 +23,7 @@ class LancamentoMapperTests {
 
     @Test
     void givenEntityMapToResultDTO() {
-        Lancamento lancamento = LancamentoUtils.createLancamento();
+        Lancamento lancamento = createLancamento();
         LancamentoResultDTO resultDTO = lancamentoMapper.entityToResultDTO(lancamento);
 
         assertEntityMapToResultDTO(lancamento, resultDTO);

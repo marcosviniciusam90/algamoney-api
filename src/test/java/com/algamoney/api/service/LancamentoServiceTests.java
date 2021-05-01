@@ -8,10 +8,8 @@ import com.algamoney.api.model.Lancamento;
 import com.algamoney.api.model.Pessoa;
 import com.algamoney.api.repository.CategoriaRepository;
 import com.algamoney.api.repository.LancamentoRepository;
-import com.algamoney.api.utils.CategoriaUtils;
-import com.algamoney.api.utils.PessoaUtils;
+import com.algamoney.api.utils.BeanUtils;
 import com.github.javafaker.Faker;
-import com.google.gson.Gson;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -20,7 +18,9 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.Optional;
 
+import static com.algamoney.api.utils.CategoriaUtils.createCategoria;
 import static com.algamoney.api.utils.LancamentoUtils.createLancamentoInputDTO;
+import static com.algamoney.api.utils.PessoaUtils.createPessoa;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
 
@@ -43,29 +43,37 @@ class LancamentoServiceTests {
     private LancamentoService lancamentoService;
 
     @Test
-    void whenNewBookInformedThenReturnSuccessCreateMessage() {
+    void dadoNovoLancamentoDeveRetornarResultado() {
         LancamentoInputDTO lancamentoInputDTO = createLancamentoInputDTO();
         Lancamento lancamentoInput = lancamentoMapper.inputDTOToEntity(lancamentoInputDTO);
 
         Long codigoPessoa = lancamentoInput.getPessoa().getCodigo();
-        Pessoa pessoa = PessoaUtils.createPessoa(codigoPessoa, true);
-        lancamentoInput.setPessoa(pessoa);
+        Pessoa pessoa = createAndSetPerson(lancamentoInput, codigoPessoa);
 
         Long codigoCategoria = lancamentoInput.getCategoria().getCodigo();
-        Categoria categoria = CategoriaUtils.createCategoria(codigoCategoria);
-        lancamentoInput.setCategoria(categoria);
+        Categoria categoria = createAndSetCategory(lancamentoInput, codigoCategoria);
 
         when(pessoaService.findById(codigoPessoa)).thenReturn(pessoa);
-        when(categoriaRepository.findById(codigoCategoria))
-                .thenReturn(Optional.of(categoria));
+        when(categoriaRepository.findById(codigoCategoria)).thenReturn(Optional.of(categoria));
 
-        Gson gson = new Gson();
-        Lancamento lancamentoCriado = gson.fromJson(gson.toJson(lancamentoInput), Lancamento.class);
+        Lancamento lancamentoCriado = BeanUtils.clone(lancamentoInput);
         lancamentoCriado.setCodigo(faker.number().randomNumber());
 
         when(lancamentoRepository.save(lancamentoInput)).thenReturn(lancamentoCriado);
 
         LancamentoResultDTO lancamentoResultDTO = lancamentoService.criar(lancamentoInputDTO);
         assertEquals(lancamentoCriado.getCodigo(), lancamentoResultDTO.getCodigo());
+    }
+
+    private Categoria createAndSetCategory(Lancamento lancamentoInput, Long codigoCategoria) {
+        Categoria categoria = createCategoria(codigoCategoria);
+        lancamentoInput.setCategoria(categoria);
+        return categoria;
+    }
+
+    private Pessoa createAndSetPerson(Lancamento lancamentoInput, Long codigoPessoa) {
+        Pessoa pessoa = createPessoa(codigoPessoa, true);
+        lancamentoInput.setPessoa(pessoa);
+        return pessoa;
     }
 }

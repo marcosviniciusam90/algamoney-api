@@ -254,6 +254,7 @@
 			<scope>test</scope>
 		</dependency>
 
+		<!-- Para clonar objetos sem precisar serializar -->
 		<dependency>
 			<groupId>com.google.code.gson</groupId>
 			<artifactId>gson</artifactId>
