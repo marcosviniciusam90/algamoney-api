@@ -1,7 +1,6 @@
 package com.algamoney.api.service;
 
 import com.algamoney.api.dto.LancamentoInputDTO;
-import com.algamoney.api.dto.LancamentoResultDTO;
 import com.algamoney.api.mapper.LancamentoMapper;
 import com.algamoney.api.model.Categoria;
 import com.algamoney.api.model.Lancamento;
@@ -12,7 +11,6 @@ import com.algamoney.api.service.exception.CategoriaInexistenteException;
 import com.algamoney.api.service.exception.LancamentoInexistenteException;
 import com.algamoney.api.service.exception.PessoaInativaException;
 import com.algamoney.api.service.exception.PessoaInexistenteException;
-import com.algamoney.api.utils.BeanUtils;
 import com.github.javafaker.Faker;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -23,11 +21,11 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import java.util.Optional;
 
 import static com.algamoney.api.utils.CategoriaUtils.createCategoria;
+import static com.algamoney.api.utils.LancamentoUtils.createLancamento;
 import static com.algamoney.api.utils.LancamentoUtils.createLancamentoInputDTO;
 import static com.algamoney.api.utils.PessoaUtils.createPessoa;
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
 class LancamentoServiceTests {
@@ -48,30 +46,15 @@ class LancamentoServiceTests {
     private LancamentoService lancamentoService;
 
     @Test
-    void dadoNovoLancamentoDeveRetornarResultado() {
+    void testCriarComSucesso() {
         LancamentoInputDTO lancamentoInputDTO = createLancamentoInputDTO();
-        Lancamento lancamentoInput = lancamentoMapper.inputDTOToEntity(lancamentoInputDTO);
+        Lancamento lancamentoInput = criarLancamento(lancamentoInputDTO);
 
-        Long codigoPessoa = lancamentoInput.getPessoa().getCodigo();
-        Pessoa pessoa = createAndSetPerson(lancamentoInput, codigoPessoa);
-
-        Long codigoCategoria = lancamentoInput.getCategoria().getCodigo();
-        Categoria categoria = createAndSetCategory(lancamentoInput, codigoCategoria);
-
-        when(pessoaService.findById(codigoPessoa)).thenReturn(pessoa);
-        when(categoriaRepository.findById(codigoCategoria)).thenReturn(Optional.of(categoria));
-
-        Lancamento lancamentoCriado = BeanUtils.clone(lancamentoInput);
-        lancamentoCriado.setCodigo(faker.number().randomNumber());
-
-        when(lancamentoRepository.save(lancamentoInput)).thenReturn(lancamentoCriado);
-
-        LancamentoResultDTO lancamentoResultDTO = lancamentoService.criar(lancamentoInputDTO);
-        assertEquals(lancamentoCriado.getCodigo(), lancamentoResultDTO.getCodigo());
+        verify(lancamentoRepository, times(1)).save(lancamentoInput);
     }
 
     @Test
-    void dadoNovoLancamentoComPessoaInexistenteDeveRetornarExcecao() throws PessoaInexistenteException {
+    void testCriarComPessoaInexistente() {
         LancamentoInputDTO lancamentoInputDTO = createLancamentoInputDTO();
         Long codigoPessoa = lancamentoInputDTO.getPessoa().getCodigo();
 
@@ -81,7 +64,7 @@ class LancamentoServiceTests {
     }
 
     @Test
-    void dadoNovoLancamentoComPessoaInativaDeveRetornarExcecao() throws PessoaInexistenteException {
+    void testCriarComPessoaInativa() {
         LancamentoInputDTO lancamentoInputDTO = createLancamentoInputDTO();
         Long codigoPessoa = lancamentoInputDTO.getPessoa().getCodigo();
 
@@ -91,7 +74,7 @@ class LancamentoServiceTests {
     }
 
     @Test
-    void dadoNovoLancamentoComCategoriaInexistenteDeveRetornarExcecao() throws PessoaInexistenteException {
+    void testCriarComCategoriaInexistente() {
         LancamentoInputDTO lancamentoInputDTO = createLancamentoInputDTO();
         Long codigoPessoa = lancamentoInputDTO.getPessoa().getCodigo();
         Long codigoCategoria = lancamentoInputDTO.getCategoria().getCodigo();
@@ -103,7 +86,27 @@ class LancamentoServiceTests {
     }
 
     @Test
-    void quandoNaoEncontrarLancamentoPeloCodigoDeveRetornarExcecao() {
+    void testAtualizarComSucesso() {
+        Long codigoLancamento = faker.number().randomNumber();
+        LancamentoInputDTO lancamentoInputDTO = createLancamentoInputDTO();
+        Lancamento lancamentoInput = atualizarLancamento(codigoLancamento, lancamentoInputDTO);
+
+        verify(lancamentoRepository, times(1)).save(lancamentoInput);
+    }
+
+    @Test
+    void testAtualizarLancamentoInexistente() {
+        Long codigoLancamento = faker.number().randomNumber();
+        LancamentoInputDTO lancamentoInputDTO = createLancamentoInputDTO();
+
+        when(lancamentoRepository.findById(codigoLancamento)).thenReturn(Optional.empty());
+
+        assertThrows(LancamentoInexistenteException.class, () -> lancamentoService.atualizar(codigoLancamento, lancamentoInputDTO));
+
+    }
+
+    @Test
+    void testBuscarLancamentoInexistente() {
         Long codigoLancamento = faker.number().randomNumber();
 
         when(lancamentoRepository.findById(codigoLancamento)).thenReturn(Optional.empty());
@@ -111,15 +114,46 @@ class LancamentoServiceTests {
         assertThrows(LancamentoInexistenteException.class, () -> lancamentoService.findDTOById(codigoLancamento));
     }
 
-    private Categoria createAndSetCategory(Lancamento lancamentoInput, Long codigoCategoria) {
+    private Lancamento criarLancamento(LancamentoInputDTO lancamentoInputDTO) {
+        Lancamento lancamentoInput = lancamentoMapper.inputDTOToEntity(lancamentoInputDTO);
+
+        Long codigoPessoa = lancamentoInputDTO.getPessoa().getCodigo();
+        Long codigoCategoria = lancamentoInputDTO.getCategoria().getCodigo();
+
+        Pessoa pessoa = createPessoa(codigoPessoa, true);
         Categoria categoria = createCategoria(codigoCategoria);
+
+        lancamentoInput.setPessoa(pessoa);
         lancamentoInput.setCategoria(categoria);
-        return categoria;
+
+        when(pessoaService.findById(codigoPessoa)).thenReturn(pessoa);
+        when(categoriaRepository.findById(codigoCategoria)).thenReturn(Optional.ofNullable(categoria));
+
+        lancamentoService.criar(lancamentoInputDTO);
+        return lancamentoInput;
     }
 
-    private Pessoa createAndSetPerson(Lancamento lancamentoInput, Long codigoPessoa) {
+    private Lancamento atualizarLancamento(Long codigoLancamento, LancamentoInputDTO lancamentoInputDTO) {
+        Lancamento lancamentoInput = lancamentoMapper.inputDTOToEntity(lancamentoInputDTO);
+
+        Long codigoPessoa = lancamentoInputDTO.getPessoa().getCodigo();
+        Long codigoCategoria = lancamentoInputDTO.getCategoria().getCodigo();
+
         Pessoa pessoa = createPessoa(codigoPessoa, true);
+        Categoria categoria = createCategoria(codigoCategoria);
+
         lancamentoInput.setPessoa(pessoa);
-        return pessoa;
+        lancamentoInput.setCategoria(categoria);
+
+        Lancamento lancamentoExistente = createLancamento();
+        lancamentoExistente.setCodigo(codigoLancamento);
+        lancamentoInput.setCodigo(codigoLancamento);
+
+        when(lancamentoRepository.findById(codigoLancamento)).thenReturn(Optional.of(lancamentoExistente));
+        when(pessoaService.findById(codigoPessoa)).thenReturn(pessoa);
+        when(categoriaRepository.findById(codigoCategoria)).thenReturn(Optional.ofNullable(categoria));
+
+        lancamentoService.atualizar(codigoLancamento, lancamentoInputDTO);
+        return lancamentoInput;
     }
 }
