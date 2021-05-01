@@ -21,8 +21,8 @@
 		<project.encoding>UTF-8</project.encoding>
 
 		<!-- Metamodel classes generate config -->
-		<metamodel.source-path>${basedir}/target/generated-sources/annotations/com/algamoney/api/model</metamodel.source-path>
-		<metamodel.target-path>${basedir}/src/main/java/com/algamoney/api/model</metamodel.target-path>
+		<metamodel.source-path>${basedir}/src/main/java/com/algamoney/api/model</metamodel.source-path>
+		<metamodel.target-path>${basedir}/target/generated-sources/annotations/com/algamoney/api/model</metamodel.target-path>
 		<metamodel.filter>*_.java</metamodel.filter>
 	</properties>
 
@@ -40,7 +40,7 @@
 				<configuration>
 					<filesets>
 						<fileset>
-							<directory>${metamodel.target-path}</directory>
+							<directory>${metamodel.source-path}</directory>
 							<includes>
 								<include>${metamodel.filter}</include>
 							</includes>
@@ -87,16 +87,37 @@
 							<goal>copy-resources</goal>
 						</goals>
 						<configuration>
-							<outputDirectory>${metamodel.target-path}</outputDirectory>
+							<outputDirectory>${metamodel.source-path}</outputDirectory>
 							<resources>
 								<resource>
-									<directory>${metamodel.source-path}</directory>
+									<directory>${metamodel.target-path}</directory>
 									<filtering>true</filtering>
 									<includes>
 										<include>${metamodel.filter}</include>
 									</includes>
 								</resource>
 							</resources>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+			<!-- Para excluir classes Metamodel do target -->
+			<plugin>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>delete-metamodel</id>
+						<phase>test</phase>
+						<goals>
+							<goal>run</goal>
+						</goals>
+						<configuration>
+							<target>
+								<delete>
+									<fileset dir="${metamodel.target-path}" includes="${metamodel.filter}" />
+								</delete>
+							</target>
 						</configuration>
 					</execution>
 				</executions>
@@ -120,11 +141,6 @@
 			<artifactId>spring-boot-devtools</artifactId>
 			<scope>runtime</scope>
 			<optional>true</optional>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
 		</dependency>
 
 		<dependency>
@@ -209,6 +225,22 @@
 			<artifactId>modelmapper</artifactId>
 			<version>2.3.7</version>
 		</dependency>
+
+		<!-- Dependências de testes -->
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>com.github.javafaker</groupId>
+			<artifactId>javafaker</artifactId>
+			<version>1.0.2</version>
+			<scope>test</scope>
+		</dependency>
+
 
 	</dependencies>
 

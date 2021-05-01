@@ -1,4 +1,4 @@
-package com.algamoney.api.exceptionhandler.util;
+package com.algamoney.api.exceptionhandler.utils;
 
 import com.algamoney.api.exceptionhandler.Erro;
 import org.apache.commons.lang3.exception.ExceptionUtils;
@@ -15,7 +15,7 @@ import java.util.Arrays;
 import java.util.List;
 
 @Component
-public class ErroUtil {
+public class ErroUtils {
 
     @Autowired
     private MessageSource messageSource;
@@ -24,7 +24,7 @@ public class ErroUtil {
 
     @PostConstruct
     public void init() {
-        ErroUtil.sMessageSource = messageSource;
+        ErroUtils.sMessageSource = messageSource;
     }
 
     public static List<Erro> criarErro(String identificadorMensagem, Exception ex) {
