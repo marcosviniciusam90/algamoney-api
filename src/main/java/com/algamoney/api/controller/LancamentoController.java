@@ -4,13 +4,12 @@ import com.algamoney.api.dto.LancamentoInputDTO;
 import com.algamoney.api.dto.LancamentoResultDTO;
 import com.algamoney.api.event.RecursoCriadoEvent;
 import com.algamoney.api.exceptionhandler.Erro;
-import com.algamoney.api.exceptionhandler.util.ErroUtil;
+import com.algamoney.api.exceptionhandler.utils.ErroUtils;
 import com.algamoney.api.model.Lancamento;
 import com.algamoney.api.repository.LancamentoRepository;
 import com.algamoney.api.repository.filter.LancamentoFilter;
 import com.algamoney.api.service.LancamentoService;
 import com.algamoney.api.service.exception.CategoriaInexistenteException;
-import com.algamoney.api.service.exception.LancamentoInexistenteException;
 import com.algamoney.api.service.exception.PessoaInativaException;
 import com.algamoney.api.service.exception.PessoaInexistenteException;
 import lombok.AllArgsConstructor;
@@ -19,7 +18,6 @@ import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.context.MessageSource;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -85,19 +83,19 @@ public class LancamentoController {
 
     @ExceptionHandler(PessoaInexistenteException.class)
     public ResponseEntity<Object> handlePessoaInexistenteException(PessoaInexistenteException ex, WebRequest request) {
-        List<Erro> erros = ErroUtil.criarErro("lancamento.pessoa-inexistente", ex);
+        List<Erro> erros = ErroUtils.criarErro("lancamento.pessoa-inexistente", ex);
         return ResponseEntity.badRequest().body(erros);
     }
 
     @ExceptionHandler(PessoaInativaException.class)
     public ResponseEntity<Object> handlePessoaInativaException(PessoaInativaException ex, WebRequest request) {
-        List<Erro> erros = ErroUtil.criarErro("lancamento.pessoa-inativa", ex);
+        List<Erro> erros = ErroUtils.criarErro("lancamento.pessoa-inativa", ex);
         return ResponseEntity.badRequest().body(erros);
     }
 
     @ExceptionHandler(CategoriaInexistenteException.class)
     public ResponseEntity<Object> handleCategoriaInexistenteException(CategoriaInexistenteException ex, WebRequest request) {
-        List<Erro> erros = ErroUtil.criarErro("lancamento.categoria-inexistente", ex);
+        List<Erro> erros = ErroUtils.criarErro("lancamento.categoria-inexistente", ex);
         return ResponseEntity.badRequest().body(erros);
     }
 }

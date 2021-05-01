@@ -1,6 +1,6 @@
 package com.algamoney.api.exceptionhandler;
 
-import com.algamoney.api.exceptionhandler.util.ErroUtil;
+import com.algamoney.api.exceptionhandler.utils.ErroUtils;
 import com.algamoney.api.service.exception.LancamentoInexistenteException;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,7 +31,7 @@ public class AlgamoneyExceptionHandler extends ResponseEntityExceptionHandler {
      */
     @Override
     protected ResponseEntity<Object> handleHttpMessageNotReadable(HttpMessageNotReadableException ex, HttpHeaders headers, HttpStatus status, WebRequest request) {
-        List<Erro> erros = ErroUtil.criarErro("mensagem.invalida", ex);
+        List<Erro> erros = ErroUtils.criarErro("mensagem.invalida", ex);
         return handleExceptionInternal(ex, erros, headers, HttpStatus.BAD_REQUEST, request);
     }
 
@@ -41,7 +41,7 @@ public class AlgamoneyExceptionHandler extends ResponseEntityExceptionHandler {
      */
     @Override
     protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex, HttpHeaders headers, HttpStatus status, WebRequest request) {
-        List<Erro> erros = ErroUtil.criarListaDeErrosDosCampos(ex.getBindingResult());
+        List<Erro> erros = ErroUtils.criarListaDeErrosDosCampos(ex.getBindingResult());
         return handleExceptionInternal(ex, erros, headers, HttpStatus.BAD_REQUEST, request);
     }
 
@@ -51,7 +51,7 @@ public class AlgamoneyExceptionHandler extends ResponseEntityExceptionHandler {
      */
     @ExceptionHandler({ EmptyResultDataAccessException.class })
     public ResponseEntity<Object> handleEmptyResultDataAccessException(EmptyResultDataAccessException ex, WebRequest request) {
-        List<Erro> erros = ErroUtil.criarErro("recurso.nao-encontrado", ex);
+        List<Erro> erros = ErroUtils.criarErro("recurso.nao-encontrado", ex);
         return handleExceptionInternal(ex, erros, new HttpHeaders(), HttpStatus.NOT_FOUND, request);
     }
 
@@ -61,13 +61,13 @@ public class AlgamoneyExceptionHandler extends ResponseEntityExceptionHandler {
      */
     @ExceptionHandler({ DataIntegrityViolationException.class })
     public ResponseEntity<Object> handleDataIntegrityViolationException(DataIntegrityViolationException ex, WebRequest request) {
-        List<Erro> erros = ErroUtil.criarErro("recurso.operacao-nao-permitida", ex);
+        List<Erro> erros = ErroUtils.criarErro("recurso.operacao-nao-permitida", ex);
         return handleExceptionInternal(ex, erros, new HttpHeaders(), HttpStatus.BAD_REQUEST, request);
     }
 
     @ExceptionHandler(LancamentoInexistenteException.class)
     public ResponseEntity<Object> handleLancamentoInexistenteException(LancamentoInexistenteException ex, WebRequest request) {
-        List<Erro> erros = ErroUtil.criarErro("lancamento.inexistente", ex);
+        List<Erro> erros = ErroUtils.criarErro("lancamento.inexistente", ex);
         return handleExceptionInternal(ex, erros, new HttpHeaders(), HttpStatus.NOT_FOUND, request);
     }
 
