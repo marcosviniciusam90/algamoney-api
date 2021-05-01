@@ -6,11 +6,12 @@ import com.github.javafaker.Faker;
 public class PessoaUtils {
 
     private static final Faker faker = Faker.instance();
-    public static Pessoa createPessoa() {
+
+    public static Pessoa createPessoa(Long codigo, boolean ativo) {
         return Pessoa.builder()
-                .codigo(faker.number().randomNumber())
+                .codigo(codigo)
                 .nome(faker.superhero().name())
-                .ativo(faker.bool().bool())
+                .ativo(ativo)
                 .endereco(EnderecoUtils.createEndereco())
                 .build();
 

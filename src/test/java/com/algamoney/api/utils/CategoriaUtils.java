@@ -7,9 +7,9 @@ public class CategoriaUtils {
 
     private static final Faker faker = Faker.instance();
 
-    public static Categoria createCategoria() {
+    public static Categoria createCategoria(Long codigo) {
         return Categoria.builder()
-                .codigo(faker.number().randomNumber())
+                .codigo(codigo)
                 .nome(faker.commerce().department())
                 .build();
 
