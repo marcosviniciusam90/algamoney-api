@@ -1,4 +1,4 @@
-package com.algamoney.api.config;
+package com.algamoney.api.config.security;
 
 import com.algamoney.api.config.token.CustomTokenEnhancer;
 import org.springframework.beans.factory.annotation.Autowired;

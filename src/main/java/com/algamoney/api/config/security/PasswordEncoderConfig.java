@@ -1,4 +1,4 @@
-package com.algamoney.api.config;
+package com.algamoney.api.config.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

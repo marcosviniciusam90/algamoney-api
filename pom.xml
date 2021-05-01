@@ -81,8 +81,7 @@
 				<executions>
 					<execution>
 						<id>copy-metamodel</id>
-						<!-- here the phase you need -->
-						<phase>test-compile</phase>
+						<phase>test-compile</phase> <!-- Defina a fase de execução -->
 						<goals>
 							<goal>copy-resources</goal>
 						</goals>
@@ -214,19 +213,23 @@
 			<optional>true</optional> <!-- Pois se for pegar esse projeto e empacotar dentro de outro, não é obrigatório essa dependencia ir -->
 		</dependency>
 
+		<!-- Para uso de anotações do Lombok -->
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
 			<optional>true</optional>
 		</dependency>
 
+		<!-- Para utilizar ModelMapper para converter entidades <-> DTO -->
 		<dependency>
 			<groupId>org.modelmapper</groupId>
 			<artifactId>modelmapper</artifactId>
 			<version>2.3.7</version>
 		</dependency>
 
+		<!-- -->
 		<!-- Dependências de testes -->
+		<!-- -->
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -234,6 +237,7 @@
 			<scope>test</scope>
 		</dependency>
 
+		<!-- Para gerar objetos falsos que serão utilizados nos testes -->
 		<dependency>
 			<groupId>com.github.javafaker</groupId>
 			<artifactId>javafaker</artifactId>
