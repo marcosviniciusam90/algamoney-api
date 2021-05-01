@@ -1,5 +1,7 @@
 package com.algamoney.api.dto;
 
+import com.algamoney.api.dto.id.CategoriaIdDTO;
+import com.algamoney.api.dto.id.PessoaIdDTO;
 import com.algamoney.api.model.TipoLancamento;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.*;
@@ -41,10 +43,10 @@ public class LancamentoInputDTO {
 
     @Valid
     @NotNull
-    private CategoriaIdInputDTO categoria;
+    private CategoriaIdDTO categoria;
 
     @Valid
     @NotNull
-    private PessoaIdInputDTO pessoa;
+    private PessoaIdDTO pessoa;
 
 }

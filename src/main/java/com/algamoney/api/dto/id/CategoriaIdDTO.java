@@ -1,4 +1,4 @@
-package com.algamoney.api.dto;
+package com.algamoney.api.dto.id;
 
 import lombok.*;
 
@@ -9,7 +9,7 @@ import javax.validation.constraints.NotNull;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class CategoriaIdInputDTO {
+public class CategoriaIdDTO {
 
     @NotNull
     private Long codigo;

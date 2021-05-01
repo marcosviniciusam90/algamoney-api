@@ -13,11 +13,11 @@ public class ModelMapperConfig {
     @Bean
     public ModelMapper modelMapper() {
         ModelMapper modelMapper = new ModelMapper();
-        modelMapper.addMappings(lancamentoMap());
+        modelMapper.addMappings(lancamentoToResultDTO());
         return modelMapper;
     }
 
-    private PropertyMap<Lancamento, LancamentoResultDTO> lancamentoMap() {
+    private PropertyMap<Lancamento, LancamentoResultDTO> lancamentoToResultDTO() {
         return new PropertyMap<Lancamento, LancamentoResultDTO>() {
             @Override
             protected void configure() {

@@ -1,8 +1,8 @@
 package com.algamoney.api.utils;
 
-import com.algamoney.api.dto.CategoriaIdInputDTO;
+import com.algamoney.api.dto.id.CategoriaIdDTO;
 import com.algamoney.api.dto.LancamentoInputDTO;
-import com.algamoney.api.dto.PessoaIdInputDTO;
+import com.algamoney.api.dto.id.PessoaIdDTO;
 import com.algamoney.api.model.Lancamento;
 import com.algamoney.api.model.TipoLancamento;
 import com.github.javafaker.Faker;
@@ -22,8 +22,8 @@ public class LancamentoUtils {
                 .valor(BigDecimal.valueOf(faker.number().randomDouble(2, 0, 1000)))
                 .observacao(faker.shakespeare().romeoAndJulietQuote())
                 .tipo(TipoLancamento.DESPESA)
-                .categoria(CategoriaIdInputDTO.builder().codigo(5L).build())
-                .pessoa(PessoaIdInputDTO.builder().codigo(10L).build())
+                .categoria(CategoriaIdDTO.builder().codigo(5L).build())
+                .pessoa(PessoaIdDTO.builder().codigo(10L).build())
                 .build();
     }
 
