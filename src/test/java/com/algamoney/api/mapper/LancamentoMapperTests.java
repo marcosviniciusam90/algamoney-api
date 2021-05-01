@@ -4,24 +4,18 @@ import com.algamoney.api.dto.LancamentoInputDTO;
 import com.algamoney.api.dto.LancamentoResultDTO;
 import com.algamoney.api.model.Lancamento;
 import com.algamoney.api.utils.LancamentoUtils;
-import lombok.AllArgsConstructor;
 import org.junit.jupiter.api.Test;
-import org.modelmapper.ModelMapper;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-@SpringBootTest
-@AllArgsConstructor(onConstructor = @__(@Autowired))
 class LancamentoMapperTests {
 
-    private final ModelMapper modelMapper;
+    private static final LancamentoMapper lancamentoMapper = LancamentoMapper.INSTANCE;
 
     @Test
     void givenInputDTOMapToEntity() {
         LancamentoInputDTO inputDTO = LancamentoUtils.createLancamentoInputDTO();
-        Lancamento lancamento = modelMapper.map(inputDTO, Lancamento.class);
+        Lancamento lancamento = lancamentoMapper.inputDTOToEntity(inputDTO);
 
         assertInputDTOMapToEntity(inputDTO, lancamento);
     }
@@ -29,7 +23,7 @@ class LancamentoMapperTests {
     @Test
     void givenEntityMapToResultDTO() {
         Lancamento lancamento = LancamentoUtils.createLancamento();
-        LancamentoResultDTO resultDTO = modelMapper.map(lancamento, LancamentoResultDTO.class);
+        LancamentoResultDTO resultDTO = lancamentoMapper.entityToResultDTO(lancamento);
 
         assertEntityMapToResultDTO(lancamento, resultDTO);
     }
