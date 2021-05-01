@@ -8,6 +8,10 @@ import com.algamoney.api.model.Lancamento;
 import com.algamoney.api.model.Pessoa;
 import com.algamoney.api.repository.CategoriaRepository;
 import com.algamoney.api.repository.LancamentoRepository;
+import com.algamoney.api.service.exception.CategoriaInexistenteException;
+import com.algamoney.api.service.exception.LancamentoInexistenteException;
+import com.algamoney.api.service.exception.PessoaInativaException;
+import com.algamoney.api.service.exception.PessoaInexistenteException;
 import com.algamoney.api.utils.BeanUtils;
 import com.github.javafaker.Faker;
 import org.junit.jupiter.api.Test;
@@ -22,6 +26,7 @@ import static com.algamoney.api.utils.CategoriaUtils.createCategoria;
 import static com.algamoney.api.utils.LancamentoUtils.createLancamentoInputDTO;
 import static com.algamoney.api.utils.PessoaUtils.createPessoa;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
@@ -63,6 +68,47 @@ class LancamentoServiceTests {
 
         LancamentoResultDTO lancamentoResultDTO = lancamentoService.criar(lancamentoInputDTO);
         assertEquals(lancamentoCriado.getCodigo(), lancamentoResultDTO.getCodigo());
+    }
+
+    @Test
+    void dadoNovoLancamentoComPessoaInexistenteDeveRetornarExcecao() throws PessoaInexistenteException {
+        LancamentoInputDTO lancamentoInputDTO = createLancamentoInputDTO();
+        Long codigoPessoa = lancamentoInputDTO.getPessoa().getCodigo();
+
+        when(pessoaService.findById(codigoPessoa)).thenThrow(PessoaInexistenteException.class);
+
+        assertThrows(PessoaInexistenteException.class, () -> lancamentoService.criar(lancamentoInputDTO));
+    }
+
+    @Test
+    void dadoNovoLancamentoComPessoaInativaDeveRetornarExcecao() throws PessoaInexistenteException {
+        LancamentoInputDTO lancamentoInputDTO = createLancamentoInputDTO();
+        Long codigoPessoa = lancamentoInputDTO.getPessoa().getCodigo();
+
+        when(pessoaService.findById(codigoPessoa)).thenReturn(createPessoa(codigoPessoa, false));
+
+        assertThrows(PessoaInativaException.class, () -> lancamentoService.criar(lancamentoInputDTO));
+    }
+
+    @Test
+    void dadoNovoLancamentoComCategoriaInexistenteDeveRetornarExcecao() throws PessoaInexistenteException {
+        LancamentoInputDTO lancamentoInputDTO = createLancamentoInputDTO();
+        Long codigoPessoa = lancamentoInputDTO.getPessoa().getCodigo();
+        Long codigoCategoria = lancamentoInputDTO.getCategoria().getCodigo();
+
+        when(pessoaService.findById(codigoPessoa)).thenReturn(createPessoa(codigoPessoa, true));
+        when(categoriaRepository.findById(codigoCategoria)).thenReturn(Optional.empty());
+
+        assertThrows(CategoriaInexistenteException.class, () -> lancamentoService.criar(lancamentoInputDTO));
+    }
+
+    @Test
+    void quandoNaoEncontrarLancamentoPeloCodigoDeveRetornarExcecao() {
+        Long codigoLancamento = faker.number().randomNumber();
+
+        when(lancamentoRepository.findById(codigoLancamento)).thenReturn(Optional.empty());
+
+        assertThrows(LancamentoInexistenteException.class, () -> lancamentoService.findDTOById(codigoLancamento));
     }
 
     private Categoria createAndSetCategory(Lancamento lancamentoInput, Long codigoCategoria) {
