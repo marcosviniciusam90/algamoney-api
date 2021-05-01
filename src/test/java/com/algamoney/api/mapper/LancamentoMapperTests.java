@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest
 @AllArgsConstructor(onConstructor = @__(@Autowired))
-class LancamentoMapperTest {
+class LancamentoMapperTests {
 
     private final ModelMapper modelMapper;
 
