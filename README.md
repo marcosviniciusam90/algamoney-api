@@ -18,7 +18,8 @@ Será feito deploy no Heroku, tanto do frontend como da API (backend).
 - Hibernate/JPA
 - Maven
 - Lombok
-- ModelMapper
+- MapStruct
+- Mockito
 
 - entre outras;
 
@@ -34,6 +35,7 @@ Será feito deploy no Heroku, tanto do frontend como da API (backend).
 - CORS
 - Spring Security (Basic, OAuth2 + JWT, Roles/Privileges)
 - Spring Profiles
+- Spring MockMvc
 - entre outros;
 
 
@@ -41,5 +43,4 @@ Será feito deploy no Heroku, tanto do frontend como da API (backend).
 
 ## TODO
 - No Lombok, adicionar instância do Logger para fazer log de execução dos serviços
-- Criar testes automáticos para classes Service, Controller, etc
 - Gerar documentação swagger da API usando SpringFox / io.swagger.annotations
