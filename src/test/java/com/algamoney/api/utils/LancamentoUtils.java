@@ -1,6 +1,7 @@
 package com.algamoney.api.utils;
 
 import com.algamoney.api.dto.LancamentoInputDTO;
+import com.algamoney.api.dto.LancamentoResultDTO;
 import com.algamoney.api.dto.id.CategoriaIdDTO;
 import com.algamoney.api.dto.id.PessoaIdDTO;
 import com.algamoney.api.model.Lancamento;
@@ -24,6 +25,20 @@ public class LancamentoUtils {
                 .tipo(TipoLancamento.DESPESA)
                 .categoria(CategoriaIdDTO.builder().codigo(5L).build())
                 .pessoa(PessoaIdDTO.builder().codigo(10L).build())
+                .build();
+    }
+
+    public static LancamentoResultDTO createLancamentoResultDTO() {
+        return LancamentoResultDTO.builder()
+                .codigo(faker.number().randomNumber())
+                .descricao(faker.commerce().productName())
+                .dataVencimento(LocalDate.now())
+                .dataPagamento(LocalDate.now().minusDays(1))
+                .valor(BigDecimal.valueOf(faker.number().randomDouble(2, 0, 1000)))
+                .observacao(faker.shakespeare().romeoAndJulietQuote())
+                .tipo(TipoLancamento.DESPESA)
+                .categoria(faker.commerce().department())
+                .pessoa(faker.dragonBall().character())
                 .build();
     }
 

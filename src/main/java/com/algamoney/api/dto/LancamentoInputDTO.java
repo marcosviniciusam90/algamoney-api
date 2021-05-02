@@ -4,7 +4,10 @@ import com.algamoney.api.dto.id.CategoriaIdDTO;
 import com.algamoney.api.dto.id.PessoaIdDTO;
 import com.algamoney.api.model.TipoLancamento;
 import com.fasterxml.jackson.annotation.JsonFormat;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -14,11 +17,10 @@ import javax.validation.constraints.Size;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
+@Data
 @Builder
-@Getter
-@Setter
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 public class LancamentoInputDTO {
 
     @NotNull
