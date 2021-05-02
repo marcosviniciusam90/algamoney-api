@@ -15,7 +15,6 @@ import com.algamoney.api.service.exception.PessoaInexistenteException;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEventPublisher;
-import org.springframework.context.MessageSource;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
@@ -36,7 +35,6 @@ public class LancamentoController {
     private final LancamentoRepository lancamentoRepository;
     private final LancamentoService lancamentoService;
     private final ApplicationEventPublisher publisher;
-    private final MessageSource messageSource;
 
     @PreAuthorize("hasAuthority('ROLE_PESQUISAR_LANCAMENTO') and #oauth2.hasScope('read')")
     @GetMapping
