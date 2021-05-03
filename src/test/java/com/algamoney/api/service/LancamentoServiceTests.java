@@ -30,8 +30,8 @@ import static org.mockito.Mockito.*;
 @ExtendWith(MockitoExtension.class)
 class LancamentoServiceTests {
 
-    private static final Faker faker = Faker.instance();
-    private static final LancamentoMapper lancamentoMapper = LancamentoMapper.INSTANCE;
+    private static final Faker FAKER = Faker.instance();
+    private static final LancamentoMapper LANCAMENTO_MAPPER = LancamentoMapper.INSTANCE;
 
     @Mock
     private LancamentoRepository lancamentoRepository;
@@ -87,7 +87,7 @@ class LancamentoServiceTests {
 
     @Test
     void testAtualizarComSucesso() {
-        Long codigoLancamento = faker.number().randomNumber();
+        Long codigoLancamento = FAKER.number().randomNumber();
         LancamentoInputDTO lancamentoInputDTO = createLancamentoInputDTO();
         Lancamento lancamentoInput = atualizarLancamento(codigoLancamento, lancamentoInputDTO);
 
@@ -96,7 +96,7 @@ class LancamentoServiceTests {
 
     @Test
     void testAtualizarLancamentoInexistente() {
-        Long codigoLancamento = faker.number().randomNumber();
+        Long codigoLancamento = FAKER.number().randomNumber();
         LancamentoInputDTO lancamentoInputDTO = createLancamentoInputDTO();
 
         when(lancamentoRepository.findById(codigoLancamento)).thenReturn(Optional.empty());
@@ -107,7 +107,7 @@ class LancamentoServiceTests {
 
     @Test
     void testBuscarLancamentoInexistente() {
-        Long codigoLancamento = faker.number().randomNumber();
+        Long codigoLancamento = FAKER.number().randomNumber();
 
         when(lancamentoRepository.findById(codigoLancamento)).thenReturn(Optional.empty());
 
@@ -115,7 +115,7 @@ class LancamentoServiceTests {
     }
 
     private Lancamento criarLancamento(LancamentoInputDTO lancamentoInputDTO) {
-        Lancamento lancamentoInput = lancamentoMapper.inputDTOToEntity(lancamentoInputDTO);
+        Lancamento lancamentoInput = LANCAMENTO_MAPPER.inputDTOToEntity(lancamentoInputDTO);
 
         Long codigoPessoa = lancamentoInputDTO.getPessoa().getCodigo();
         Long codigoCategoria = lancamentoInputDTO.getCategoria().getCodigo();
@@ -134,7 +134,7 @@ class LancamentoServiceTests {
     }
 
     private Lancamento atualizarLancamento(Long codigoLancamento, LancamentoInputDTO lancamentoInputDTO) {
-        Lancamento lancamentoInput = lancamentoMapper.inputDTOToEntity(lancamentoInputDTO);
+        Lancamento lancamentoInput = LANCAMENTO_MAPPER.inputDTOToEntity(lancamentoInputDTO);
 
         Long codigoPessoa = lancamentoInputDTO.getPessoa().getCodigo();
         Long codigoCategoria = lancamentoInputDTO.getCategoria().getCodigo();

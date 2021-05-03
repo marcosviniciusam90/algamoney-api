@@ -1,7 +1,7 @@
 package com.algamoney.api.utils;
 
 import com.algamoney.api.dto.LancamentoInputDTO;
-import com.algamoney.api.dto.LancamentoResultDTO;
+import com.algamoney.api.dto.LancamentoResponseDTO;
 import com.algamoney.api.dto.id.CategoriaIdDTO;
 import com.algamoney.api.dto.id.PessoaIdDTO;
 import com.algamoney.api.model.Lancamento;
@@ -13,46 +13,46 @@ import java.time.LocalDate;
 
 public class LancamentoUtils {
 
-    private static final Faker faker = Faker.instance();
+    private static final Faker FAKER = Faker.instance();
 
     public static LancamentoInputDTO createLancamentoInputDTO() {
        return LancamentoInputDTO.builder()
-                .descricao(faker.commerce().productName())
+                .descricao(FAKER.commerce().productName())
                 .dataVencimento(LocalDate.now())
                 .dataPagamento(LocalDate.now().minusDays(1))
-                .valor(BigDecimal.valueOf(faker.number().randomDouble(2, 0, 1000)))
-                .observacao(faker.shakespeare().romeoAndJulietQuote())
+                .valor(BigDecimal.valueOf(FAKER.number().randomDouble(2, 0, 1000)))
+                .observacao(FAKER.shakespeare().romeoAndJulietQuote())
                 .tipo(TipoLancamento.DESPESA)
                 .categoria(CategoriaIdDTO.builder().codigo(5L).build())
                 .pessoa(PessoaIdDTO.builder().codigo(10L).build())
                 .build();
     }
 
-    public static LancamentoResultDTO createLancamentoResultDTO() {
-        return LancamentoResultDTO.builder()
-                .codigo(faker.number().randomNumber())
-                .descricao(faker.commerce().productName())
+    public static LancamentoResponseDTO createLancamentoResponseDTO() {
+        return LancamentoResponseDTO.builder()
+                .codigo(FAKER.number().randomNumber())
+                .descricao(FAKER.commerce().productName())
                 .dataVencimento(LocalDate.now())
                 .dataPagamento(LocalDate.now().minusDays(1))
-                .valor(BigDecimal.valueOf(faker.number().randomDouble(2, 0, 1000)))
-                .observacao(faker.shakespeare().romeoAndJulietQuote())
+                .valor(BigDecimal.valueOf(FAKER.number().randomDouble(2, 0, 1000)))
+                .observacao(FAKER.shakespeare().romeoAndJulietQuote())
                 .tipo(TipoLancamento.DESPESA)
-                .categoria(faker.commerce().department())
-                .pessoa(faker.dragonBall().character())
+                .categoria(FAKER.commerce().department())
+                .pessoa(FAKER.dragonBall().character())
                 .build();
     }
 
     public static Lancamento createLancamento() {
         return Lancamento.builder()
-                .codigo(faker.number().randomNumber())
-                .descricao(faker.commerce().productName())
+                .codigo(FAKER.number().randomNumber())
+                .descricao(FAKER.commerce().productName())
                 .dataVencimento(LocalDate.now())
                 .dataPagamento(LocalDate.now().minusDays(1))
-                .valor(BigDecimal.valueOf(faker.number().randomDouble(2, 0, 1000)))
-                .observacao(faker.shakespeare().kingRichardIIIQuote())
+                .valor(BigDecimal.valueOf(FAKER.number().randomDouble(2, 0, 1000)))
+                .observacao(FAKER.shakespeare().kingRichardIIIQuote())
                 .tipo(TipoLancamento.RECEITA)
-                .categoria(CategoriaUtils.createCategoria(faker.number().randomNumber()))
-                .pessoa(PessoaUtils.createPessoa(faker.number().randomNumber(), true))
+                .categoria(CategoriaUtils.createCategoria(FAKER.number().randomNumber()))
+                .pessoa(PessoaUtils.createPessoa(FAKER.number().randomNumber(), true))
                 .build();
     }
 

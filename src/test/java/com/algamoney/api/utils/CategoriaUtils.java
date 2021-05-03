@@ -5,12 +5,12 @@ import com.github.javafaker.Faker;
 
 public class CategoriaUtils {
 
-    private static final Faker faker = Faker.instance();
+    private static final Faker FAKER = Faker.instance();
 
     public static Categoria createCategoria(Long codigo) {
         return Categoria.builder()
                 .codigo(codigo)
-                .nome(faker.commerce().department())
+                .nome(FAKER.commerce().department())
                 .build();
 
     }

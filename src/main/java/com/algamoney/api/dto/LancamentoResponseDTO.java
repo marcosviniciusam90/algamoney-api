@@ -14,7 +14,7 @@ import java.time.LocalDate;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class LancamentoResultDTO {
+public class LancamentoResponseDTO {
 
     private Long codigo;
     private String descricao;

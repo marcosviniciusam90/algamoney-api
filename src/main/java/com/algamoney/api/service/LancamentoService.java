@@ -1,7 +1,7 @@
 package com.algamoney.api.service;
 
 import com.algamoney.api.dto.LancamentoInputDTO;
-import com.algamoney.api.dto.LancamentoResultDTO;
+import com.algamoney.api.dto.LancamentoResponseDTO;
 import com.algamoney.api.mapper.LancamentoMapper;
 import com.algamoney.api.model.Categoria;
 import com.algamoney.api.model.Lancamento;
@@ -19,15 +19,15 @@ import org.springframework.stereotype.Service;
 @AllArgsConstructor(onConstructor = @__(@Autowired))
 public class LancamentoService {
 
-    private static final LancamentoMapper lancamentoMapper = LancamentoMapper.INSTANCE;
+    private static final LancamentoMapper LANCAMENTO_MAPPER = LancamentoMapper.INSTANCE;
     private final LancamentoRepository lancamentoRepository;
     private final CategoriaRepository categoriaRepository;
     private final PessoaService pessoaService;
 
-    public LancamentoResultDTO atualizar(Long codigo, LancamentoInputDTO lancamentoInputDTO) {
+    public LancamentoResponseDTO atualizar(Long codigo, LancamentoInputDTO lancamentoInputDTO) {
 
         Lancamento lancamentoExistente = findById(codigo);
-        Lancamento lancamentoInput = lancamentoMapper.inputDTOToEntity(lancamentoInputDTO);
+        Lancamento lancamentoInput = LANCAMENTO_MAPPER.inputDTOToEntity(lancamentoInputDTO);
 
         verifyAndSetPersonIfValid(lancamentoInput);
         verifyAndSetCategoryIfExist(lancamentoInput);
@@ -35,19 +35,19 @@ public class LancamentoService {
         lancamentoInput.setCodigo(lancamentoExistente.getCodigo());
 
         Lancamento lancamentoAtualizado = lancamentoRepository.save(lancamentoInput);
-        return lancamentoMapper.entityToResultDTO(lancamentoAtualizado);
+        return LANCAMENTO_MAPPER.entityToResponseDTO(lancamentoAtualizado);
 
     }
 
-    public LancamentoResultDTO criar(LancamentoInputDTO lancamentoInputDTO) {
+    public LancamentoResponseDTO criar(LancamentoInputDTO lancamentoInputDTO) {
 
-        Lancamento lancamentoInput = lancamentoMapper.inputDTOToEntity(lancamentoInputDTO);
+        Lancamento lancamentoInput = LANCAMENTO_MAPPER.inputDTOToEntity(lancamentoInputDTO);
 
         verifyAndSetPersonIfValid(lancamentoInput);
         verifyAndSetCategoryIfExist(lancamentoInput);
 
         Lancamento lancamentoCriado = lancamentoRepository.save(lancamentoInput);
-        return lancamentoMapper.entityToResultDTO(lancamentoCriado);
+        return LANCAMENTO_MAPPER.entityToResponseDTO(lancamentoCriado);
 
     }
 
@@ -69,9 +69,9 @@ public class LancamentoService {
         lancamento.setCategoria(categoria);
     }
 
-    public LancamentoResultDTO findDTOById(Long codigo) {
+    public LancamentoResponseDTO findDTOById(Long codigo) {
         Lancamento lancamento = findById(codigo);
-        return lancamentoMapper.entityToResultDTO(lancamento);
+        return LANCAMENTO_MAPPER.entityToResponseDTO(lancamento);
     }
 
     public Lancamento findById(Long codigo) {

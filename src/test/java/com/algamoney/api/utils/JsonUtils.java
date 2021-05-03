@@ -16,7 +16,7 @@ public class JsonUtils {
             .configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, true)
             .registerModules(new JavaTimeModule());
 
-    public static String asJsonString(Object object) {
+    public static String toJsonString(Object object) {
         try {
             return MAPPER.writeValueAsString(object);
         } catch (Exception e) {
@@ -24,18 +24,18 @@ public class JsonUtils {
         }
     }
 
-    public static <T> T asObject(MvcResult mvcResult, Class<T> responseClass) {
+    public static String toJsonString(MvcResult mvcResult) {
         try {
-            return MAPPER.readValue(getJson(mvcResult), responseClass);
-        } catch (IOException e) {
+            return mvcResult.getResponse().getContentAsString();
+        } catch (UnsupportedEncodingException e) {
             throw new RuntimeException(e);
         }
     }
 
-    public static String getJson(MvcResult mvcResult) {
+    public static <T> T toObject(MvcResult mvcResult, Class<T> responseClass) {
         try {
-            return mvcResult.getResponse().getContentAsString();
-        } catch (UnsupportedEncodingException e) {
+            return MAPPER.readValue(toJsonString(mvcResult), responseClass);
+        } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }

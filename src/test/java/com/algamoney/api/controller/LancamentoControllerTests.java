@@ -1,7 +1,7 @@
 package com.algamoney.api.controller;
 
 import com.algamoney.api.dto.LancamentoInputDTO;
-import com.algamoney.api.dto.LancamentoResultDTO;
+import com.algamoney.api.dto.LancamentoResponseDTO;
 import com.algamoney.api.event.RecursoCriadoEvent;
 import com.algamoney.api.mapper.LancamentoMapper;
 import com.algamoney.api.model.Lancamento;
@@ -24,24 +24,25 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.servlet.view.json.MappingJackson2JsonView;
 
-import static com.algamoney.api.utils.JsonUtils.*;
+import java.util.Objects;
+
+import static com.algamoney.api.utils.JsonUtils.toJsonString;
+import static com.algamoney.api.utils.JsonUtils.toObject;
 import static com.algamoney.api.utils.LancamentoUtils.createLancamentoInputDTO;
-import static com.algamoney.api.utils.LancamentoUtils.createLancamentoResultDTO;
-import static org.hamcrest.core.Is.is;
+import static com.algamoney.api.utils.LancamentoUtils.createLancamentoResponseDTO;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 
 @ExtendWith(MockitoExtension.class)
 class LancamentoControllerTests {
 
-    private static final LancamentoMapper lancamentoMapper = LancamentoMapper.INSTANCE;
+    private static final LancamentoMapper LANCAMENTO_MAPPER = LancamentoMapper.INSTANCE;
 
-    private static final Faker faker = Faker.instance();
+    private static final Faker FAKER = Faker.instance();
 
     private static final String API_URL_PATH = "/lancamentos";
 
@@ -70,22 +71,22 @@ class LancamentoControllerTests {
     @Test
     void testCriarLancamentoComSucesso() throws Exception {
         LancamentoInputDTO lancamentoInputDTO = createLancamentoInputDTO();
-        Lancamento lancamento = lancamentoMapper.inputDTOToEntity(lancamentoInputDTO);
+        Lancamento lancamento = LANCAMENTO_MAPPER.inputDTOToEntity(lancamentoInputDTO);
+        LancamentoResponseDTO expectedLancamentoResponseDTO = LANCAMENTO_MAPPER.entityToResponseDTO(lancamento);
 
-        LancamentoResultDTO lancamentoResultDTO = lancamentoMapper.entityToResultDTO(lancamento);
-        lancamentoResultDTO.setCodigo(faker.number().randomNumber());
+        expectedLancamentoResponseDTO.setCodigo(FAKER.number().randomNumber());
 
-        when(lancamentoService.criar(lancamentoInputDTO)).thenReturn(lancamentoResultDTO);
+        when(lancamentoService.criar(lancamentoInputDTO)).thenReturn(expectedLancamentoResponseDTO);
 
         MvcResult mvcResult = mockMvc.perform(post(API_URL_PATH)
                 .contentType(MediaType.APPLICATION_JSON)
-                .content(asJsonString(lancamentoInputDTO)))
+                .content(toJsonString(lancamentoInputDTO)))
                 .andExpect(status().isCreated())
-                .andExpect(jsonPath("$.codigo", is(lancamentoResultDTO.getCodigo().intValue())))
+                //.andExpect(MockMvcResultMatchers.jsonPath("$.codigo", Is.is(expectedLancamentoResponseDTO.getCodigo().intValue())))
                 .andReturn();
 
-        LancamentoResultDTO response = asObject(mvcResult, LancamentoResultDTO.class);
-        assertEquals(lancamentoResultDTO.getDataVencimento(), response.getDataVencimento());
+        LancamentoResponseDTO actualLancamentoResponseDTO = toObject(mvcResult, LancamentoResponseDTO.class);
+        assertEquals(expectedLancamentoResponseDTO, actualLancamentoResponseDTO);
 
         verify(lancamentoService, times(1)).criar(lancamentoInputDTO);
         verify(publisher, times(1)).publishEvent(any(RecursoCriadoEvent.class));
@@ -98,19 +99,18 @@ class LancamentoControllerTests {
 
         mockMvc.perform(post(API_URL_PATH)
                 .contentType(MediaType.APPLICATION_JSON)
-                .content(asJsonString(lancamentoInputDTO)))
+                .content(toJsonString(lancamentoInputDTO)))
                 .andExpect(status().isBadRequest())
-                .andExpect(result -> assertTrue(result.getResolvedException() instanceof MethodArgumentNotValidException));
+                .andExpect(result -> assertTrue(result.getResolvedException() instanceof MethodArgumentNotValidException))
+                .andExpect(result -> assertTrue(Objects.requireNonNull(result.getResolvedException()).getMessage().contains("O campo {0} é obrigatório")));
     }
 
     @Test
     void testCriarLancamentoComCorpoDaRequisicaoInvalido() throws Exception {
         LancamentoInputDTO lancamentoInputDTO = createLancamentoInputDTO();
-        lancamentoInputDTO.setDescricao(null);
 
-        String trechoASerRemovido = String.format("\"descricao\":%s", lancamentoInputDTO.getDescricao());
-
-        String corpoInvalido = asJsonString(lancamentoInputDTO).replace(trechoASerRemovido, "");
+        String corpoInvalido = toJsonString(lancamentoInputDTO)
+                .replace(",", ""); //remove virgulas
 
         mockMvc.perform(post(API_URL_PATH)
                 .contentType(MediaType.APPLICATION_JSON)
@@ -121,18 +121,18 @@ class LancamentoControllerTests {
 
     @Test
     void testBuscarLancamentoPorCodigo() throws Exception {
-        LancamentoResultDTO lancamentoResultDTO = createLancamentoResultDTO();
-        Long codigo = lancamentoResultDTO.getCodigo();
+        LancamentoResponseDTO expectedLancamentoResponseDTO = createLancamentoResponseDTO();
+        Long codigo = expectedLancamentoResponseDTO.getCodigo();
 
-        when(lancamentoService.findDTOById(codigo)).thenReturn(lancamentoResultDTO);
+        when(lancamentoService.findDTOById(codigo)).thenReturn(expectedLancamentoResponseDTO);
 
         MvcResult mvcResult = mockMvc.perform(get(API_URL_PATH + "/" + codigo)
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andReturn();
 
-        String expectedResponseBody = asJsonString(lancamentoResultDTO);
-        String actualResponseBody = getJson(mvcResult);
+        String expectedResponseBody = toJsonString(expectedLancamentoResponseDTO);
+        String actualResponseBody = toJsonString(mvcResult);
 
         assertEquals(expectedResponseBody, actualResponseBody);
     }
@@ -151,7 +151,7 @@ class LancamentoControllerTests {
 
     @Test
     void testExcluirLancamentoComSucesso() throws Exception {
-        Long codigo = faker.number().randomNumber();
+        Long codigo = FAKER.number().randomNumber();
 
         mockMvc.perform(delete(API_URL_PATH + "/" + codigo)
                 .contentType(MediaType.APPLICATION_JSON))

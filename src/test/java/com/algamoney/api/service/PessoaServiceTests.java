@@ -20,7 +20,7 @@ import static org.mockito.Mockito.*;
 @ExtendWith(MockitoExtension.class)
 class PessoaServiceTests {
 
-    private static final Faker faker = Faker.instance();
+    private static final Faker FAKER = Faker.instance();
 
     @Mock
     private PessoaRepository pessoaRepository;
@@ -31,7 +31,7 @@ class PessoaServiceTests {
     @Test
     void testBuscarPessoaInexistente() {
 
-        Long codigoPessoa = faker.number().randomNumber();
+        Long codigoPessoa = FAKER.number().randomNumber();
 
         when(pessoaRepository.findById(codigoPessoa)).thenReturn(Optional.empty());
 
@@ -40,7 +40,7 @@ class PessoaServiceTests {
 
     @Test
     void testAtualizarComSucesso() {
-        Long codigoPessoa = faker.number().randomNumber();
+        Long codigoPessoa = FAKER.number().randomNumber();
         Pessoa pessoa = createPessoa(codigoPessoa, true);
         Pessoa pessoaExistente = createPessoa(codigoPessoa, false);
 
@@ -54,7 +54,7 @@ class PessoaServiceTests {
 
     @Test
     void testAtualizarPessoaInexistente() {
-        Long codigoPessoa = faker.number().randomNumber();
+        Long codigoPessoa = FAKER.number().randomNumber();
         Pessoa pessoa = createPessoa(codigoPessoa, true);
 
         when(pessoaRepository.findById(codigoPessoa)).thenReturn(Optional.empty());
@@ -65,7 +65,7 @@ class PessoaServiceTests {
 
     @Test
     void testAtualizarPropriedadeAtivoComSucesso() {
-        Long codigoPessoa = faker.number().randomNumber();
+        Long codigoPessoa = FAKER.number().randomNumber();
         Boolean ativo = true;
 
         Pessoa pessoaExistente = createPessoa(codigoPessoa, false);
