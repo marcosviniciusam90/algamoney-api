@@ -3,7 +3,6 @@ package com.algamoney.api.service;
 import com.algamoney.api.model.Pessoa;
 import com.algamoney.api.repository.PessoaRepository;
 import com.algamoney.api.service.exception.PessoaInexistenteException;
-import com.algamoney.api.utils.PessoaUtils;
 import com.github.javafaker.Faker;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -13,6 +12,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.Optional;
 
+import static com.algamoney.api.utils.PessoaUtils.createPessoa;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.*;
@@ -41,8 +41,8 @@ class PessoaServiceTests {
     @Test
     void testAtualizarComSucesso() {
         Long codigoPessoa = faker.number().randomNumber();
-        Pessoa pessoa = PessoaUtils.createPessoa(codigoPessoa, true);
-        Pessoa pessoaExistente = PessoaUtils.createPessoa(codigoPessoa, false);
+        Pessoa pessoa = createPessoa(codigoPessoa, true);
+        Pessoa pessoaExistente = createPessoa(codigoPessoa, false);
 
         when(pessoaRepository.findById(codigoPessoa)).thenReturn(Optional.of(pessoaExistente));
 
@@ -55,7 +55,7 @@ class PessoaServiceTests {
     @Test
     void testAtualizarPessoaInexistente() {
         Long codigoPessoa = faker.number().randomNumber();
-        Pessoa pessoa = PessoaUtils.createPessoa(codigoPessoa, true);
+        Pessoa pessoa = createPessoa(codigoPessoa, true);
 
         when(pessoaRepository.findById(codigoPessoa)).thenReturn(Optional.empty());
 
@@ -68,7 +68,7 @@ class PessoaServiceTests {
         Long codigoPessoa = faker.number().randomNumber();
         Boolean ativo = true;
 
-        Pessoa pessoaExistente = PessoaUtils.createPessoa(codigoPessoa, false);
+        Pessoa pessoaExistente = createPessoa(codigoPessoa, false);
 
         when(pessoaRepository.findById(codigoPessoa)).thenReturn(Optional.of(pessoaExistente));
 

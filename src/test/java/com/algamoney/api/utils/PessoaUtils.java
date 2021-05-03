@@ -11,6 +11,7 @@ public class PessoaUtils {
         return Pessoa.builder()
                 .codigo(codigo)
                 .nome(faker.superhero().name())
+                .cpf(faker.regexify("[0-9]{3}\\.[0-9]{3}\\.[0-9]{3}\\-[0-9]{2}"))
                 .ativo(ativo)
                 .endereco(EnderecoUtils.createEndereco())
                 .build();
