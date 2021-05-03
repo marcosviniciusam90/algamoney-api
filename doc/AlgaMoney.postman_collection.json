@@ -128,7 +128,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJhZG1pbkBhbGdhbW9uZXkuY29tIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sIm5vbWUiOiJBZG1pbmlzdHJhZG9yIiwiZXhwIjoxNjE5Njk1NDY4LCJhdXRob3JpdGllcyI6WyJST0xFX0NBREFTVFJBUl9DQVRFR09SSUEiLCJST0xFX1BFU1FVSVNBUl9QRVNTT0EiLCJST0xFX1JFTU9WRVJfUEVTU09BIiwiUk9MRV9DQURBU1RSQVJfTEFOQ0FNRU5UTyIsIlJPTEVfUEVTUVVJU0FSX0xBTkNBTUVOVE8iLCJST0xFX1JFTU9WRVJfTEFOQ0FNRU5UTyIsIlJPTEVfQ0FEQVNUUkFSX1BFU1NPQSIsIlJPTEVfUEVTUVVJU0FSX0NBVEVHT1JJQSJdLCJqdGkiOiI4OWVmYjc4My04MjcwLTQ0M2EtYjMyYS0zNmUwOTAzMmUwYjEiLCJjbGllbnRfaWQiOiJhbmd1bGFyIn0.3aDKTloWM2cxZAOVTwDa5qDeLrUdZV6aq88qPOaVz-4",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJhZG1pbkBhbGdhbW9uZXkuY29tIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sIm5vbWUiOiJBZG1pbmlzdHJhZG9yIiwiZXhwIjoxNjIwMDM5MTY1LCJhdXRob3JpdGllcyI6WyJST0xFX0NBREFTVFJBUl9DQVRFR09SSUEiLCJST0xFX1BFU1FVSVNBUl9QRVNTT0EiLCJST0xFX1JFTU9WRVJfUEVTU09BIiwiUk9MRV9DQURBU1RSQVJfTEFOQ0FNRU5UTyIsIlJPTEVfUEVTUVVJU0FSX0xBTkNBTUVOVE8iLCJST0xFX1JFTU9WRVJfTEFOQ0FNRU5UTyIsIlJPTEVfQ0FEQVNUUkFSX1BFU1NPQSIsIlJPTEVfUEVTUVVJU0FSX0NBVEVHT1JJQSJdLCJqdGkiOiI2ZWYxN2E5My1jMmM5LTRkYzQtYTYwNC01Yjk3NDRjZTNmZjUiLCJjbGllbnRfaWQiOiJhbmd1bGFyIn0.LMgnFF-DMiM8aOOt29k14Kyu_kHvNInieLTxoVxLLSA",
 									"type": "string"
 								}
 							]
@@ -212,7 +212,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJhZG1pbkBhbGdhbW9uZXkuY29tIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sIm5vbWUiOiJBZG1pbmlzdHJhZG9yIiwiZXhwIjoxNjE5NzA2ODAxLCJhdXRob3JpdGllcyI6WyJST0xFX0NBREFTVFJBUl9DQVRFR09SSUEiLCJST0xFX1BFU1FVSVNBUl9QRVNTT0EiLCJST0xFX1JFTU9WRVJfUEVTU09BIiwiUk9MRV9DQURBU1RSQVJfTEFOQ0FNRU5UTyIsIlJPTEVfUEVTUVVJU0FSX0xBTkNBTUVOVE8iLCJST0xFX1JFTU9WRVJfTEFOQ0FNRU5UTyIsIlJPTEVfQ0FEQVNUUkFSX1BFU1NPQSIsIlJPTEVfUEVTUVVJU0FSX0NBVEVHT1JJQSJdLCJqdGkiOiI0OTNhNTZlOC1lNWNlLTQzZjktOWZjNi03NTM4ZDVhNzVjOTciLCJjbGllbnRfaWQiOiJhbmd1bGFyIn0.lN9aIiNYhLupYQfULT84ezzKCRqj3aOnRBTxoBegBuM",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJhZG1pbkBhbGdhbW9uZXkuY29tIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sIm5vbWUiOiJBZG1pbmlzdHJhZG9yIiwiZXhwIjoxNjIwMDQ1Mjg4LCJhdXRob3JpdGllcyI6WyJST0xFX0NBREFTVFJBUl9DQVRFR09SSUEiLCJST0xFX1BFU1FVSVNBUl9QRVNTT0EiLCJST0xFX1JFTU9WRVJfUEVTU09BIiwiUk9MRV9DQURBU1RSQVJfTEFOQ0FNRU5UTyIsIlJPTEVfUEVTUVVJU0FSX0xBTkNBTUVOVE8iLCJST0xFX1JFTU9WRVJfTEFOQ0FNRU5UTyIsIlJPTEVfQ0FEQVNUUkFSX1BFU1NPQSIsIlJPTEVfUEVTUVVJU0FSX0NBVEVHT1JJQSJdLCJqdGkiOiI4ZDhlYTE0OC1hYTcyLTQxYzQtYjRmOS1hMDNhNTNjZDAzY2MiLCJjbGllbnRfaWQiOiJhbmd1bGFyIn0.lqVVNvc_oaw1vMC4ajBJcd1cSK1DDw_OPKBpQpo5kRA",
 									"type": "string"
 								}
 							]
@@ -246,7 +246,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJhZG1pbkBhbGdhbW9uZXkuY29tIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sIm5vbWUiOiJBZG1pbmlzdHJhZG9yIiwiZXhwIjoxNjE5Njk1NDY4LCJhdXRob3JpdGllcyI6WyJST0xFX0NBREFTVFJBUl9DQVRFR09SSUEiLCJST0xFX1BFU1FVSVNBUl9QRVNTT0EiLCJST0xFX1JFTU9WRVJfUEVTU09BIiwiUk9MRV9DQURBU1RSQVJfTEFOQ0FNRU5UTyIsIlJPTEVfUEVTUVVJU0FSX0xBTkNBTUVOVE8iLCJST0xFX1JFTU9WRVJfTEFOQ0FNRU5UTyIsIlJPTEVfQ0FEQVNUUkFSX1BFU1NPQSIsIlJPTEVfUEVTUVVJU0FSX0NBVEVHT1JJQSJdLCJqdGkiOiI4OWVmYjc4My04MjcwLTQ0M2EtYjMyYS0zNmUwOTAzMmUwYjEiLCJjbGllbnRfaWQiOiJhbmd1bGFyIn0.3aDKTloWM2cxZAOVTwDa5qDeLrUdZV6aq88qPOaVz-4",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJhZG1pbkBhbGdhbW9uZXkuY29tIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sIm5vbWUiOiJBZG1pbmlzdHJhZG9yIiwiZXhwIjoxNjIwMDM5MTY1LCJhdXRob3JpdGllcyI6WyJST0xFX0NBREFTVFJBUl9DQVRFR09SSUEiLCJST0xFX1BFU1FVSVNBUl9QRVNTT0EiLCJST0xFX1JFTU9WRVJfUEVTU09BIiwiUk9MRV9DQURBU1RSQVJfTEFOQ0FNRU5UTyIsIlJPTEVfUEVTUVVJU0FSX0xBTkNBTUVOVE8iLCJST0xFX1JFTU9WRVJfTEFOQ0FNRU5UTyIsIlJPTEVfQ0FEQVNUUkFSX1BFU1NPQSIsIlJPTEVfUEVTUVVJU0FSX0NBVEVHT1JJQSJdLCJqdGkiOiI2ZWYxN2E5My1jMmM5LTRkYzQtYTYwNC01Yjk3NDRjZTNmZjUiLCJjbGllbnRfaWQiOiJhbmd1bGFyIn0.LMgnFF-DMiM8aOOt29k14Kyu_kHvNInieLTxoVxLLSA",
 									"type": "string"
 								}
 							]
@@ -262,7 +262,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"nome\": \"Pedro da Silva\",\n    \"ativo\": true,\n    \"endereco\": {\n        \"logradouro\": \"Rua dos Escoteiros\",\n        \"numero\": \"70\",\n        \"complemento\": \"Proximo a Preta\",\n        \"bairro\": \"Jardim Cairi\",\n        \"cep\": \"86690000\",\n        \"cidade\": \"Alto Alegre\",\n        \"estado\": \"Paraná\"\n    }\n}"
+							"raw": "{\n    \"nome\": \"Pedro da Silva\",\n    \"cpf\": \"968.776.560-75\",\n    \"ativo\": true,\n    \"endereco\": {\n        \"logradouro\": \"Rua dos Escoteiros\",\n        \"numero\": \"70\",\n        \"complemento\": \"Proximo a Preta\",\n        \"bairro\": \"Jardim Cairi\",\n        \"cep\": \"86690000\",\n        \"cidade\": \"Alto Alegre\",\n        \"estado\": \"Paraná\"\n    }\n}"
 						},
 						"url": {
 							"raw": "http://localhost:8080/pessoas",
@@ -320,7 +320,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJhZG1pbkBhbGdhbW9uZXkuY29tIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sIm5vbWUiOiJBZG1pbmlzdHJhZG9yIiwiZXhwIjoxNjE5NzA2ODAxLCJhdXRob3JpdGllcyI6WyJST0xFX0NBREFTVFJBUl9DQVRFR09SSUEiLCJST0xFX1BFU1FVSVNBUl9QRVNTT0EiLCJST0xFX1JFTU9WRVJfUEVTU09BIiwiUk9MRV9DQURBU1RSQVJfTEFOQ0FNRU5UTyIsIlJPTEVfUEVTUVVJU0FSX0xBTkNBTUVOVE8iLCJST0xFX1JFTU9WRVJfTEFOQ0FNRU5UTyIsIlJPTEVfQ0FEQVNUUkFSX1BFU1NPQSIsIlJPTEVfUEVTUVVJU0FSX0NBVEVHT1JJQSJdLCJqdGkiOiI0OTNhNTZlOC1lNWNlLTQzZjktOWZjNi03NTM4ZDVhNzVjOTciLCJjbGllbnRfaWQiOiJhbmd1bGFyIn0.lN9aIiNYhLupYQfULT84ezzKCRqj3aOnRBTxoBegBuM",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJhZG1pbkBhbGdhbW9uZXkuY29tIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sIm5vbWUiOiJBZG1pbmlzdHJhZG9yIiwiZXhwIjoxNjIwMDM5MTY1LCJhdXRob3JpdGllcyI6WyJST0xFX0NBREFTVFJBUl9DQVRFR09SSUEiLCJST0xFX1BFU1FVSVNBUl9QRVNTT0EiLCJST0xFX1JFTU9WRVJfUEVTU09BIiwiUk9MRV9DQURBU1RSQVJfTEFOQ0FNRU5UTyIsIlJPTEVfUEVTUVVJU0FSX0xBTkNBTUVOVE8iLCJST0xFX1JFTU9WRVJfTEFOQ0FNRU5UTyIsIlJPTEVfQ0FEQVNUUkFSX1BFU1NPQSIsIlJPTEVfUEVTUVVJU0FSX0NBVEVHT1JJQSJdLCJqdGkiOiI2ZWYxN2E5My1jMmM5LTRkYzQtYTYwNC01Yjk3NDRjZTNmZjUiLCJjbGllbnRfaWQiOiJhbmd1bGFyIn0.LMgnFF-DMiM8aOOt29k14Kyu_kHvNInieLTxoVxLLSA",
 									"type": "string"
 								}
 							]
@@ -336,7 +336,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"nome\": \"Erenilda Bassi\",\n    \"ativo\": false,\n    \"endereco\": {\n        \"logradouro\": \"Rua dos Paranaue\",\n        \"numero\": \"666\",\n        \"bairro\": \"Centro\",\n        \"cep\": \"86695000\",\n        \"cidade\": \"Alto Alegre\",\n        \"estado\": \"Paraná\"\n    }\n}"
+							"raw": "{\n    \"nome\": \"Erenilda Bassi\",\n    \"cpf\": \"111.111.111-22\",\n    \"ativo\": false,\n    \"endereco\": {\n        \"logradouro\": \"Rua dos Paranaue\",\n        \"numero\": \"666\",\n        \"bairro\": \"Centro\",\n        \"cep\": \"86695000\",\n        \"cidade\": \"Alto Alegre\",\n        \"estado\": \"Paraná\"\n    }\n}"
 						},
 						"url": {
 							"raw": "http://localhost:8080/pessoas/10",
@@ -583,7 +583,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJhZG1pbkBhbGdhbW9uZXkuY29tIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sIm5vbWUiOiJBZG1pbmlzdHJhZG9yIiwiZXhwIjoxNjE5ODgyMDUyLCJhdXRob3JpdGllcyI6WyJST0xFX0NBREFTVFJBUl9DQVRFR09SSUEiLCJST0xFX1BFU1FVSVNBUl9QRVNTT0EiLCJST0xFX1JFTU9WRVJfUEVTU09BIiwiUk9MRV9DQURBU1RSQVJfTEFOQ0FNRU5UTyIsIlJPTEVfUEVTUVVJU0FSX0xBTkNBTUVOVE8iLCJST0xFX1JFTU9WRVJfTEFOQ0FNRU5UTyIsIlJPTEVfQ0FEQVNUUkFSX1BFU1NPQSIsIlJPTEVfUEVTUVVJU0FSX0NBVEVHT1JJQSJdLCJqdGkiOiI4MTA4OTc4Mi1kMjRiLTQ2Y2UtODAwMC0xYmQzYzAwNGRjOGQiLCJjbGllbnRfaWQiOiJhbmd1bGFyIn0.51d4opZfx3ewial0IJD2vZKb5uEamySkxe1piZ7b3Z8",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJhZG1pbkBhbGdhbW9uZXkuY29tIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sIm5vbWUiOiJBZG1pbmlzdHJhZG9yIiwiZXhwIjoxNjIwMDQ1Mjg4LCJhdXRob3JpdGllcyI6WyJST0xFX0NBREFTVFJBUl9DQVRFR09SSUEiLCJST0xFX1BFU1FVSVNBUl9QRVNTT0EiLCJST0xFX1JFTU9WRVJfUEVTU09BIiwiUk9MRV9DQURBU1RSQVJfTEFOQ0FNRU5UTyIsIlJPTEVfUEVTUVVJU0FSX0xBTkNBTUVOVE8iLCJST0xFX1JFTU9WRVJfTEFOQ0FNRU5UTyIsIlJPTEVfQ0FEQVNUUkFSX1BFU1NPQSIsIlJPTEVfUEVTUVVJU0FSX0NBVEVHT1JJQSJdLCJqdGkiOiI4ZDhlYTE0OC1hYTcyLTQxYzQtYjRmOS1hMDNhNTNjZDAzY2MiLCJjbGllbnRfaWQiOiJhbmd1bGFyIn0.lqVVNvc_oaw1vMC4ajBJcd1cSK1DDw_OPKBpQpo5kRA",
 									"type": "string"
 								}
 							]
@@ -599,7 +599,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"descricao\": \"Saque Bet365\",\n    \"dataVencimento\": \"2018-03-10\",\n    \"dataPagamento\": \"2018-03-10\",\n    \"valor\": 50.25,\n    \"observacao\": \"só na boa\",\n    \"tipo\": \"RECEITA\",\n    \"categoria\": {\n    \t\"codigo\" : 1\n    },\n    \"pessoa\": {\n    \t\"codigo\" : 10\n    }\n}"
+							"raw": "{\n    \"descricao\": \"Saque Bet365\",\n    \"dataVencimento\": \"2018-03-10\",\n    \"dataPagamento\": \"2018-03-10\",\n    \"valor\": 50.25,\n    \"observacao\": \"só na boa\",\n    \"tipo\": \"RECEITA\",\n    \"categoria\": {\n    \t\"codigo\" : 5\n    },\n    \"pessoa\": {\n    \t\"codigo\" : 10\n    }\n}"
 						},
 						"url": {
 							"raw": "http://localhost:8080/lancamentos",
