@@ -8,7 +8,7 @@ Projeto com arquitetura SOFEA, no qual o frontend (Angular) da aplicação irá man
 Será feito deploy no Heroku, tanto do frontend como da API (backend).
 
 ## Backend
-> API em produção: https://mvam-algamoney.herokuapp.com
+> API em produção: https://mvam-algamoney.herokuapp.com <br/>
 > Coleção do Postman para testar requisições: [Link](https://github.com/marcosviniciusam90/algamoney-api/blob/master/backend/doc/AlgaMoney.postman_collection.json)
 
 
@@ -23,7 +23,7 @@ Será feito deploy no Heroku, tanto do frontend como da API (backend).
 - Lombok
 - MapStruct
 - Mockito
-- entre outras;
+- entre outros;
 
 ### Conceitos<br/>
 - Bean Validation
@@ -37,7 +37,7 @@ Será feito deploy no Heroku, tanto do frontend como da API (backend).
 - CORS
 - Spring Security (Basic, OAuth2 + JWT, Roles/Privileges)
 - Spring Profiles
-- Spring MockMvc
+- Spring MockMvc &nbsp;&nbsp;&nbsp;&nbsp; -> **Para os testes automáticos das requisições REST**
 - entre outros;
 
 
