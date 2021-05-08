@@ -30,6 +30,15 @@
 - `heroku logs --tail`
 
 
+**Uma alternativa é criar o app no próprio site do Heroku e depois associar o repositório git local**
+
+> heroku -v  <br/>
+> heroku login <br/>
+> heroku git:remote -a <nome-do-app> <br/>
+> git remote -v <br/>
+> git subtree push --prefix backend heroku main &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -> **Faz push de um diretório específico dado prefixo**
+
+
 
 -------------------------------------------------------------------------------------------------------------
  <span style="color:red">Failed to execute goal org.apache.maven.plugins:maven-resources-plugin:3.2.0:resources (default-resources) 
