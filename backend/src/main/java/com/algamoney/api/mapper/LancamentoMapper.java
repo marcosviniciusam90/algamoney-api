@@ -17,6 +17,7 @@ public interface LancamentoMapper {
     @Mapping(target = "pessoa.nome", ignore = true)
     @Mapping(target = "pessoa.ativo", ignore = true)
     @Mapping(target = "pessoa.endereco", ignore = true)
+    @Mapping(target = "pessoa.cpf", ignore = true)
     Lancamento inputDTOToEntity(LancamentoInputDTO inputDTO);
 
     @Mapping(source = "pessoa.nome", target = "pessoa")
