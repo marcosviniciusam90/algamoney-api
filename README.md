@@ -7,9 +7,12 @@ O projeto ainda está em construção (**40% concluido**)
 Projeto com arquitetura SOFEA, no qual o frontend (Angular) da aplicação irá manipular dados de um servidor via requisições REST.<br/>
 Será feito deploy no Heroku, tanto do frontend como da API (backend).
 
-## Backend (https://mvam-algamoney.herokuapp.com)
+## Backend
+> API em produção: https://mvam-algamoney.herokuapp.com
+> Coleção do Postman para testar requisições: [Link](https://github.com/marcosviniciusam90/algamoney-api/blob/master/backend/doc/AlgaMoney.postman_collection.json)
 
-**Tecnologias**<br/>
+
+### O que foi utilizado?<br/>
 - Java
 - Spring
 - REST
@@ -20,10 +23,9 @@ Será feito deploy no Heroku, tanto do frontend como da API (backend).
 - Lombok
 - MapStruct
 - Mockito
-
 - entre outras;
 
-**Conceitos**<br/>
+### Conceitos<br/>
 - Bean Validation
 - Bean Configuration
 - Properties Configuration
@@ -39,7 +41,9 @@ Será feito deploy no Heroku, tanto do frontend como da API (backend).
 - entre outros;
 
 
-## Frontend (em construção)
+## Frontend
+> Em construção
+
 
 ## TODO
 - No Lombok, adicionar instância do Logger para fazer log de execução dos serviços
