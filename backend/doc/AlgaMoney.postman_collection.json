@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "cf769264-b7bb-459c-b628-090b8eb5f9c8",
+		"_postman_id": "68cdf21a-f48a-4221-b436-acd8b83bb6f6",
 		"name": "AlgaMoney",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -128,7 +128,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJhZG1pbkBhbGdhbW9uZXkuY29tIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sIm5vbWUiOiJBZG1pbmlzdHJhZG9yIiwiZXhwIjoxNjIwMDM5MTY1LCJhdXRob3JpdGllcyI6WyJST0xFX0NBREFTVFJBUl9DQVRFR09SSUEiLCJST0xFX1BFU1FVSVNBUl9QRVNTT0EiLCJST0xFX1JFTU9WRVJfUEVTU09BIiwiUk9MRV9DQURBU1RSQVJfTEFOQ0FNRU5UTyIsIlJPTEVfUEVTUVVJU0FSX0xBTkNBTUVOVE8iLCJST0xFX1JFTU9WRVJfTEFOQ0FNRU5UTyIsIlJPTEVfQ0FEQVNUUkFSX1BFU1NPQSIsIlJPTEVfUEVTUVVJU0FSX0NBVEVHT1JJQSJdLCJqdGkiOiI2ZWYxN2E5My1jMmM5LTRkYzQtYTYwNC01Yjk3NDRjZTNmZjUiLCJjbGllbnRfaWQiOiJhbmd1bGFyIn0.LMgnFF-DMiM8aOOt29k14Kyu_kHvNInieLTxoVxLLSA",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJhZG1pbkBhbGdhbW9uZXkuY29tIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sIm5vbWUiOiJBZG1pbmlzdHJhZG9yIiwiZXhwIjoxNjIwNDk2MTQyLCJhdXRob3JpdGllcyI6WyJST0xFX0NBREFTVFJBUl9DQVRFR09SSUEiLCJST0xFX1BFU1FVSVNBUl9QRVNTT0EiLCJST0xFX1JFTU9WRVJfUEVTU09BIiwiUk9MRV9DQURBU1RSQVJfTEFOQ0FNRU5UTyIsIlJPTEVfUEVTUVVJU0FSX0xBTkNBTUVOVE8iLCJST0xFX1JFTU9WRVJfTEFOQ0FNRU5UTyIsIlJPTEVfQ0FEQVNUUkFSX1BFU1NPQSIsIlJPTEVfUEVTUVVJU0FSX0NBVEVHT1JJQSJdLCJqdGkiOiI4ZTk3ZWQzYi05YzdlLTRkMGYtODhlNi05Mzg1YmNmNDMwZDQiLCJjbGllbnRfaWQiOiJhbmd1bGFyIn0.t1FnR0VCbeGSeACRduZNTKB38aGyUnpMngv62EyRe4s",
 									"type": "string"
 								}
 							]
@@ -212,7 +212,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJhZG1pbkBhbGdhbW9uZXkuY29tIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sIm5vbWUiOiJBZG1pbmlzdHJhZG9yIiwiZXhwIjoxNjIwMDQ1Mjg4LCJhdXRob3JpdGllcyI6WyJST0xFX0NBREFTVFJBUl9DQVRFR09SSUEiLCJST0xFX1BFU1FVSVNBUl9QRVNTT0EiLCJST0xFX1JFTU9WRVJfUEVTU09BIiwiUk9MRV9DQURBU1RSQVJfTEFOQ0FNRU5UTyIsIlJPTEVfUEVTUVVJU0FSX0xBTkNBTUVOVE8iLCJST0xFX1JFTU9WRVJfTEFOQ0FNRU5UTyIsIlJPTEVfQ0FEQVNUUkFSX1BFU1NPQSIsIlJPTEVfUEVTUVVJU0FSX0NBVEVHT1JJQSJdLCJqdGkiOiI4ZDhlYTE0OC1hYTcyLTQxYzQtYjRmOS1hMDNhNTNjZDAzY2MiLCJjbGllbnRfaWQiOiJhbmd1bGFyIn0.lqVVNvc_oaw1vMC4ajBJcd1cSK1DDw_OPKBpQpo5kRA",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJhZG1pbkBhbGdhbW9uZXkuY29tIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sIm5vbWUiOiJBZG1pbmlzdHJhZG9yIiwiZXhwIjoxNjIwNDk2MTQyLCJhdXRob3JpdGllcyI6WyJST0xFX0NBREFTVFJBUl9DQVRFR09SSUEiLCJST0xFX1BFU1FVSVNBUl9QRVNTT0EiLCJST0xFX1JFTU9WRVJfUEVTU09BIiwiUk9MRV9DQURBU1RSQVJfTEFOQ0FNRU5UTyIsIlJPTEVfUEVTUVVJU0FSX0xBTkNBTUVOVE8iLCJST0xFX1JFTU9WRVJfTEFOQ0FNRU5UTyIsIlJPTEVfQ0FEQVNUUkFSX1BFU1NPQSIsIlJPTEVfUEVTUVVJU0FSX0NBVEVHT1JJQSJdLCJqdGkiOiI4ZTk3ZWQzYi05YzdlLTRkMGYtODhlNi05Mzg1YmNmNDMwZDQiLCJjbGllbnRfaWQiOiJhbmd1bGFyIn0.t1FnR0VCbeGSeACRduZNTKB38aGyUnpMngv62EyRe4s",
 									"type": "string"
 								}
 							]
@@ -408,7 +408,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2MTgzNTE4NjcsInVzZXJfbmFtZSI6Im1hcmlhQGFsZ2Ftb25leS5jb20iLCJhdXRob3JpdGllcyI6WyJST0xFX1BFU1FVSVNBUl9MQU5DQU1FTlRPIiwiUk9MRV9QRVNRVUlTQVJfQ0FURUdPUklBIiwiUk9MRV9QRVNRVUlTQVJfUEVTU09BIl0sImp0aSI6ImY4ZDFkYTQ5LTc2NDUtNGQwYy1hMmFlLWI4ZjMxYzMzM2Q3ZiIsImNsaWVudF9pZCI6ImFuZ3VsYXIiLCJzY29wZSI6WyJyZWFkIiwid3JpdGUiXX0.ktYbEp1l9PHguB-8sZFuEDEId0N3I5Oe-V-5EREq9gA",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJhZG1pbkBhbGdhbW9uZXkuY29tIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sIm5vbWUiOiJBZG1pbmlzdHJhZG9yIiwiZXhwIjoxNjIwNDk1NzM5LCJhdXRob3JpdGllcyI6WyJST0xFX0NBREFTVFJBUl9DQVRFR09SSUEiLCJST0xFX1BFU1FVSVNBUl9QRVNTT0EiLCJST0xFX1JFTU9WRVJfUEVTU09BIiwiUk9MRV9DQURBU1RSQVJfTEFOQ0FNRU5UTyIsIlJPTEVfUEVTUVVJU0FSX0xBTkNBTUVOVE8iLCJST0xFX1JFTU9WRVJfTEFOQ0FNRU5UTyIsIlJPTEVfQ0FEQVNUUkFSX1BFU1NPQSIsIlJPTEVfUEVTUVVJU0FSX0NBVEVHT1JJQSJdLCJqdGkiOiI1ZGRlNDJjOC0wY2EyLTQ2OTctYWQ0ZS1kMmYzOWFhMGJmYzMiLCJjbGllbnRfaWQiOiJhbmd1bGFyIn0.aqCzZLk4y_zTeJ2nL5qqT1eJek9O4I-Fp2vlIx8OUkg",
 									"type": "string"
 								}
 							]
@@ -420,7 +420,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "http://localhost:8080/lancamentos?dataVencimentoDe=2017-06-10&dataVencimentoAte=2018-03-10&descricao=inglaterra",
+							"raw": "http://localhost:8080/lancamentos?dataVencimentoDe=2017-06-10&dataVencimentoAte=2018-03-10",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -437,10 +437,6 @@
 								{
 									"key": "dataVencimentoAte",
 									"value": "2018-03-10"
-								},
-								{
-									"key": "descricao",
-									"value": "inglaterra"
 								}
 							]
 						}
@@ -895,6 +891,283 @@
 			"name": "PRODUÇÃO",
 			"item": [
 				{
+					"name": "Pessoas Copy",
+					"item": [
+						{
+							"name": "Pessoas - listar",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJhZG1pbkBhbGdhbW9uZXkuY29tIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sIm5vbWUiOiJBZG1pbmlzdHJhZG9yIiwiZXhwIjoxNjIwNDk5NDkwLCJhdXRob3JpdGllcyI6WyJST0xFX0NBREFTVFJBUl9DQVRFR09SSUEiLCJST0xFX1BFU1FVSVNBUl9QRVNTT0EiLCJST0xFX1JFTU9WRVJfUEVTU09BIiwiUk9MRV9DQURBU1RSQVJfTEFOQ0FNRU5UTyIsIlJPTEVfUEVTUVVJU0FSX0xBTkNBTUVOVE8iLCJST0xFX1JFTU9WRVJfTEFOQ0FNRU5UTyIsIlJPTEVfQ0FEQVNUUkFSX1BFU1NPQSIsIlJPTEVfUEVTUVVJU0FSX0NBVEVHT1JJQSJdLCJqdGkiOiIzYmQ1NjljZC00MjdhLTQ1MjEtODBjZS1mNTY5YzRmYzU2MzkiLCJjbGllbnRfaWQiOiJhbmd1bGFyIn0.WHvX0QInVCR1WczjBUDFuZODZMkrrXvIhDNv_y3VV3U",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{heroku}}/pessoas",
+									"host": [
+										"{{heroku}}"
+									],
+									"path": [
+										"pessoas"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Pessoas - listar (paginação)",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJhZG1pbkBhbGdhbW9uZXkuY29tIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sIm5vbWUiOiJBZG1pbmlzdHJhZG9yIiwiZXhwIjoxNjE5Njk1NDY4LCJhdXRob3JpdGllcyI6WyJST0xFX0NBREFTVFJBUl9DQVRFR09SSUEiLCJST0xFX1BFU1FVSVNBUl9QRVNTT0EiLCJST0xFX1JFTU9WRVJfUEVTU09BIiwiUk9MRV9DQURBU1RSQVJfTEFOQ0FNRU5UTyIsIlJPTEVfUEVTUVVJU0FSX0xBTkNBTUVOVE8iLCJST0xFX1JFTU9WRVJfTEFOQ0FNRU5UTyIsIlJPTEVfQ0FEQVNUUkFSX1BFU1NPQSIsIlJPTEVfUEVTUVVJU0FSX0NBVEVHT1JJQSJdLCJqdGkiOiI4OWVmYjc4My04MjcwLTQ0M2EtYjMyYS0zNmUwOTAzMmUwYjEiLCJjbGllbnRfaWQiOiJhbmd1bGFyIn0.3aDKTloWM2cxZAOVTwDa5qDeLrUdZV6aq88qPOaVz-4",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:8080/pessoas?nome=marcos&sort=nome&size=5&page=0",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"pessoas"
+									],
+									"query": [
+										{
+											"key": "nome",
+											"value": "marcos"
+										},
+										{
+											"key": "sort",
+											"value": "nome"
+										},
+										{
+											"key": "size",
+											"value": "5"
+										},
+										{
+											"key": "page",
+											"value": "0"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Pessoas - buscar",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJhZG1pbkBhbGdhbW9uZXkuY29tIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sIm5vbWUiOiJBZG1pbmlzdHJhZG9yIiwiZXhwIjoxNjIwNDk5NDkwLCJhdXRob3JpdGllcyI6WyJST0xFX0NBREFTVFJBUl9DQVRFR09SSUEiLCJST0xFX1BFU1FVSVNBUl9QRVNTT0EiLCJST0xFX1JFTU9WRVJfUEVTU09BIiwiUk9MRV9DQURBU1RSQVJfTEFOQ0FNRU5UTyIsIlJPTEVfUEVTUVVJU0FSX0xBTkNBTUVOVE8iLCJST0xFX1JFTU9WRVJfTEFOQ0FNRU5UTyIsIlJPTEVfQ0FEQVNUUkFSX1BFU1NPQSIsIlJPTEVfUEVTUVVJU0FSX0NBVEVHT1JJQSJdLCJqdGkiOiIzYmQ1NjljZC00MjdhLTQ1MjEtODBjZS1mNTY5YzRmYzU2MzkiLCJjbGllbnRfaWQiOiJhbmd1bGFyIn0.WHvX0QInVCR1WczjBUDFuZODZMkrrXvIhDNv_y3VV3U",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{heroku}}/pessoas/10",
+									"host": [
+										"{{heroku}}"
+									],
+									"path": [
+										"pessoas",
+										"10"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Pessoas - criar",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJhZG1pbkBhbGdhbW9uZXkuY29tIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sIm5vbWUiOiJBZG1pbmlzdHJhZG9yIiwiZXhwIjoxNjIwMDM5MTY1LCJhdXRob3JpdGllcyI6WyJST0xFX0NBREFTVFJBUl9DQVRFR09SSUEiLCJST0xFX1BFU1FVSVNBUl9QRVNTT0EiLCJST0xFX1JFTU9WRVJfUEVTU09BIiwiUk9MRV9DQURBU1RSQVJfTEFOQ0FNRU5UTyIsIlJPTEVfUEVTUVVJU0FSX0xBTkNBTUVOVE8iLCJST0xFX1JFTU9WRVJfTEFOQ0FNRU5UTyIsIlJPTEVfQ0FEQVNUUkFSX1BFU1NPQSIsIlJPTEVfUEVTUVVJU0FSX0NBVEVHT1JJQSJdLCJqdGkiOiI2ZWYxN2E5My1jMmM5LTRkYzQtYTYwNC01Yjk3NDRjZTNmZjUiLCJjbGllbnRfaWQiOiJhbmd1bGFyIn0.LMgnFF-DMiM8aOOt29k14Kyu_kHvNInieLTxoVxLLSA",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"nome\": \"Pedro da Silva\",\n    \"cpf\": \"968.776.560-75\",\n    \"ativo\": true,\n    \"endereco\": {\n        \"logradouro\": \"Rua dos Escoteiros\",\n        \"numero\": \"70\",\n        \"complemento\": \"Proximo a Preta\",\n        \"bairro\": \"Jardim Cairi\",\n        \"cep\": \"86690000\",\n        \"cidade\": \"Alto Alegre\",\n        \"estado\": \"Paraná\"\n    }\n}"
+								},
+								"url": {
+									"raw": "http://localhost:8080/pessoas",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"pessoas"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Pessoas - excluir",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJhZG1pbkBhbGdhbW9uZXkuY29tIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sIm5vbWUiOiJBZG1pbmlzdHJhZG9yIiwiZXhwIjoxNjE5Njk2ODMxLCJhdXRob3JpdGllcyI6WyJST0xFX0NBREFTVFJBUl9DQVRFR09SSUEiLCJST0xFX1BFU1FVSVNBUl9QRVNTT0EiLCJST0xFX1JFTU9WRVJfUEVTU09BIiwiUk9MRV9DQURBU1RSQVJfTEFOQ0FNRU5UTyIsIlJPTEVfUEVTUVVJU0FSX0xBTkNBTUVOVE8iLCJST0xFX1JFTU9WRVJfTEFOQ0FNRU5UTyIsIlJPTEVfQ0FEQVNUUkFSX1BFU1NPQSIsIlJPTEVfUEVTUVVJU0FSX0NBVEVHT1JJQSJdLCJqdGkiOiIzOTdmNDU5NC05NTRkLTQ0MTMtOTM5MS03ZWIzMjVlNzgzMTciLCJjbGllbnRfaWQiOiJhbmd1bGFyIn0._u-025GxfTLfRU8jO2Yu7dPcyCRwn6VcyVhYX9z5kuE",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:8080/pessoas/13",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"pessoas",
+										"13"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Pessoas - atualizar",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJhZG1pbkBhbGdhbW9uZXkuY29tIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sIm5vbWUiOiJBZG1pbmlzdHJhZG9yIiwiZXhwIjoxNjIwMDM5MTY1LCJhdXRob3JpdGllcyI6WyJST0xFX0NBREFTVFJBUl9DQVRFR09SSUEiLCJST0xFX1BFU1FVSVNBUl9QRVNTT0EiLCJST0xFX1JFTU9WRVJfUEVTU09BIiwiUk9MRV9DQURBU1RSQVJfTEFOQ0FNRU5UTyIsIlJPTEVfUEVTUVVJU0FSX0xBTkNBTUVOVE8iLCJST0xFX1JFTU9WRVJfTEFOQ0FNRU5UTyIsIlJPTEVfQ0FEQVNUUkFSX1BFU1NPQSIsIlJPTEVfUEVTUVVJU0FSX0NBVEVHT1JJQSJdLCJqdGkiOiI2ZWYxN2E5My1jMmM5LTRkYzQtYTYwNC01Yjk3NDRjZTNmZjUiLCJjbGllbnRfaWQiOiJhbmd1bGFyIn0.LMgnFF-DMiM8aOOt29k14Kyu_kHvNInieLTxoVxLLSA",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"nome\": \"Erenilda Bassi\",\n    \"cpf\": \"111.111.111-22\",\n    \"ativo\": false,\n    \"endereco\": {\n        \"logradouro\": \"Rua dos Paranaue\",\n        \"numero\": \"666\",\n        \"bairro\": \"Centro\",\n        \"cep\": \"86695000\",\n        \"cidade\": \"Alto Alegre\",\n        \"estado\": \"Paraná\"\n    }\n}"
+								},
+								"url": {
+									"raw": "http://localhost:8080/pessoas/10",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"pessoas",
+										"10"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Pessoas - ativo (propriedade)",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJhZG1pbkBhbGdhbW9uZXkuY29tIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sIm5vbWUiOiJBZG1pbmlzdHJhZG9yIiwiZXhwIjoxNjE5ODYwMDM4LCJhdXRob3JpdGllcyI6WyJST0xFX0NBREFTVFJBUl9DQVRFR09SSUEiLCJST0xFX1BFU1FVSVNBUl9QRVNTT0EiLCJST0xFX1JFTU9WRVJfUEVTU09BIiwiUk9MRV9DQURBU1RSQVJfTEFOQ0FNRU5UTyIsIlJPTEVfUEVTUVVJU0FSX0xBTkNBTUVOVE8iLCJST0xFX1JFTU9WRVJfTEFOQ0FNRU5UTyIsIlJPTEVfQ0FEQVNUUkFSX1BFU1NPQSIsIlJPTEVfUEVTUVVJU0FSX0NBVEVHT1JJQSJdLCJqdGkiOiJjNjljNDIwNi0yNTZhLTQ0MjEtOTg2OS05ZjEwYzU3MjJjNTciLCJjbGllbnRfaWQiOiJhbmd1bGFyIn0.dq58KU8bdmWI4YeqBSCd1_SzGJMTAz2qG7CgB7EWJaQ",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "true"
+								},
+								"url": {
+									"raw": "http://localhost:8080/pessoas/10/ativo",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"pessoas",
+										"10",
+										"ativo"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
 					"name": "Autenticação Copy",
 					"item": [
 						{
@@ -950,10 +1223,10 @@
 									]
 								},
 								"url": {
-									"raw": "https://algamoney-api-mvam.herokuapp.com/oauth/token",
+									"raw": "https://mvam-algamoney.herokuapp.com/oauth/token",
 									"protocol": "https",
 									"host": [
-										"algamoney-api-mvam",
+										"mvam-algamoney",
 										"herokuapp",
 										"com"
 									],
@@ -1080,10 +1353,10 @@
 									"raw": ""
 								},
 								"url": {
-									"raw": "https://algamoney-api-mvam.herokuapp.com/categorias",
+									"raw": "https://mvam-algamoney.herokuapp.com/categorias",
 									"protocol": "https",
 									"host": [
-										"algamoney-api-mvam",
+										"mvam-algamoney",
 										"herokuapp",
 										"com"
 									],
@@ -1120,10 +1393,10 @@
 									"raw": ""
 								},
 								"url": {
-									"raw": "https://algamoney-api-mvam.herokuapp.com/lancamentos?descricao=Clube",
+									"raw": "https://mvam-algamoney.herokuapp.com/lancamentos?descricao=Clube",
 									"protocol": "https",
 									"host": [
-										"algamoney-api-mvam",
+										"mvam-algamoney",
 										"herokuapp",
 										"com"
 									],
@@ -1383,6 +1656,36 @@
 					"_postman_isSubFolder": true
 				}
 			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "1a17b16f-dc1b-4019-9ce9-7d5dcd1a7ae0",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "64b59406-0999-42e7-9346-ed9b45555cd2",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "32751ac0-ca0a-45d1-a61d-4bc8e68339f5",
+			"key": "heroku",
+			"value": "https://mvam-algamoney.herokuapp.com",
+			"type": "string"
 		}
 	]
 }
