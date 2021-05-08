@@ -7,7 +7,7 @@ O projeto ainda está em construção (**40% concluido**)
 Projeto com arquitetura SOFEA, no qual o frontend (Angular) da aplicação irá manipular dados de um servidor via requisições REST.<br/>
 Será feito deploy no Heroku, tanto do frontend como da API (backend).
 
-## Backend (https://algamoney-api-mvam.herokuapp.com)
+## Backend (https://mvam-algamoney.herokuapp.com)
 
 **Tecnologias**<br/>
 - Java
