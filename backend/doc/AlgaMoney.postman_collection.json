@@ -408,7 +408,55 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJhZG1pbkBhbGdhbW9uZXkuY29tIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sIm5vbWUiOiJBZG1pbmlzdHJhZG9yIiwiZXhwIjoxNjIwNDk1NzM5LCJhdXRob3JpdGllcyI6WyJST0xFX0NBREFTVFJBUl9DQVRFR09SSUEiLCJST0xFX1BFU1FVSVNBUl9QRVNTT0EiLCJST0xFX1JFTU9WRVJfUEVTU09BIiwiUk9MRV9DQURBU1RSQVJfTEFOQ0FNRU5UTyIsIlJPTEVfUEVTUVVJU0FSX0xBTkNBTUVOVE8iLCJST0xFX1JFTU9WRVJfTEFOQ0FNRU5UTyIsIlJPTEVfQ0FEQVNUUkFSX1BFU1NPQSIsIlJPTEVfUEVTUVVJU0FSX0NBVEVHT1JJQSJdLCJqdGkiOiI1ZGRlNDJjOC0wY2EyLTQ2OTctYWQ0ZS1kMmYzOWFhMGJmYzMiLCJjbGllbnRfaWQiOiJhbmd1bGFyIn0.aqCzZLk4y_zTeJ2nL5qqT1eJek9O4I-Fp2vlIx8OUkg",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJhZG1pbkBhbGdhbW9uZXkuY29tIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sIm5vbWUiOiJBZG1pbmlzdHJhZG9yIiwiZXhwIjoxNjIxMjIzMzgwLCJhdXRob3JpdGllcyI6WyJST0xFX0NBREFTVFJBUl9DQVRFR09SSUEiLCJST0xFX1BFU1FVSVNBUl9QRVNTT0EiLCJST0xFX1JFTU9WRVJfUEVTU09BIiwiUk9MRV9DQURBU1RSQVJfTEFOQ0FNRU5UTyIsIlJPTEVfUEVTUVVJU0FSX0xBTkNBTUVOVE8iLCJST0xFX1JFTU9WRVJfTEFOQ0FNRU5UTyIsIlJPTEVfQ0FEQVNUUkFSX1BFU1NPQSIsIlJPTEVfUEVTUVVJU0FSX0NBVEVHT1JJQSJdLCJqdGkiOiI5YWFkNzg4Ni0xYTcwLTQyMjYtYTc3MC1hOGMzZTc0YjU2MTMiLCJjbGllbnRfaWQiOiJhbmd1bGFyIn0.KFuT0VKWAmtaShxgqwlSUl3QRnn1G3VRmiagczEMc2I",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/lancamentos?dataVencimentoDe=2017-06-10&dataVencimentoAte=2018-03-10",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"lancamentos"
+							],
+							"query": [
+								{
+									"key": "dataVencimentoDe",
+									"value": "2017-06-10"
+								},
+								{
+									"key": "dataVencimentoAte",
+									"value": "2018-03-10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lançamento - filtrar (BASIC)",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "maria@algamoney.com",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "maria",
 									"type": "string"
 								}
 							]
@@ -451,7 +499,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJhZG1pbkBhbGdhbW9uZXkuY29tIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sIm5vbWUiOiJBZG1pbmlzdHJhZG9yIiwiZXhwIjoxNjE5NTk2ODEwLCJhdXRob3JpdGllcyI6WyJST0xFX0NBREFTVFJBUl9DQVRFR09SSUEiLCJST0xFX1BFU1FVSVNBUl9QRVNTT0EiLCJST0xFX1JFTU9WRVJfUEVTU09BIiwiUk9MRV9DQURBU1RSQVJfTEFOQ0FNRU5UTyIsIlJPTEVfUEVTUVVJU0FSX0xBTkNBTUVOVE8iLCJST0xFX1JFTU9WRVJfTEFOQ0FNRU5UTyIsIlJPTEVfQ0FEQVNUUkFSX1BFU1NPQSIsIlJPTEVfUEVTUVVJU0FSX0NBVEVHT1JJQSJdLCJqdGkiOiJjYmRmNDQ3MC1jMDc1LTQ1YzEtOTBiMC02NzM2MmU3OTU3OTciLCJjbGllbnRfaWQiOiJhbmd1bGFyIn0.2-FiyyALodgDVq-33-ISEfBl1gtWZGPlPjpjugPD_m8",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJhZG1pbkBhbGdhbW9uZXkuY29tIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sIm5vbWUiOiJBZG1pbmlzdHJhZG9yIiwiZXhwIjoxNjIwNjcxMDQ2LCJhdXRob3JpdGllcyI6WyJST0xFX0NBREFTVFJBUl9DQVRFR09SSUEiLCJST0xFX1BFU1FVSVNBUl9QRVNTT0EiLCJST0xFX1JFTU9WRVJfUEVTU09BIiwiUk9MRV9DQURBU1RSQVJfTEFOQ0FNRU5UTyIsIlJPTEVfUEVTUVVJU0FSX0xBTkNBTUVOVE8iLCJST0xFX1JFTU9WRVJfTEFOQ0FNRU5UTyIsIlJPTEVfQ0FEQVNUUkFSX1BFU1NPQSIsIlJPTEVfUEVTUVVJU0FSX0NBVEVHT1JJQSJdLCJqdGkiOiI1Njk1MDBkMy05MWRmLTQ0NDMtYTMzNC0yOTVkMjMxYTgyZGQiLCJjbGllbnRfaWQiOiJhbmd1bGFyIn0.HL_ae4WhPRlHN3XYcZuRGhcAM7iOTdOqLoqApZNiBcc",
 									"type": "string"
 								}
 							]
@@ -463,7 +511,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "http://localhost:8080/lancamentos?resumo&page=0&descricao=Viagem",
+							"raw": "http://localhost:8080/lancamentos?resumo&size=10&page=0",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -478,12 +526,12 @@
 									"value": null
 								},
 								{
-									"key": "page",
-									"value": "0"
+									"key": "size",
+									"value": "10"
 								},
 								{
-									"key": "descricao",
-									"value": "Viagem"
+									"key": "page",
+									"value": "0"
 								}
 							]
 						}
@@ -901,7 +949,7 @@
 									"bearer": [
 										{
 											"key": "token",
-											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJhZG1pbkBhbGdhbW9uZXkuY29tIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sIm5vbWUiOiJBZG1pbmlzdHJhZG9yIiwiZXhwIjoxNjIwNDk5NDkwLCJhdXRob3JpdGllcyI6WyJST0xFX0NBREFTVFJBUl9DQVRFR09SSUEiLCJST0xFX1BFU1FVSVNBUl9QRVNTT0EiLCJST0xFX1JFTU9WRVJfUEVTU09BIiwiUk9MRV9DQURBU1RSQVJfTEFOQ0FNRU5UTyIsIlJPTEVfUEVTUVVJU0FSX0xBTkNBTUVOVE8iLCJST0xFX1JFTU9WRVJfTEFOQ0FNRU5UTyIsIlJPTEVfQ0FEQVNUUkFSX1BFU1NPQSIsIlJPTEVfUEVTUVVJU0FSX0NBVEVHT1JJQSJdLCJqdGkiOiIzYmQ1NjljZC00MjdhLTQ1MjEtODBjZS1mNTY5YzRmYzU2MzkiLCJjbGllbnRfaWQiOiJhbmd1bGFyIn0.WHvX0QInVCR1WczjBUDFuZODZMkrrXvIhDNv_y3VV3U",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJhZG1pbkBhbGdhbW9uZXkuY29tIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sIm5vbWUiOiJBZG1pbmlzdHJhZG9yIiwiZXhwIjoxNjIwNjE5MDMzLCJhdXRob3JpdGllcyI6WyJST0xFX0NBREFTVFJBUl9DQVRFR09SSUEiLCJST0xFX1BFU1FVSVNBUl9QRVNTT0EiLCJST0xFX1JFTU9WRVJfUEVTU09BIiwiUk9MRV9DQURBU1RSQVJfTEFOQ0FNRU5UTyIsIlJPTEVfUEVTUVVJU0FSX0xBTkNBTUVOVE8iLCJST0xFX1JFTU9WRVJfTEFOQ0FNRU5UTyIsIlJPTEVfQ0FEQVNUUkFSX1BFU1NPQSIsIlJPTEVfUEVTUVVJU0FSX0NBVEVHT1JJQSJdLCJqdGkiOiJmYmViODk5Ni0xZTRkLTRjYzYtYjVkZC0xMWNhOTA0ZTU0MTAiLCJjbGllbnRfaWQiOiJhbmd1bGFyIn0.UXaD9SPworvVC-G8MUi0SFnXz1WFLNF7v0YDK7GEzpw",
 											"type": "string"
 										}
 									]
