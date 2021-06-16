@@ -21,3 +21,20 @@ label {
     width: 95%;
     margin: 0 auto;  /* 0 em cima e em baixo | 'auto' calcula automaticamente as margens laterais */
 }
+
+/* Estilos para tabela */
+.col-valor-header {
+    width: 120px;
+  }
+
+  .col-valor-content {
+    text-align: right;
+  }
+
+  .col-data-header {
+    width: 120px;
+  }
+
+  .col-data-content {
+    text-align: center;
+  }
