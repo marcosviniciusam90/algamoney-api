@@ -9,7 +9,7 @@ label {
 }
 
 .label-block {
-    display: block;
+    display: block; /* Quebra de linha para a label e o próximo elemento */
 }
 
 .input-date {
