@@ -15,7 +15,7 @@
             <label class="label-block">Vencimento</label>
             <input class="input-date" pInputText type="text">
 
-            <label>até</label>
+            <label> até </label>
             <input class="input-date" pInputText type="text">
         </div>
 
@@ -26,7 +26,7 @@
 
     <div class="p-grid">
         <div class="p-col-12">
-            <p-table [value]="lancamentos" [paginator]="true" [rows]="2"
+            <p-table [value]="lancamentos" [paginator]="true" [rows]="2" [responsive]="true"
                 styleClass="p-datatable-sm p-datatable-gridlines p-datatable-striped">
                 <ng-template pTemplate="header">
                     <tr>
@@ -40,12 +40,27 @@
                 </ng-template>
                 <ng-template pTemplate="body" let-lancamento>
                     <tr>
-                        <td>{{lancamento.pessoa}}</td>
-                        <td>{{lancamento.descricao}}</td>
-                        <td class="col-center">{{lancamento.dataVencimento}}</td>
-                        <td class="col-center">{{lancamento.dataPagamento}}</td>
-                        <td class="col-right" [ngStyle]="{ color: lancamento.tipo === 'DESPESA' ? 'red' : 'blue' }">
-                            {{lancamento.valor}}
+                        <td>
+                            <span class="p-column-title">Pessoa</span>
+                            {{lancamento.pessoa}}
+                        </td>
+                        <td>
+                            <span class="p-column-title">Descrição</span>
+                            {{lancamento.descricao}}
+                        </td>
+                        <td class="col-center">
+                            <span class="p-column-title">Vencimento</span>
+                            {{lancamento.dataVencimento}}
+                        </td>
+                        <td class="col-center">
+                            <span class="p-column-title">Pagamento</span>
+                            {{lancamento.dataPagamento}}
+                        </td>
+                        <td class="col-right">
+                            <span class="p-column-title">Valor</span>
+                            <span [ngStyle]="{ color: lancamento.tipo === 'DESPESA' ? 'red' : 'blue' }">
+                                {{lancamento.valor}}
+                            </span>
                         </td>
                         <td class="col-center">
                             <a class="col-mr" pButton icon="pi pi-pencil" pTooltip="Editar" tooltipPosition="top"></a>
