@@ -1,6 +1,6 @@
 <div class="container">
 
-    <div class="p-grid">
+    <div class="p-grid p-inputtext-sm">
 
         <div class="p-col-12">
             <h1>Lançamentos</h1>
@@ -30,24 +30,35 @@
                 styleClass="p-datatable-sm p-datatable-gridlines p-datatable-striped">
                 <ng-template pTemplate="header">
                     <tr>
-                        <th>Pessoa</th>
-                        <th>Descrição</th>
-                        <th class="col-data-header">Vencimento</th>
-                        <th class="col-data-header">Pagamento</th>
-                        <th class="col-valor-header">Valor</th>
+                        <th class="p-col-3">Pessoa</th>
+                        <th class="p-col-5">Descrição</th>
+                        <th class="p-col-1 col-center">Vencimento</th>
+                        <th class="p-col-1 col-center">Pagamento</th>
+                        <th class="p-col-1 col-right">Valor</th>
+                        <th class="p-col-1"></th>
                     </tr>
                 </ng-template>
                 <ng-template pTemplate="body" let-lancamento>
                     <tr>
                         <td>{{lancamento.pessoa}}</td>
                         <td>{{lancamento.descricao}}</td>
-                        <td class="col-data-content">{{lancamento.dataVencimento}}</td>
-                        <td class="col-data-content">{{lancamento.dataPagamento}}</td>
-                        <td class="col-valor-content">{{lancamento.valor}}</td>
+                        <td class="col-center">{{lancamento.dataVencimento}}</td>
+                        <td class="col-center">{{lancamento.dataPagamento}}</td>
+                        <td class="col-right" [ngStyle]="{ color: lancamento.tipo === 'DESPESA' ? 'red' : 'blue' }">
+                            {{lancamento.valor}}
+                        </td>
+                        <td class="col-center">
+                            <a class="col-mr" pButton icon="pi pi-pencil"></a>
+                            <button pButton icon="pi pi-trash"></button>
+                        </td>
                     </tr>
                 </ng-template>
             </p-table>
 
+        </div>
+
+        <div class="p-col-12">
+            <a pButton label="Novo Lançamento"></a>
         </div>
     </div>
 
