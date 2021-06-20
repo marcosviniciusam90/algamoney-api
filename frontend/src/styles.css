@@ -67,4 +67,5 @@ a:hover, a:focus {
 
 .p-dropdown {
     height: var(--default-height);
+    align-items: center;
 }
