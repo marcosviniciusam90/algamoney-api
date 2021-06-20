@@ -25,8 +25,17 @@
             </div>
 
             <div class="p-col-12  p-md-9 p-fluid">
-                <label>Descrição</label>
-                <input pInputText type="text">
+                <label>Descrição {{ campoDescricao.errors | json }}</label>
+                <input pInputText type="text" name="descricao" ngModel #campoDescricao="ngModel"
+                required minlength="5">
+
+                <div *ngIf="campoDescricao.hasError('required') && campoDescricao.dirty"
+                class="p-message p-message-error">Campo obrigatório</div>
+                <div *ngIf="campoDescricao.hasError('minlength') && campoDescricao.dirty"
+                class="p-message p-message-error">
+                    Mínimo de {{ campoDescricao.errors?.minlength?.requiredLength }} caracteres.
+                    Você digitou apenas {{ campoDescricao.errors?.minlength?.actualLength }}
+                </div>
             </div>
 
             <div class="p-col-12  p-md-3 p-fluid">
