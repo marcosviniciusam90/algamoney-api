@@ -17,6 +17,14 @@ input {
     height:30px;
 }
 
+a {
+    text-decoration: none;
+}
+
+a:hover, a:focus {
+    text-decoration: underline;
+}
+
 .label-block {
     display: block; /* Quebra de linha para a label e o próximo elemento */
 }
