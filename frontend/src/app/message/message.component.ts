@@ -10,6 +10,7 @@ import { NgModel } from '@angular/forms';
   `,
   styles: [`
     .p-message {
+        margin-top: 0.25em!important;
         padding: 0.25em!important;
     }
   `]
