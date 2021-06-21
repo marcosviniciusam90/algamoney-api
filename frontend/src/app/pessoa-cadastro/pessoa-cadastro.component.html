@@ -6,10 +6,11 @@
 
             <div class="p-col-12">
                 <h1>Nova Pessoa</h1>
+                <p class="danger">* Campos obrigatórios</p>
             </div>
 
             <div class="p-col-12 p-fluid">
-                <label>Nome</label>
+                <label>Nome *</label>
                 <input pInputText type="text" name="nome" ngModel #campoNome="ngModel"
                 required minlength="5">
 
@@ -21,7 +22,7 @@
             </div>
 
             <div class="p-col-12 p-md-9 p-fluid">
-                <label>Logradouro</label>
+                <label>Logradouro *</label>
                 <input pInputText type="text" name="logradouro" ngModel #campoLogradouro="ngModel"
                 required>
 
@@ -30,7 +31,7 @@
             </div>
 
             <div class="p-col-12 p-md-3 p-fluid">
-                <label>Número</label>
+                <label>Número *</label>
                 <input pInputText type="text" name="numero" ngModel #campoNumero="ngModel"
                 required>
 
@@ -44,7 +45,7 @@
             </div>
 
             <div class="p-col-12 p-md-4 p-fluid">
-                <label>Bairro</label>
+                <label>Bairro *</label>
                 <input pInputText type="text" name="bairro" ngModel #campoBairro="ngModel"
                 required>
 
@@ -53,7 +54,7 @@
             </div>
 
             <div class="p-col-12 p-md-4 p-fluid">
-                <label>CEP</label>
+                <label>CEP *</label>
                 <p-inputMask mask="99.999-999" name="cep" ngModel #campoCep="ngModel"
                 [required]="true"></p-inputMask>
 
@@ -62,7 +63,7 @@
             </div>
 
             <div class="p-col-12 p-md-6 p-fluid">
-                <label>Cidade</label>
+                <label>Cidade *</label>
                 <input pInputText type="text" name="cidade" ngModel #campoCidade="ngModel"
                 required>
 
@@ -71,7 +72,7 @@
             </div>
 
             <div class="p-col-12 p-md-6 p-fluid">
-                <label>Estado</label>
+                <label>Estado *</label>
                 <input pInputText type="text" name="estado" ngModel #campoEstado="ngModel"
                 required>
 

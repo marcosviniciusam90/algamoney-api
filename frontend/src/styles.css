@@ -69,3 +69,7 @@ a:hover, a:focus {
     height: var(--default-height);
     align-items: center;
 }
+
+.danger {
+    color: red;
+}

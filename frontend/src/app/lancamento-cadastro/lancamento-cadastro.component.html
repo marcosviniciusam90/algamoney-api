@@ -6,6 +6,7 @@
 
             <div class="p-col-12">
                 <h1>Novo Lançamento</h1>
+                <p class="danger">* Campos obrigatórios</p>
             </div>
 
             <div class="p-col-12">
@@ -13,7 +14,7 @@
             </div>
 
             <div class="p-col-6 p-md-3 p-fluid">
-                <label>Vencimento</label>
+                <label>Vencimento *</label>
                 <p-calendar dateFormat="dd/mm/yy"
                 [inline]="false" [readonlyInput]="false"
                 [showIcon]="false"
@@ -30,7 +31,7 @@
             </div>
 
             <div class="p-col-12  p-md-9 p-fluid">
-                <label>Descrição</label>
+                <label>Descrição *</label>
                 <input pInputText type="text" name="descricao" ngModel #campoDescricao="ngModel"
                 required minlength="5">
 
@@ -42,7 +43,7 @@
             </div>
 
             <div class="p-col-12  p-md-3 p-fluid">
-                <label>Valor</label>
+                <label>Valor *</label>
                 <p-inputNumber mode="currency" currency="BRL" locale="pt-BR"
                 [minFractionDigits]="2" [maxFractionDigits]="2"
                 name="valor" ngModel #campoValor="ngModel"
@@ -53,7 +54,7 @@
             </div>
 
             <div class="p-col-12 p-md-6 p-fluid">
-                <label>Categoria</label>
+                <label>Categoria *</label>
                 <p-dropdown #categoria [options]="categorias" placeholder="Selecione"
                 name="categoria" ngModel #campoCategoria="ngModel"
                 [required]="true"></p-dropdown>
@@ -63,7 +64,7 @@
             </div>
 
             <div class="p-col-12 p-md-6 p-fluid">
-                <label>Pessoa</label>
+                <label>Pessoa *</label>
                 <p-dropdown #pessoa [options]="pessoas" [filter]="true" placeholder="Selecione"
                 name="pessoa" ngModel #campoPessoa="ngModel"
                 [required]="true"></p-dropdown>
