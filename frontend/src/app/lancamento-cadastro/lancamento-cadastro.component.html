@@ -1,6 +1,6 @@
 <div class="container">
 
-    <form action="">
+    <form #lancamentoForm="ngForm">
 
         <div class="p-grid">
 
@@ -16,7 +16,12 @@
                 <label>Vencimento</label>
                 <p-calendar dateFormat="dd/mm/yy"
                 [inline]="false" [readonlyInput]="false"
-                [showIcon]="false"></p-calendar>
+                [showIcon]="false"
+                name="vencimento" ngModel #campoVencimento="ngModel"
+                [required]="true"></p-calendar>
+
+                <app-message [model]="campoVencimento" error="required"
+                text="Informe o vencimento"></app-message>
             </div>
 
             <div class="p-col-6  p-md-3 p-fluid">
@@ -30,7 +35,7 @@
                 required minlength="5">
 
                 <app-message [model]="campoDescricao" error="required"
-                text="Campo obrigatório"></app-message>
+                text="Informe a descrição"></app-message>
 
                 <app-message [model]="campoDescricao" error="minlength"
                 text="Mínimo de {{ campoDescricao.errors?.minlength?.requiredLength }} caracteres"></app-message>
@@ -38,17 +43,33 @@
 
             <div class="p-col-12  p-md-3 p-fluid">
                 <label>Valor</label>
-                <p-inputNumber mode="currency" currency="BRL" locale="pt-BR" [minFractionDigits]="2" [maxFractionDigits]="2"></p-inputNumber>
+                <p-inputNumber mode="currency" currency="BRL" locale="pt-BR"
+                [minFractionDigits]="2" [maxFractionDigits]="2"
+                name="valor" ngModel #campoValor="ngModel"
+                [required]="true"></p-inputNumber>
+
+                <app-message [model]="campoValor" error="required"
+                text="Informe o valor"></app-message>
             </div>
 
             <div class="p-col-12 p-md-6 p-fluid">
-                <label>Categoria {{categoria.value}}</label>
-                <p-dropdown #categoria [options]="categorias" placeholder="Selecione"></p-dropdown>
+                <label>Categoria</label>
+                <p-dropdown #categoria [options]="categorias" placeholder="Selecione"
+                name="categoria" ngModel #campoCategoria="ngModel"
+                [required]="true"></p-dropdown>
+
+                <app-message [model]="campoCategoria" error="required"
+                text="Selecione a categoria"></app-message>
             </div>
 
             <div class="p-col-12 p-md-6 p-fluid">
-                <label>Pessoa {{pessoa.value}}</label>
-                <p-dropdown #pessoa [options]="pessoas" [filter]="true" placeholder="Selecione"></p-dropdown>
+                <label>Pessoa</label>
+                <p-dropdown #pessoa [options]="pessoas" [filter]="true" placeholder="Selecione"
+                name="pessoa" ngModel #campoPessoa="ngModel"
+                [required]="true"></p-dropdown>
+
+                <app-message [model]="campoPessoa" error="required"
+                text="Selecione a pessoa"></app-message>
             </div>
 
             <div class="p-col-12 p-fluid">
@@ -57,7 +78,9 @@
             </div>
 
             <div class="p-col-12">
-                <button class="p-button-info col-mr" pButton type="submit" label="Salvar"></button>
+                <button class="p-button-info col-mr" pButton type="submit" label="Salvar"
+                [disabled]="!lancamentoForm.valid"></button>
+
                 <button class="col-mr" pButton type="button" label="Novo"></button>
                 <a href="javascript:;">Voltar para a pesquisa</a>
             </div>
