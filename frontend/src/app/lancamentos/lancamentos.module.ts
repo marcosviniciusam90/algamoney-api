@@ -16,6 +16,7 @@ import { InputNumberModule } from 'primeng/inputnumber';
 import { LancamentoCadastroComponent } from './lancamento-cadastro/lancamento-cadastro.component';
 import { LancamentosPesquisaComponent } from './lancamentos-pesquisa/lancamentos-pesquisa.component';
 import { LancamentosGridComponent } from './lancamentos-grid/lancamentos-grid.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { LancamentosGridComponent } from './lancamentos-grid/lancamentos-grid.co
     BrowserAnimationsModule,
     SelectButtonModule,
     DropdownModule,
-    InputNumberModule
+    InputNumberModule,
+    SharedModule
   ],
   exports: [
       LancamentoCadastroComponent,

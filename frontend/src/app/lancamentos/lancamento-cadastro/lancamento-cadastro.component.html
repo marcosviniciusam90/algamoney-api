@@ -21,8 +21,8 @@
                 name="vencimento" ngModel #campoVencimento="ngModel"
                 [required]="true"></p-calendar>
 
-                <!--<app-message [model]="campoVencimento" error="required"
-                text="Informe o vencimento"></app-message>-->
+                <app-message [model]="campoVencimento" error="required"
+                text="Informe o vencimento"></app-message>
             </div>
 
             <div class="p-col-6  p-md-3 p-fluid">
@@ -35,11 +35,11 @@
                 <input pInputText type="text" name="descricao" ngModel #campoDescricao="ngModel"
                 required minlength="5">
 
-                <!--<app-message [model]="campoDescricao" error="required"
-                text="Informe a descrição"></app-message>-->
+                <app-message [model]="campoDescricao" error="required"
+                text="Informe a descrição"></app-message>
 
-                <!--<app-message [model]="campoDescricao" error="minlength"
-                text="Mínimo de {{ campoDescricao.errors?.minlength?.requiredLength }} caracteres"></app-message>-->
+                <app-message [model]="campoDescricao" error="minlength"
+                text="Mínimo de {{ campoDescricao.errors?.minlength?.requiredLength }} caracteres"></app-message>
             </div>
 
             <div class="p-col-12  p-md-3 p-fluid">
@@ -49,8 +49,8 @@
                 name="valor" ngModel #campoValor="ngModel"
                 [required]="true"></p-inputNumber>
 
-                <!--<app-message [model]="campoValor" error="required"
-                text="Informe o valor"></app-message>-->
+                <app-message [model]="campoValor" error="required"
+                text="Informe o valor"></app-message>
             </div>
 
             <div class="p-col-12 p-md-6 p-fluid">
@@ -59,8 +59,8 @@
                 name="categoria" ngModel #campoCategoria="ngModel"
                 [required]="true"></p-dropdown>
 
-                <!--<app-message [model]="campoCategoria" error="required"
-                text="Selecione a categoria"></app-message>-->
+                <app-message [model]="campoCategoria" error="required"
+                text="Selecione a categoria"></app-message>
             </div>
 
             <div class="p-col-12 p-md-6 p-fluid">
@@ -69,8 +69,8 @@
                 name="pessoa" ngModel #campoPessoa="ngModel"
                 [required]="true"></p-dropdown>
 
-                <!--<app-message [model]="campoPessoa" error="required"
-                text="Selecione a pessoa"></app-message>-->
+                <app-message [model]="campoPessoa" error="required"
+                text="Selecione a pessoa"></app-message>
             </div>
 
             <div class="p-col-12 p-fluid">

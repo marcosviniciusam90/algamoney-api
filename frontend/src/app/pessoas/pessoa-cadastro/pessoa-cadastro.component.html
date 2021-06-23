@@ -14,11 +14,11 @@
                 <input pInputText type="text" name="nome" ngModel #campoNome="ngModel"
                 required minlength="5">
 
-                <!--<app-message [model]="campoNome" error="required"
-                text="Informe o nome"></app-message>-->
+                <app-message [model]="campoNome" error="required"
+                text="Informe o nome"></app-message>
 
-                <!--<app-message [model]="campoNome" error="minlength"
-                text="Mínimo de {{ campoNome.errors?.minlength?.requiredLength }} caracteres"></app-message>-->
+                <app-message [model]="campoNome" error="minlength"
+                text="Mínimo de {{ campoNome.errors?.minlength?.requiredLength }} caracteres"></app-message>
             </div>
 
             <div class="p-col-12 p-md-9 p-fluid">
@@ -26,8 +26,8 @@
                 <input pInputText type="text" name="logradouro" ngModel #campoLogradouro="ngModel"
                 required>
 
-                <!--<app-message [model]="campoLogradouro" error="required"
-                text="Informe o logradouro"></app-message>-->
+                <app-message [model]="campoLogradouro" error="required"
+                text="Informe o logradouro"></app-message>
             </div>
 
             <div class="p-col-12 p-md-3 p-fluid">
@@ -35,8 +35,8 @@
                 <input pInputText type="text" name="numero" ngModel #campoNumero="ngModel"
                 required>
 
-                <!--<app-message [model]="campoNumero" error="required"
-                text="Informe o número"></app-message>-->
+                <app-message [model]="campoNumero" error="required"
+                text="Informe o número"></app-message>
             </div>
 
             <div class="p-col-12 p-md-4 p-fluid">
@@ -49,8 +49,8 @@
                 <input pInputText type="text" name="bairro" ngModel #campoBairro="ngModel"
                 required>
 
-                <!--<app-message [model]="campoBairro" error="required"
-                text="Informe o bairro"></app-message>-->
+                <app-message [model]="campoBairro" error="required"
+                text="Informe o bairro"></app-message>
             </div>
 
             <div class="p-col-12 p-md-4 p-fluid">
@@ -58,8 +58,8 @@
                 <p-inputMask mask="99.999-999" name="cep" ngModel #campoCep="ngModel"
                 [required]="true"></p-inputMask>
 
-                <!--<app-message [model]="campoCep" error="required"
-                text="Informe o CEP"></app-message>-->
+                <app-message [model]="campoCep" error="required"
+                text="Informe o CEP"></app-message>
             </div>
 
             <div class="p-col-12 p-md-6 p-fluid">
@@ -67,8 +67,8 @@
                 <input pInputText type="text" name="cidade" ngModel #campoCidade="ngModel"
                 required>
 
-                <!--<app-message [model]="campoCidade" error="required"
-                text="Informe a cidade"></app-message>-->
+                <app-message [model]="campoCidade" error="required"
+                text="Informe a cidade"></app-message>
             </div>
 
             <div class="p-col-12 p-md-6 p-fluid">
@@ -76,8 +76,8 @@
                 <input pInputText type="text" name="estado" ngModel #campoEstado="ngModel"
                 required>
 
-                <!--<app-message [model]="campoEstado" error="required"
-                text="Informe o estado"></app-message>-->
+                <app-message [model]="campoEstado" error="required"
+                text="Informe o estado"></app-message>
             </div>
 
             <div class="p-col-12">
