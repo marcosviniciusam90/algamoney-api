@@ -22,8 +22,8 @@
 		<project.encoding>UTF-8</project.encoding>
 
 		<!-- Metamodel classes generate config -->
-		<generatedsourcesdir>${basedir}/target/generated-sources</generatedsourcesdir>
-		<metamodel.source-path>${basedir}/src/main/java/com/algamoney/api/model</metamodel.source-path>
+		<generatedsourcesdir>target/generated-sources</generatedsourcesdir>
+		<metamodel.source-path>src/main/java/com/algamoney/api/model</metamodel.source-path>
 		<metamodel.target-path>${generatedsourcesdir}/com/algamoney/api/model</metamodel.target-path>
 		<metamodel.filter>*_.java</metamodel.filter>
 	</properties>
