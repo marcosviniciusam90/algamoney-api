@@ -16,7 +16,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJhZG1pbkBhbGdhbW9uZXkuY29tIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sIm5vbWUiOiJBZG1pbmlzdHJhZG9yIiwiZXhwIjoxNjE4NTE4MzczLCJhdXRob3JpdGllcyI6WyJST0xFX0NBREFTVFJBUl9DQVRFR09SSUEiLCJST0xFX1BFU1FVSVNBUl9QRVNTT0EiLCJST0xFX1JFTU9WRVJfUEVTU09BIiwiUk9MRV9DQURBU1RSQVJfTEFOQ0FNRU5UTyIsIlJPTEVfUEVTUVVJU0FSX0xBTkNBTUVOVE8iLCJST0xFX1JFTU9WRVJfTEFOQ0FNRU5UTyIsIlJPTEVfQ0FEQVNUUkFSX1BFU1NPQSIsIlJPTEVfUEVTUVVJU0FSX0NBVEVHT1JJQSJdLCJqdGkiOiJhZDFmNmUwYy1kNTRmLTQ1ODYtYTUyMS02YTMyYmZmMjVmN2MiLCJjbGllbnRfaWQiOiJhbmd1bGFyIn0.ytGdyjnmEy92wA9mr_cTCL-iBNNabL6ppvL7DHBhP-w",
+									"value": "{{token}}",
 									"type": "string"
 								}
 							]
@@ -128,7 +128,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJhZG1pbkBhbGdhbW9uZXkuY29tIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sIm5vbWUiOiJBZG1pbmlzdHJhZG9yIiwiZXhwIjoxNjIwNDk2MTQyLCJhdXRob3JpdGllcyI6WyJST0xFX0NBREFTVFJBUl9DQVRFR09SSUEiLCJST0xFX1BFU1FVSVNBUl9QRVNTT0EiLCJST0xFX1JFTU9WRVJfUEVTU09BIiwiUk9MRV9DQURBU1RSQVJfTEFOQ0FNRU5UTyIsIlJPTEVfUEVTUVVJU0FSX0xBTkNBTUVOVE8iLCJST0xFX1JFTU9WRVJfTEFOQ0FNRU5UTyIsIlJPTEVfQ0FEQVNUUkFSX1BFU1NPQSIsIlJPTEVfUEVTUVVJU0FSX0NBVEVHT1JJQSJdLCJqdGkiOiI4ZTk3ZWQzYi05YzdlLTRkMGYtODhlNi05Mzg1YmNmNDMwZDQiLCJjbGllbnRfaWQiOiJhbmd1bGFyIn0.t1FnR0VCbeGSeACRduZNTKB38aGyUnpMngv62EyRe4s",
+									"value": "{{token}}",
 									"type": "string"
 								}
 							]
@@ -408,7 +408,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJhZG1pbkBhbGdhbW9uZXkuY29tIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sIm5vbWUiOiJBZG1pbmlzdHJhZG9yIiwiZXhwIjoxNjIxMjIzMzgwLCJhdXRob3JpdGllcyI6WyJST0xFX0NBREFTVFJBUl9DQVRFR09SSUEiLCJST0xFX1BFU1FVSVNBUl9QRVNTT0EiLCJST0xFX1JFTU9WRVJfUEVTU09BIiwiUk9MRV9DQURBU1RSQVJfTEFOQ0FNRU5UTyIsIlJPTEVfUEVTUVVJU0FSX0xBTkNBTUVOVE8iLCJST0xFX1JFTU9WRVJfTEFOQ0FNRU5UTyIsIlJPTEVfQ0FEQVNUUkFSX1BFU1NPQSIsIlJPTEVfUEVTUVVJU0FSX0NBVEVHT1JJQSJdLCJqdGkiOiI5YWFkNzg4Ni0xYTcwLTQyMjYtYTc3MC1hOGMzZTc0YjU2MTMiLCJjbGllbnRfaWQiOiJhbmd1bGFyIn0.KFuT0VKWAmtaShxgqwlSUl3QRnn1G3VRmiagczEMc2I",
+									"value": "{{token}}",
 									"type": "string"
 								}
 							]
@@ -499,7 +499,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJhZG1pbkBhbGdhbW9uZXkuY29tIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sIm5vbWUiOiJBZG1pbmlzdHJhZG9yIiwiZXhwIjoxNjIwNjcxMDQ2LCJhdXRob3JpdGllcyI6WyJST0xFX0NBREFTVFJBUl9DQVRFR09SSUEiLCJST0xFX1BFU1FVSVNBUl9QRVNTT0EiLCJST0xFX1JFTU9WRVJfUEVTU09BIiwiUk9MRV9DQURBU1RSQVJfTEFOQ0FNRU5UTyIsIlJPTEVfUEVTUVVJU0FSX0xBTkNBTUVOVE8iLCJST0xFX1JFTU9WRVJfTEFOQ0FNRU5UTyIsIlJPTEVfQ0FEQVNUUkFSX1BFU1NPQSIsIlJPTEVfUEVTUVVJU0FSX0NBVEVHT1JJQSJdLCJqdGkiOiI1Njk1MDBkMy05MWRmLTQ0NDMtYTMzNC0yOTVkMjMxYTgyZGQiLCJjbGllbnRfaWQiOiJhbmd1bGFyIn0.HL_ae4WhPRlHN3XYcZuRGhcAM7iOTdOqLoqApZNiBcc",
+									"value": "{{token}}",
 									"type": "string"
 								}
 							]
@@ -741,18 +741,34 @@
 			"item": [
 				{
 					"name": "Access Token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "8fcd6885-1f6d-4718-9be4-3f7e04e4fc7d",
+								"exec": [
+									"if (responseCode.code >= 200 && responseCode.code < 300) {\r",
+									"    var json = JSON.parse(responseBody);\r",
+									"    postman.setEnvironmentVariable('token', json.access_token);\r",
+									"    postman.setEnvironmentVariable('refresh_token', json.refresh_token);\r",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"auth": {
 							"type": "basic",
 							"basic": [
 								{
 									"key": "password",
-									"value": "angular123",
+									"value": "{{client-secret}}",
 									"type": "string"
 								},
 								{
 									"key": "username",
-									"value": "angular",
+									"value": "{{client-id}}",
 									"type": "string"
 								}
 							]
@@ -776,12 +792,12 @@
 								},
 								{
 									"key": "username",
-									"value": "admin@algamoney.com",
+									"value": "{{username}}",
 									"type": "text"
 								},
 								{
 									"key": "password",
-									"value": "admin",
+									"value": "{{password}}",
 									"type": "text"
 								},
 								{
@@ -792,11 +808,10 @@
 							]
 						},
 						"url": {
-							"raw": "localhost:8080/oauth/token",
+							"raw": "{{host}}/oauth/token",
 							"host": [
-								"localhost"
+								"{{host}}"
 							],
-							"port": "8080",
 							"path": [
 								"oauth",
 								"token"
