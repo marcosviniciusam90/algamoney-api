@@ -31,7 +31,7 @@
             <td class="col-right">
                 <span class="p-column-title">Valor</span>
                 <span [ngStyle]="{ color: lancamento.tipo === 'DESPESA' ? 'red' : 'blue' }">
-                    {{lancamento.valor | currency:'BRL':true:'1.2-2'}}
+                    {{lancamento.valor | currency:'BRL':'symbol':'1.2-2'}}
                 </span>
             </td>
             <td class="col-center">
