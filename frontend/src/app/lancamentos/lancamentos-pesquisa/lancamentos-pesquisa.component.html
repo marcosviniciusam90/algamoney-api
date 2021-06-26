@@ -1,27 +1,30 @@
 <div class="container">
 
     <div class="p-grid">
+        <form autocomplete="off" (ngSubmit)="pesquisar()">
 
-        <div class="p-col-12">
-            <h1>Lançamentos</h1>
-        </div>
+            <div class="p-col-12">
+                <h1>Lançamentos</h1>
+            </div>
 
-        <div class="p-col-12 p-fluid">
-            <label>Descrição</label>
-            <input pInputText type="text">
-        </div>
+            <div class="p-col-12 p-fluid">
+                <label>Descrição</label>
+                <input pInputText type="text" name="descricao" [(ngModel)]="descricao">
+            </div>
 
-        <div class="p-col-12">
-            <label class="label-block">Vencimento</label>
-            <input class="input-date" pInputText type="text">
+            <div class="p-col-12">
+                <label class="label-block">Vencimento</label>
+                <input class="input-date" pInputText type="text">
 
-            <label> até </label>
-            <input class="input-date" pInputText type="text">
-        </div>
+                <label> até </label>
+                <input class="input-date" pInputText type="text">
+            </div>
 
-        <div class="p-col-12">
-            <button pButton type="submit" label="Pesquisar"></button>
-        </div>
+            <div class="p-col-12">
+                <button pButton type="submit" label="Pesquisar"></button>
+            </div>
+
+        </form>
     </div>
 
     <div class="p-grid">
