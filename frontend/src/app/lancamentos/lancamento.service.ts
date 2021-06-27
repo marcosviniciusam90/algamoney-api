@@ -2,10 +2,12 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import * as moment from 'moment';
 
-export interface LancamentoFiltro {
+export class LancamentoFiltro {
   descricao: string;
   dataVencimentoInicio: Date;
   dataVencimentoFim: Date;
+  pagina = 0;
+  itensPorPagina = 5;
 }
 
 @Injectable({
@@ -25,9 +27,15 @@ export class LancamentoService {
     const headers = new HttpHeaders()
       .append('Authorization', 'Basic YWRtaW5AYWxnYW1vbmV5LmNvbTphZG1pbg==');
 
+    // parâmetros de paginação
+    params = params.set('page', filtro.pagina.toString());
+    params = params.set('size', filtro.itensPorPagina.toString());
+
+    // parâmetros do filtro de pesquisa
     if (filtro.descricao) {
       params = params.set('descricao', filtro.descricao);
     }
+
     if (filtro.dataVencimentoInicio) {
       params = params.set('dataVencimentoDe',
         moment(filtro.dataVencimentoInicio).format('YYYY-MM-DD'));
