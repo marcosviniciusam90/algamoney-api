@@ -1,5 +1,8 @@
-<p-table [value]="lancamentos" [paginator]="true" [rows]="5" [responsive]="true"
-    styleClass="p-datatable-sm p-datatable-gridlines p-datatable-striped">
+<p-table [value]="lancamentos" [responsive]="true"
+    styleClass="p-datatable-sm p-datatable-gridlines p-datatable-striped"
+    [paginator]="true" [lazy]="true"
+    [rows]="itensPorPagina" [totalRecords]="totalRegistros"
+    (onLazyLoad)="aoMudarPagina($event)">
     <ng-template pTemplate="header">
         <tr>
             <th class="p-col-3">Pessoa</th>

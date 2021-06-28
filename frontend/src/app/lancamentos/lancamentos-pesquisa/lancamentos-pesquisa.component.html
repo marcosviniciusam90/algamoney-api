@@ -31,7 +31,9 @@
 
   <div class="p-grid">
     <div class="p-col-12">
-        <app-lancamentos-grid [lancamentos]="lancamentos"></app-lancamentos-grid>
+        <app-lancamentos-grid [lancamentos]="lancamentos"
+          [itensPorPagina]="filtro.itensPorPagina" [totalRegistros]="totalRegistros"
+          (paginaAlterada)="pesquisar($event)"></app-lancamentos-grid>
 
     </div>
 

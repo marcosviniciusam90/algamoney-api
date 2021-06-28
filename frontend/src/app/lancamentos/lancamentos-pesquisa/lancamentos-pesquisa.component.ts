@@ -10,18 +10,21 @@ export class LancamentosPesquisaComponent implements OnInit {
 
     filtro = new LancamentoFiltro();
 
-    lancamentos = [];
+    lancamentos: any = [];
+    totalRegistros = 0;
 
     constructor(private lancamentoService: LancamentoService) {}
 
     ngOnInit(): void {
-      this.pesquisar();
     }
 
-    pesquisar(): void {
+    pesquisar(pagina = 0): void {
+      this.filtro.pagina = pagina;
+
       this.lancamentoService.pesquisar(this.filtro)
         .then(response => {
           this.lancamentos = response.content;
+          this.totalRegistros = response.totalElements;
         });
     }
 }
