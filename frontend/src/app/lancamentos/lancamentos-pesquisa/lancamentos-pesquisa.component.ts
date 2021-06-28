@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { LancamentoFiltro, LancamentoService } from '../lancamento.service';
 
 @Component({
@@ -6,7 +6,7 @@ import { LancamentoFiltro, LancamentoService } from '../lancamento.service';
   templateUrl: './lancamentos-pesquisa.component.html',
   styleUrls: ['./lancamentos-pesquisa.component.css']
 })
-export class LancamentosPesquisaComponent implements OnInit {
+export class LancamentosPesquisaComponent {
 
     filtro = new LancamentoFiltro();
 
@@ -14,9 +14,6 @@ export class LancamentosPesquisaComponent implements OnInit {
     totalRegistros = 0;
 
     constructor(private lancamentoService: LancamentoService) {}
-
-    ngOnInit(): void {
-    }
 
     pesquisar(pagina = 0): void {
       this.filtro.pagina = pagina;
