@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output, ViewChild } from '@angular/core';
 import { LazyLoadEvent } from 'primeng/api';
 
 @Component({
@@ -14,10 +14,18 @@ export class LancamentosGridComponent {
     @Input() totalRegistros: number;
 
     @Output() paginaAlterada = new EventEmitter();
+    @Output() lancamentoExcluido = new EventEmitter();
+
+    @ViewChild('tabela') grid: any;
 
     aoMudarPagina(event: LazyLoadEvent): void {
       const pagina = event.first / event.rows;
       this.paginaAlterada.emit(pagina);
+    }
+
+    excluir(lancamento: any): void {
+      this.lancamentoExcluido.emit(lancamento);
+      this.grid.reset();
     }
 
 }

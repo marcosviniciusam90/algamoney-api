@@ -2,7 +2,8 @@
     styleClass="p-datatable-sm p-datatable-gridlines p-datatable-striped"
     [paginator]="true" [lazy]="true"
     [rows]="itensPorPagina" [totalRecords]="totalRegistros"
-    (onLazyLoad)="aoMudarPagina($event)">
+    (onLazyLoad)="aoMudarPagina($event)"
+    #tabela>
     <ng-template pTemplate="header">
         <tr>
             <th class="p-col-3">Pessoa</th>
@@ -39,7 +40,8 @@
             </td>
             <td class="col-center">
                 <a class="col-mr" pButton icon="pi pi-pencil" pTooltip="Editar" tooltipPosition="top"></a>
-                <button pButton icon="pi pi-trash" pTooltip="Excluir" tooltipPosition="top"></button>
+                <button pButton icon="pi pi-trash" pTooltip="Excluir" tooltipPosition="top"
+                (click)="excluir(lancamento)"></button>
             </td>
         </tr>
     </ng-template>

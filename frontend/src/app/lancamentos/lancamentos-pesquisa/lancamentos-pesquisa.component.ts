@@ -24,4 +24,12 @@ export class LancamentosPesquisaComponent {
           this.totalRegistros = response.totalElements;
         });
     }
+
+    excluir(lancamento: any): void {
+      this.lancamentoService.excluir(lancamento.codigo)
+        .then(() => {
+          alert(`Lançamento ${lancamento.codigo} excluído`);
+          this.pesquisar();
+        });
+    }
 }
