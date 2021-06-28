@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { LazyLoadEvent } from 'primeng/api';
 
 @Component({
   selector: 'app-pessoas-grid',
@@ -8,5 +9,15 @@ import { Component, Input } from '@angular/core';
 export class PessoasGridComponent {
 
     @Input() pessoas: any = [];
+
+    @Input() itensPorPagina: number;
+    @Input() totalRegistros: number;
+
+    @Output() paginaAlterada = new EventEmitter();
+
+    aoMudarPagina(event: LazyLoadEvent): void {
+      const pagina = event.first / event.rows;
+      this.paginaAlterada.emit(pagina);
+    }
 
 }
