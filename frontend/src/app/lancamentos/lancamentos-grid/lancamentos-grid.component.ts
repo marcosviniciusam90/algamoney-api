@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output, ViewChild } from '@angular/core';
 import { LazyLoadEvent } from 'primeng/api';
+import { Table } from 'primeng/table';
 
 @Component({
   selector: 'app-lancamentos-grid',
@@ -16,7 +17,7 @@ export class LancamentosGridComponent {
     @Output() paginaAlterada = new EventEmitter();
     @Output() lancamentoExcluido = new EventEmitter();
 
-    @ViewChild('tabela') grid: any;
+    @ViewChild('tabela') grid: Table;
 
     aoMudarPagina(event: LazyLoadEvent): void {
       const pagina = event.first / event.rows;
