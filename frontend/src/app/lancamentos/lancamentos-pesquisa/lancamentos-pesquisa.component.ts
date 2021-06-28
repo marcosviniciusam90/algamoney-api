@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MessageService } from 'primeng/api';
 import { LancamentoFiltro, LancamentoService } from '../lancamento.service';
 
 @Component({
@@ -13,7 +14,10 @@ export class LancamentosPesquisaComponent {
     lancamentos: any = [];
     totalRegistros = 0;
 
-    constructor(private lancamentoService: LancamentoService) {}
+    constructor(
+      private lancamentoService: LancamentoService,
+      private messageService: MessageService
+    ) {}
 
     pesquisar(pagina = 0): void {
       this.filtro.pagina = pagina;
@@ -28,8 +32,8 @@ export class LancamentosPesquisaComponent {
     excluir(lancamento: any): void {
       this.lancamentoService.excluir(lancamento.codigo)
         .then(() => {
-          alert(`Lançamento ${lancamento.codigo} excluído`);
           this.pesquisar();
+          this.messageService.add({ severity: 'success', detail: 'Lançamento excluído com sucesso!' });
         });
     }
 }
