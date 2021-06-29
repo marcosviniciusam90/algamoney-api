@@ -12,6 +12,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { LancamentoService } from '../lancamentos/lancamento.service';
 import { PessoaService } from '../pessoas/pessoa.service';
 import { ErrorHandlerService } from './error-handler.service';
+import { CategoriaService } from '../categorias/categoria.service';
 
 registerLocaleData(localePt);
 
@@ -36,7 +37,8 @@ registerLocaleData(localePt);
     ConfirmationService,
     LancamentoService,
     PessoaService,
-    ErrorHandlerService
+    ErrorHandlerService,
+    CategoriaService
   ]
 })
 export class CoreModule { }
