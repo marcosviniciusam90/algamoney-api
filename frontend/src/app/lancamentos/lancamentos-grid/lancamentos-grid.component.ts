@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output, ViewChild } from '@angular/core';
-import { LazyLoadEvent } from 'primeng/api';
+import { ConfirmationService, LazyLoadEvent } from 'primeng/api';
 import { Table } from 'primeng/table';
 
 @Component({
@@ -19,9 +19,20 @@ export class LancamentosGridComponent {
 
     @ViewChild('tabela') grid: Table;
 
+    constructor(private confirmationService: ConfirmationService) {}
+
     aoMudarPagina(event: LazyLoadEvent): void {
       const pagina = event.first / event.rows;
       this.paginaAlterada.emit(pagina);
+    }
+
+    confirmarExclusao(lancamento: any): void {
+      this.confirmationService.confirm({
+        message: 'Tem certeza que deseja excluir?',
+        accept: () => this.excluir(lancamento)
+        // reject
+      });
+
     }
 
     excluir(lancamento: any): void {
