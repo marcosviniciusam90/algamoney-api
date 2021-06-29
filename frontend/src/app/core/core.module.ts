@@ -11,6 +11,7 @@ import localePt from '@angular/common/locales/pt';
 import { NavbarComponent } from './navbar/navbar.component';
 import { LancamentoService } from '../lancamentos/lancamento.service';
 import { PessoaService } from '../pessoas/pessoa.service';
+import { ErrorHandlerService } from './error-handler.service';
 
 registerLocaleData(localePt);
 
@@ -34,7 +35,8 @@ registerLocaleData(localePt);
     MessageService,
     ConfirmationService,
     LancamentoService,
-    PessoaService
+    PessoaService,
+    ErrorHandlerService
   ]
 })
 export class CoreModule { }
