@@ -1,6 +1,11 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
+export class Categoria {
+  codigo: number;
+  nome: string;
+}
+
 @Injectable({
   providedIn: 'root'
 })
