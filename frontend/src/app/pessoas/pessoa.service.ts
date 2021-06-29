@@ -7,6 +7,14 @@ export class PessoaFiltro {
   itensPorPagina = 5;
 }
 
+export class Pessoa {
+  codigo: number;
+  nome: string;
+  ativo: boolean;
+  cidade: string;
+  estado: string;
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -17,6 +25,14 @@ export class PessoaService {
   constructor(
     private http: HttpClient
   ) { }
+
+  listarTodas(): Promise<any> {
+    const headers = new HttpHeaders()
+      .append('Authorization', 'Basic YWRtaW5AYWxnYW1vbmV5LmNvbTphZG1pbg==');
+
+    return this.http.get(`${this.pessoasUrl}`, { headers })
+      .toPromise();
+  }
 
   pesquisar(filtro: PessoaFiltro): Promise<any> {
     let params = new HttpParams();
