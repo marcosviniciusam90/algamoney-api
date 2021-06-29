@@ -1,5 +1,6 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { LazyLoadEvent } from 'primeng/api';
+import { Component, EventEmitter, Input, Output, ViewChild } from '@angular/core';
+import { ConfirmationService, LazyLoadEvent } from 'primeng/api';
+import { Table } from 'primeng/table';
 
 @Component({
   selector: 'app-pessoas-grid',
@@ -14,10 +15,29 @@ export class PessoasGridComponent {
     @Input() totalRegistros: number;
 
     @Output() paginaAlterada = new EventEmitter();
+    @Output() pessoaExcluida = new EventEmitter();
+
+    @ViewChild('tabela') grid: Table;
+
+    constructor(private confirmationService: ConfirmationService) {}
 
     aoMudarPagina(event: LazyLoadEvent): void {
       const pagina = event.first / event.rows;
       this.paginaAlterada.emit(pagina);
+    }
+
+    confirmarExclusao(pessoa: any): void {
+      this.confirmationService.confirm({
+        message: 'Tem certeza que deseja excluir?',
+        accept: () => this.excluir(pessoa)
+        // reject
+      });
+
+    }
+
+    excluir(pessoa: any): void {
+      this.pessoaExcluida.emit(pessoa);
+      this.grid.reset();
     }
 
 }
