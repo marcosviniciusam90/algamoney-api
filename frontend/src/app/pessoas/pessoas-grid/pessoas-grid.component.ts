@@ -16,6 +16,7 @@ export class PessoasGridComponent {
 
     @Output() paginaAlterada = new EventEmitter();
     @Output() pessoaExcluida = new EventEmitter();
+    @Output() statusAlterado = new EventEmitter();
 
     @ViewChild('tabela') grid: Table;
 
@@ -38,6 +39,10 @@ export class PessoasGridComponent {
     excluir(pessoa: any): void {
       this.pessoaExcluida.emit(pessoa);
       this.grid.reset();
+    }
+
+    alterarStatus(pessoa: any): void {
+      this.statusAlterado.emit(pessoa);
     }
 
 }
