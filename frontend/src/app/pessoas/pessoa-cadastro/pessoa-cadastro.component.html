@@ -1,6 +1,6 @@
 <div class="container">
 
-    <form #pessoaForm="ngForm">
+    <form #pessoaForm="ngForm" (ngSubmit)="salvar(pessoaForm)">
 
         <div class="p-grid">
 
@@ -11,7 +11,8 @@
 
             <div class="p-col-12 p-fluid">
                 <label>Nome *</label>
-                <input pInputText type="text" name="nome" ngModel #campoNome="ngModel"
+                <input pInputText type="text" name="nome" [(ngModel)]="pessoa.nome"
+                #campoNome="ngModel"
                 required minlength="5">
 
                 <app-message [model]="campoNome" error="required"
@@ -23,7 +24,8 @@
 
             <div class="p-col-12 p-md-9 p-fluid">
                 <label>Logradouro *</label>
-                <input pInputText type="text" name="logradouro" ngModel #campoLogradouro="ngModel"
+                <input pInputText type="text" name="logradouro" [(ngModel)]="pessoa.endereco.logradouro"
+                #campoLogradouro="ngModel"
                 required>
 
                 <app-message [model]="campoLogradouro" error="required"
@@ -32,7 +34,8 @@
 
             <div class="p-col-12 p-md-3 p-fluid">
                 <label>Número *</label>
-                <input pInputText type="text" name="numero" ngModel #campoNumero="ngModel"
+                <input pInputText type="text" name="numero" [(ngModel)]="pessoa.endereco.numero"
+                #campoNumero="ngModel"
                 required>
 
                 <app-message [model]="campoNumero" error="required"
@@ -41,12 +44,14 @@
 
             <div class="p-col-12 p-md-4 p-fluid">
                 <label>Complemento</label>
-                <input pInputText type="text" name="complemento" ngModel #campoComplemento="ngModel">
+                <input pInputText type="text" name="complemento" [(ngModel)]="pessoa.endereco.complemento"
+                #campoComplemento="ngModel">
             </div>
 
             <div class="p-col-12 p-md-4 p-fluid">
                 <label>Bairro *</label>
-                <input pInputText type="text" name="bairro" ngModel #campoBairro="ngModel"
+                <input pInputText type="text" name="bairro" [(ngModel)]="pessoa.endereco.bairro"
+                #campoBairro="ngModel"
                 required>
 
                 <app-message [model]="campoBairro" error="required"
@@ -55,7 +60,8 @@
 
             <div class="p-col-12 p-md-4 p-fluid">
                 <label>CEP *</label>
-                <p-inputMask mask="99.999-999" name="cep" ngModel #campoCep="ngModel"
+                <p-inputMask mask="99.999-999" name="cep" [(ngModel)]="pessoa.endereco.cep"
+                #campoCep="ngModel"
                 [required]="true"></p-inputMask>
 
                 <app-message [model]="campoCep" error="required"
@@ -64,7 +70,8 @@
 
             <div class="p-col-12 p-md-6 p-fluid">
                 <label>Cidade *</label>
-                <input pInputText type="text" name="cidade" ngModel #campoCidade="ngModel"
+                <input pInputText type="text" name="cidade" [(ngModel)]="pessoa.endereco.cidade"
+                #campoCidade="ngModel"
                 required>
 
                 <app-message [model]="campoCidade" error="required"
@@ -73,7 +80,8 @@
 
             <div class="p-col-12 p-md-6 p-fluid">
                 <label>Estado *</label>
-                <input pInputText type="text" name="estado" ngModel #campoEstado="ngModel"
+                <input pInputText type="text" name="estado" [(ngModel)]="pessoa.endereco.estado"
+                #campoEstado="ngModel"
                 required>
 
                 <app-message [model]="campoEstado" error="required"
