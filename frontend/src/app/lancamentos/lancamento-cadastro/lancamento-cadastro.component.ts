@@ -3,7 +3,8 @@ import { NgForm } from '@angular/forms';
 import { MessageService } from 'primeng/api';
 import { Categoria, CategoriaService } from 'src/app/categorias/categoria.service';
 import { ErrorHandlerService } from 'src/app/core/error-handler.service';
-import { Pessoa, PessoaService } from 'src/app/pessoas/pessoa.service';
+import { Pessoa } from 'src/app/pessoas/pessoa.model';
+import { PessoaService } from 'src/app/pessoas/pessoa.service';
 import { Lancamento } from '../lancamento.model';
 import { LancamentoService } from '../lancamento.service';
 

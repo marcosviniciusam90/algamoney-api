@@ -1,6 +1,3 @@
-import { Categoria } from '../categorias/categoria.service';
-import { Pessoa } from '../pessoas/pessoa.service';
-
 export class Lancamento {
   codigo: number;
   descricao: string;
@@ -9,6 +6,14 @@ export class Lancamento {
   valor: number;
   observacao: string;
   tipo = 'RECEITA';
-  categoria = new Categoria();
-  pessoa = new Pessoa();
+  categoria = new CategoriaId();
+  pessoa = new PessoaId();
+}
+
+class CategoriaId {
+  codigo: number;
+}
+
+class PessoaId {
+  codigo: number;
 }
