@@ -28,10 +28,10 @@ public class LancamentoInputDTO {
     private String descricao;
 
     @NotNull
-    @JsonFormat(pattern =  "yyyy-MM-dd")
+    //@JsonFormat(pattern =  "yyyy-MM-dd")
     private LocalDate dataVencimento;
 
-    @JsonFormat(pattern =  "yyyy-MM-dd")
+    //@JsonFormat(pattern =  "yyyy-MM-dd")
     private LocalDate dataPagamento;
 
     @NotNull
