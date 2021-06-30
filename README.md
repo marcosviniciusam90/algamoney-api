@@ -2,7 +2,7 @@
 
 Fonte do aprendizado: https://www.algaworks.com/curso/fullstack-angular-e-spring
 
-O projeto ainda está em construção (**40% concluido**)
+O projeto ainda está em construção (**70% concluido**)
 
 Projeto com arquitetura SOFEA, no qual o frontend (Angular) da aplicação irá manipular dados de um servidor via requisições REST.<br/>
 Será feito deploy no Heroku, tanto do frontend como da API (backend).
@@ -44,7 +44,11 @@ Será feito deploy no Heroku, tanto do frontend como da API (backend).
 ## Frontend
 > Em construção
 
+### O que foi utilizado?<br>
+- Angular 11
+- PrimeNG 11
+- NPM
+
 
 ## TODO
-- No Lombok, adicionar instância do Logger para fazer log de execução dos serviços
 - Gerar documentação swagger da API usando SpringFox / io.swagger.annotations
