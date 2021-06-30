@@ -31,10 +31,6 @@ a:hover, a:focus {
     display: block; /* Quebra de linha para a label e o próximo elemento */
 }
 
-.p-calendar {
-    width: 100px;
-}
-
 /* @media (min-width: 1200px) */
 .container {
     width: 95%;
