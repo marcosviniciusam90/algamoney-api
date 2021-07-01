@@ -12,11 +12,16 @@
 					"name": "Categoria - listar",
 					"request": {
 						"auth": {
-							"type": "bearer",
-							"bearer": [
+							"type": "basic",
+							"basic": [
 								{
-									"key": "token",
-									"value": "{{token}}",
+									"key": "password",
+									"value": "{{password}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{username}}",
 									"type": "string"
 								}
 							]
@@ -154,7 +159,7 @@
 					"response": []
 				},
 				{
-					"name": "Pessoas - listar (paginação)",
+					"name": "Pessoas - filtrar (paginação)",
 					"request": {
 						"auth": {
 							"type": "bearer",
@@ -173,7 +178,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "http://localhost:8080/pessoas?nome=marcos&sort=nome&size=5&page=0",
+							"raw": "http://localhost:8080/pessoas?nome=isa&sort=nome&size=5&page=0",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -185,7 +190,7 @@
 							"query": [
 								{
 									"key": "nome",
-									"value": "marcos"
+									"value": "isa"
 								},
 								{
 									"key": "sort",
@@ -198,6 +203,62 @@
 								{
 									"key": "page",
 									"value": "0"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pessoas - filtrar (BASIC)",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{password}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{username}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/pessoas?sort=nome&size=5&page=0&nome=anton",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"pessoas"
+							],
+							"query": [
+								{
+									"key": "sort",
+									"value": "nome"
+								},
+								{
+									"key": "size",
+									"value": "5"
+								},
+								{
+									"key": "page",
+									"value": "0"
+								},
+								{
+									"key": "nome",
+									"value": "anton"
 								}
 							]
 						}
@@ -450,13 +511,13 @@
 							"type": "basic",
 							"basic": [
 								{
-									"key": "username",
-									"value": "maria@algamoney.com",
+									"key": "password",
+									"value": "{{password}}",
 									"type": "string"
 								},
 								{
-									"key": "password",
-									"value": "maria",
+									"key": "username",
+									"value": "{{username}}",
 									"type": "string"
 								}
 							]
@@ -468,7 +529,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "http://localhost:8080/lancamentos?dataVencimentoDe=2017-06-10&dataVencimentoAte=2018-03-10",
+							"raw": "http://localhost:8080/lancamentos?resumo&page=0&size=5&descricao=galego",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -479,12 +540,20 @@
 							],
 							"query": [
 								{
-									"key": "dataVencimentoDe",
-									"value": "2017-06-10"
+									"key": "resumo",
+									"value": null
 								},
 								{
-									"key": "dataVencimentoAte",
-									"value": "2018-03-10"
+									"key": "page",
+									"value": "0"
+								},
+								{
+									"key": "size",
+									"value": "5"
+								},
+								{
+									"key": "descricao",
+									"value": "galego"
 								}
 							]
 						}
@@ -542,11 +611,16 @@
 					"name": "Lançamento - filtrar (paginação)",
 					"request": {
 						"auth": {
-							"type": "bearer",
-							"bearer": [
+							"type": "basic",
+							"basic": [
 								{
-									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2MTgzNTIzMDksInVzZXJfbmFtZSI6ImFkbWluQGFsZ2Ftb25leS5jb20iLCJhdXRob3JpdGllcyI6WyJST0xFX0NBREFTVFJBUl9DQVRFR09SSUEiLCJST0xFX1BFU1FVSVNBUl9QRVNTT0EiLCJST0xFX1JFTU9WRVJfUEVTU09BIiwiUk9MRV9DQURBU1RSQVJfTEFOQ0FNRU5UTyIsIlJPTEVfUEVTUVVJU0FSX0xBTkNBTUVOVE8iLCJST0xFX1JFTU9WRVJfTEFOQ0FNRU5UTyIsIlJPTEVfQ0FEQVNUUkFSX1BFU1NPQSIsIlJPTEVfUEVTUVVJU0FSX0NBVEVHT1JJQSJdLCJqdGkiOiJmOGRhMjhhMS04MWU2LTQ4MzEtOGUyZi05MWVmZWM1OGQ3ODEiLCJjbGllbnRfaWQiOiJtb2JpbGUiLCJzY29wZSI6WyJyZWFkIl19.JXznbECxO7m1KbbyWUUh4QID8ZaUjZLTaV7lJIqbAkA",
+									"key": "password",
+									"value": "{{password}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{username}}",
 									"type": "string"
 								}
 							]
@@ -589,11 +663,16 @@
 					"name": "Lançamento - buscar por código",
 					"request": {
 						"auth": {
-							"type": "bearer",
-							"bearer": [
+							"type": "basic",
+							"basic": [
 								{
-									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJhZG1pbkBhbGdhbW9uZXkuY29tIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sIm5vbWUiOiJBZG1pbmlzdHJhZG9yIiwiZXhwIjoxNjE5NzA2ODAxLCJhdXRob3JpdGllcyI6WyJST0xFX0NBREFTVFJBUl9DQVRFR09SSUEiLCJST0xFX1BFU1FVSVNBUl9QRVNTT0EiLCJST0xFX1JFTU9WRVJfUEVTU09BIiwiUk9MRV9DQURBU1RSQVJfTEFOQ0FNRU5UTyIsIlJPTEVfUEVTUVVJU0FSX0xBTkNBTUVOVE8iLCJST0xFX1JFTU9WRVJfTEFOQ0FNRU5UTyIsIlJPTEVfQ0FEQVNUUkFSX1BFU1NPQSIsIlJPTEVfUEVTUVVJU0FSX0NBVEVHT1JJQSJdLCJqdGkiOiI0OTNhNTZlOC1lNWNlLTQzZjktOWZjNi03NTM4ZDVhNzVjOTciLCJjbGllbnRfaWQiOiJhbmd1bGFyIn0.lN9aIiNYhLupYQfULT84ezzKCRqj3aOnRBTxoBegBuM",
+									"key": "password",
+									"value": "{{password}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{username}}",
 									"type": "string"
 								}
 							]
@@ -605,7 +684,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "http://localhost:8080/lancamentos/11",
+							"raw": "http://localhost:8080/lancamentos/22",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -613,7 +692,7 @@
 							"port": "8080",
 							"path": [
 								"lancamentos",
-								"11"
+								"22"
 							]
 						}
 					},
@@ -623,11 +702,16 @@
 					"name": "Lançamento - criar",
 					"request": {
 						"auth": {
-							"type": "bearer",
-							"bearer": [
+							"type": "basic",
+							"basic": [
 								{
-									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJhZG1pbkBhbGdhbW9uZXkuY29tIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sIm5vbWUiOiJBZG1pbmlzdHJhZG9yIiwiZXhwIjoxNjIwMDQ1Mjg4LCJhdXRob3JpdGllcyI6WyJST0xFX0NBREFTVFJBUl9DQVRFR09SSUEiLCJST0xFX1BFU1FVSVNBUl9QRVNTT0EiLCJST0xFX1JFTU9WRVJfUEVTU09BIiwiUk9MRV9DQURBU1RSQVJfTEFOQ0FNRU5UTyIsIlJPTEVfUEVTUVVJU0FSX0xBTkNBTUVOVE8iLCJST0xFX1JFTU9WRVJfTEFOQ0FNRU5UTyIsIlJPTEVfQ0FEQVNUUkFSX1BFU1NPQSIsIlJPTEVfUEVTUVVJU0FSX0NBVEVHT1JJQSJdLCJqdGkiOiI4ZDhlYTE0OC1hYTcyLTQxYzQtYjRmOS1hMDNhNTNjZDAzY2MiLCJjbGllbnRfaWQiOiJhbmd1bGFyIn0.lqVVNvc_oaw1vMC4ajBJcd1cSK1DDw_OPKBpQpo5kRA",
+									"key": "password",
+									"value": "{{password}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{username}}",
 									"type": "string"
 								}
 							]
@@ -643,7 +727,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"descricao\": \"Saque Bet365\",\n    \"dataVencimento\": \"2018-03-10\",\n    \"dataPagamento\": \"2018-03-10\",\n    \"valor\": 50.25,\n    \"observacao\": \"só na boa\",\n    \"tipo\": \"RECEITA\",\n    \"categoria\": {\n    \t\"codigo\" : 5\n    },\n    \"pessoa\": {\n    \t\"codigo\" : 10\n    }\n}"
+							"raw": "{\n    \"descricao\": \"Lanche Saul\",\n    \"dataVencimento\": \"2021-06-30\",\n    \"dataPagamento\": \"2021-06-29\",\n    \"valor\": 20.00,\n    \"observacao\": \"Caseiro Costela\",\n    \"tipo\": \"DESPESA\",\n    \"categoria\": {\n    \t\"codigo\" : 2\n    },\n    \"pessoa\": {\n    \t\"codigo\" : 10\n    }\n}"
 						},
 						"url": {
 							"raw": "http://localhost:8080/lancamentos",
@@ -663,11 +747,16 @@
 					"name": "Lançamento - atualizar",
 					"request": {
 						"auth": {
-							"type": "bearer",
-							"bearer": [
+							"type": "basic",
+							"basic": [
 								{
-									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJhZG1pbkBhbGdhbW9uZXkuY29tIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sIm5vbWUiOiJBZG1pbmlzdHJhZG9yIiwiZXhwIjoxNjE5NzA2ODAxLCJhdXRob3JpdGllcyI6WyJST0xFX0NBREFTVFJBUl9DQVRFR09SSUEiLCJST0xFX1BFU1FVSVNBUl9QRVNTT0EiLCJST0xFX1JFTU9WRVJfUEVTU09BIiwiUk9MRV9DQURBU1RSQVJfTEFOQ0FNRU5UTyIsIlJPTEVfUEVTUVVJU0FSX0xBTkNBTUVOVE8iLCJST0xFX1JFTU9WRVJfTEFOQ0FNRU5UTyIsIlJPTEVfQ0FEQVNUUkFSX1BFU1NPQSIsIlJPTEVfUEVTUVVJU0FSX0NBVEVHT1JJQSJdLCJqdGkiOiI0OTNhNTZlOC1lNWNlLTQzZjktOWZjNi03NTM4ZDVhNzVjOTciLCJjbGllbnRfaWQiOiJhbmd1bGFyIn0.lN9aIiNYhLupYQfULT84ezzKCRqj3aOnRBTxoBegBuM",
+									"key": "password",
+									"value": "{{password}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{username}}",
 									"type": "string"
 								}
 							]
@@ -683,10 +772,10 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"descricao\": \"Viagem pra Paris\",\n    \"dataVencimento\": \"2017-06-10\",\n    \"dataPagamento\": null,\n    \"valor\": 800.32,\n    \"observacao\": null,\n    \"tipo\": \"DESPESA\",\n    \"categoria\": {\n        \"codigo\": 5\n    },\n    \"pessoa\": {\n        \"codigo\": 5\n    }\n}"
+							"raw": "{\n    \"descricao\": \"Viagem pra Paris\",\n    \"dataVencimento\": \"2021-07-01\",\n    \"dataPagamento\": null,\n    \"valor\": 2500.99,\n    \"observacao\": \"Viagem dos sonhos\",\n    \"tipo\": \"DESPESA\",\n    \"categoria\": {\n        \"codigo\": 6\n    },\n    \"pessoa\": {\n        \"codigo\": 4\n    }\n}"
 						},
 						"url": {
-							"raw": "http://localhost:8080/lancamentos/11",
+							"raw": "http://localhost:8080/lancamentos/26",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -694,7 +783,7 @@
 							"port": "8080",
 							"path": [
 								"lancamentos",
-								"11"
+								"26"
 							]
 						}
 					},
@@ -704,11 +793,16 @@
 					"name": "Lançamento - excluir",
 					"request": {
 						"auth": {
-							"type": "bearer",
-							"bearer": [
+							"type": "basic",
+							"basic": [
 								{
-									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2MTgzNTIzMDksInVzZXJfbmFtZSI6ImFkbWluQGFsZ2Ftb25leS5jb20iLCJhdXRob3JpdGllcyI6WyJST0xFX0NBREFTVFJBUl9DQVRFR09SSUEiLCJST0xFX1BFU1FVSVNBUl9QRVNTT0EiLCJST0xFX1JFTU9WRVJfUEVTU09BIiwiUk9MRV9DQURBU1RSQVJfTEFOQ0FNRU5UTyIsIlJPTEVfUEVTUVVJU0FSX0xBTkNBTUVOVE8iLCJST0xFX1JFTU9WRVJfTEFOQ0FNRU5UTyIsIlJPTEVfQ0FEQVNUUkFSX1BFU1NPQSIsIlJPTEVfUEVTUVVJU0FSX0NBVEVHT1JJQSJdLCJqdGkiOiJmOGRhMjhhMS04MWU2LTQ4MzEtOGUyZi05MWVmZWM1OGQ3ODEiLCJjbGllbnRfaWQiOiJtb2JpbGUiLCJzY29wZSI6WyJyZWFkIl19.JXznbECxO7m1KbbyWUUh4QID8ZaUjZLTaV7lJIqbAkA",
+									"key": "password",
+									"value": "{{password}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{username}}",
 									"type": "string"
 								}
 							]
@@ -720,7 +814,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "http://localhost:8080/lancamentos/1",
+							"raw": "http://localhost:8080/lancamentos/24",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -728,7 +822,7 @@
 							"port": "8080",
 							"path": [
 								"lancamentos",
-								"1"
+								"24"
 							]
 						}
 					},
