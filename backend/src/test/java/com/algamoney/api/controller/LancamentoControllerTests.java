@@ -1,7 +1,7 @@
 package com.algamoney.api.controller;
 
 import com.algamoney.api.dto.LancamentoInputDTO;
-import com.algamoney.api.dto.LancamentoResponseDTO;
+import com.algamoney.api.dto.LancamentoResumoDTO;
 import com.algamoney.api.event.RecursoCriadoEvent;
 import com.algamoney.api.mapper.LancamentoMapper;
 import com.algamoney.api.model.Lancamento;
@@ -29,7 +29,7 @@ import java.util.Objects;
 import static com.algamoney.api.utils.JsonUtils.toJsonString;
 import static com.algamoney.api.utils.JsonUtils.toObject;
 import static com.algamoney.api.utils.LancamentoUtils.createLancamentoInputDTO;
-import static com.algamoney.api.utils.LancamentoUtils.createLancamentoResponseDTO;
+import static com.algamoney.api.utils.LancamentoUtils.createLancamentoResumoDTO;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.*;
@@ -72,21 +72,21 @@ class LancamentoControllerTests {
     void testCriarLancamentoComSucesso() throws Exception {
         LancamentoInputDTO lancamentoInputDTO = createLancamentoInputDTO();
         Lancamento lancamento = LANCAMENTO_MAPPER.inputDTOToEntity(lancamentoInputDTO);
-        LancamentoResponseDTO expectedLancamentoResponseDTO = LANCAMENTO_MAPPER.entityToResponseDTO(lancamento);
+        LancamentoResumoDTO expectedLancamentoResumoDTO = LANCAMENTO_MAPPER.entityToResumoDTO(lancamento);
 
-        expectedLancamentoResponseDTO.setCodigo(FAKER.number().randomNumber());
+        expectedLancamentoResumoDTO.setCodigo(FAKER.number().randomNumber());
 
-        when(lancamentoService.criar(lancamentoInputDTO)).thenReturn(expectedLancamentoResponseDTO);
+        when(lancamentoService.criar(lancamentoInputDTO)).thenReturn(expectedLancamentoResumoDTO);
 
         MvcResult mvcResult = mockMvc.perform(post(API_URL_PATH)
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(toJsonString(lancamentoInputDTO)))
                 .andExpect(status().isCreated())
-                //.andExpect(MockMvcResultMatchers.jsonPath("$.codigo", Is.is(expectedLancamentoResponseDTO.getCodigo().intValue())))
+                //.andExpect(MockMvcResultMatchers.jsonPath("$.codigo", Is.is(expectedLancamentoResumoDTO.getCodigo().intValue())))
                 .andReturn();
 
-        LancamentoResponseDTO actualLancamentoResponseDTO = toObject(mvcResult, LancamentoResponseDTO.class);
-        assertEquals(expectedLancamentoResponseDTO, actualLancamentoResponseDTO);
+        LancamentoResumoDTO actualLancamentoResumoDTO = toObject(mvcResult, LancamentoResumoDTO.class);
+        assertEquals(expectedLancamentoResumoDTO, actualLancamentoResumoDTO);
 
         verify(lancamentoService, times(1)).criar(lancamentoInputDTO);
         verify(publisher, times(1)).publishEvent(any(RecursoCriadoEvent.class));
@@ -121,17 +121,17 @@ class LancamentoControllerTests {
 
     @Test
     void testBuscarLancamentoPorCodigo() throws Exception {
-        LancamentoResponseDTO expectedLancamentoResponseDTO = createLancamentoResponseDTO();
-        Long codigo = expectedLancamentoResponseDTO.getCodigo();
+        LancamentoResumoDTO expectedLancamentoResumoDTO = createLancamentoResumoDTO();
+        Long codigo = expectedLancamentoResumoDTO.getCodigo();
 
-        when(lancamentoService.findDTOById(codigo)).thenReturn(expectedLancamentoResponseDTO);
+        when(lancamentoService.findDTOById(codigo)).thenReturn(expectedLancamentoResumoDTO);
 
         MvcResult mvcResult = mockMvc.perform(get(API_URL_PATH + "/" + codigo)
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andReturn();
 
-        String expectedResponseBody = toJsonString(expectedLancamentoResponseDTO);
+        String expectedResponseBody = toJsonString(expectedLancamentoResumoDTO);
         String actualResponseBody = toJsonString(mvcResult);
 
         assertEquals(expectedResponseBody, actualResponseBody);

@@ -1,7 +1,7 @@
 package com.algamoney.api.service;
 
 import com.algamoney.api.dto.LancamentoInputDTO;
-import com.algamoney.api.dto.LancamentoResponseDTO;
+import com.algamoney.api.dto.LancamentoResumoDTO;
 import com.algamoney.api.mapper.LancamentoMapper;
 import com.algamoney.api.model.Categoria;
 import com.algamoney.api.model.Lancamento;
@@ -24,7 +24,7 @@ public class LancamentoService {
     private final CategoriaRepository categoriaRepository;
     private final PessoaService pessoaService;
 
-    public LancamentoResponseDTO atualizar(Long codigo, LancamentoInputDTO lancamentoInputDTO) {
+    public LancamentoResumoDTO atualizar(Long codigo, LancamentoInputDTO lancamentoInputDTO) {
 
         Lancamento lancamentoExistente = findById(codigo);
         Lancamento lancamentoInput = LANCAMENTO_MAPPER.inputDTOToEntity(lancamentoInputDTO);
@@ -35,11 +35,11 @@ public class LancamentoService {
         lancamentoInput.setCodigo(lancamentoExistente.getCodigo());
 
         Lancamento lancamentoAtualizado = lancamentoRepository.save(lancamentoInput);
-        return LANCAMENTO_MAPPER.entityToResponseDTO(lancamentoAtualizado);
+        return LANCAMENTO_MAPPER.entityToResumoDTO(lancamentoAtualizado);
 
     }
 
-    public LancamentoResponseDTO criar(LancamentoInputDTO lancamentoInputDTO) {
+    public LancamentoResumoDTO criar(LancamentoInputDTO lancamentoInputDTO) {
 
         Lancamento lancamentoInput = LANCAMENTO_MAPPER.inputDTOToEntity(lancamentoInputDTO);
 
@@ -47,7 +47,7 @@ public class LancamentoService {
         verifyAndSetCategoryIfExist(lancamentoInput);
 
         Lancamento lancamentoCriado = lancamentoRepository.save(lancamentoInput);
-        return LANCAMENTO_MAPPER.entityToResponseDTO(lancamentoCriado);
+        return LANCAMENTO_MAPPER.entityToResumoDTO(lancamentoCriado);
 
     }
 
@@ -69,9 +69,9 @@ public class LancamentoService {
         lancamento.setCategoria(categoria);
     }
 
-    public LancamentoResponseDTO findDTOById(Long codigo) {
+    public LancamentoResumoDTO findDTOById(Long codigo) {
         Lancamento lancamento = findById(codigo);
-        return LANCAMENTO_MAPPER.entityToResponseDTO(lancamento);
+        return LANCAMENTO_MAPPER.entityToResumoDTO(lancamento);
     }
 
     public Lancamento findById(Long codigo) {

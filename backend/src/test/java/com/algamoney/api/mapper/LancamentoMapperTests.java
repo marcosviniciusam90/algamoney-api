@@ -1,7 +1,7 @@
 package com.algamoney.api.mapper;
 
 import com.algamoney.api.dto.LancamentoInputDTO;
-import com.algamoney.api.dto.LancamentoResponseDTO;
+import com.algamoney.api.dto.LancamentoResumoDTO;
 import com.algamoney.api.model.Lancamento;
 import org.junit.jupiter.api.Test;
 
@@ -22,23 +22,23 @@ class LancamentoMapperTests {
     }
 
     @Test
-    void givenEntityMapToResponseDTO() {
+    void givenEntityMapToResumoDTO() {
         Lancamento lancamento = createLancamento();
-        LancamentoResponseDTO lancamentoResponseDTO = LANCAMENTO_MAPPER.entityToResponseDTO(lancamento);
+        LancamentoResumoDTO lancamentoResumoDTO = LANCAMENTO_MAPPER.entityToResumoDTO(lancamento);
 
-        assertEntityMapToResponseDTO(lancamento, lancamentoResponseDTO);
+        assertEntityMapToResumoDTO(lancamento, lancamentoResumoDTO);
     }
 
-    private void assertEntityMapToResponseDTO(Lancamento lancamento, LancamentoResponseDTO lancamentoResponseDTO) {
-        assertEquals(lancamento.getCodigo(), lancamentoResponseDTO.getCodigo());
-        assertEquals(lancamento.getDescricao(), lancamentoResponseDTO.getDescricao());
-        assertEquals(lancamento.getDataVencimento(), lancamentoResponseDTO.getDataVencimento());
-        assertEquals(lancamento.getDataPagamento(), lancamentoResponseDTO.getDataPagamento());
-        assertEquals(lancamento.getValor(), lancamentoResponseDTO.getValor());
-        assertEquals(lancamento.getObservacao(), lancamentoResponseDTO.getObservacao());
-        assertEquals(lancamento.getTipo(), lancamentoResponseDTO.getTipo());
-        assertEquals(lancamento.getCategoria().getNome(), lancamentoResponseDTO.getCategoria());
-        assertEquals(lancamento.getPessoa().getNome(), lancamentoResponseDTO.getPessoa());
+    private void assertEntityMapToResumoDTO(Lancamento lancamento, LancamentoResumoDTO lancamentoResumoDTO) {
+        assertEquals(lancamento.getCodigo(), lancamentoResumoDTO.getCodigo());
+        assertEquals(lancamento.getDescricao(), lancamentoResumoDTO.getDescricao());
+        assertEquals(lancamento.getDataVencimento(), lancamentoResumoDTO.getDataVencimento());
+        assertEquals(lancamento.getDataPagamento(), lancamentoResumoDTO.getDataPagamento());
+        assertEquals(lancamento.getValor(), lancamentoResumoDTO.getValor());
+        assertEquals(lancamento.getObservacao(), lancamentoResumoDTO.getObservacao());
+        assertEquals(lancamento.getTipo(), lancamentoResumoDTO.getTipo());
+        assertEquals(lancamento.getCategoria().getNome(), lancamentoResumoDTO.getCategoria());
+        assertEquals(lancamento.getPessoa().getNome(), lancamentoResumoDTO.getPessoa());
     }
 
     private void assertInputDTOMapToEntity(LancamentoInputDTO lancamentoInputDTO, Lancamento lancamento) {

@@ -1,6 +1,6 @@
 package com.algamoney.api.repository.lancamento;
 
-import com.algamoney.api.dto.LancamentoResponseDTO;
+import com.algamoney.api.dto.LancamentoResumoDTO;
 import com.algamoney.api.model.Categoria_;
 import com.algamoney.api.model.Lancamento;
 import com.algamoney.api.model.Lancamento_;
@@ -45,17 +45,17 @@ public class LancamentoRepositoryQueryImpl implements LancamentoRepositoryQuery 
     }
 
     @Override
-    public Page<LancamentoResponseDTO> resumir(LancamentoFilter lancamentoFilter, Pageable pageable) {
+    public Page<LancamentoResumoDTO> resumir(LancamentoFilter lancamentoFilter, Pageable pageable) {
         CriteriaBuilder builder = manager.getCriteriaBuilder();
-        CriteriaQuery<LancamentoResponseDTO> criteria = builder.createQuery(LancamentoResponseDTO.class);
+        CriteriaQuery<LancamentoResumoDTO> criteria = builder.createQuery(LancamentoResumoDTO.class);
         Root<Lancamento> root = criteria.from(Lancamento.class);
 
-        criteriaSelectNewLancamentoResponseDTO(builder, criteria, root);
+        criteriaSelectNewLancamentoResumoDTO(builder, criteria, root);
 
         Predicate[] predicates = criarRestricoes(lancamentoFilter, builder, root);
         criteria.where(predicates);
 
-        TypedQuery<LancamentoResponseDTO> query = manager.createQuery(criteria);
+        TypedQuery<LancamentoResumoDTO> query = manager.createQuery(criteria);
 
         adicionarRestricoesDePaginacao(query, pageable);
 
@@ -63,8 +63,8 @@ public class LancamentoRepositoryQueryImpl implements LancamentoRepositoryQuery 
 
     }
 
-    private void criteriaSelectNewLancamentoResponseDTO(CriteriaBuilder builder, CriteriaQuery<LancamentoResponseDTO> criteria, Root<Lancamento> root) {
-        criteria.select(builder.construct(LancamentoResponseDTO.class
+    private void criteriaSelectNewLancamentoResumoDTO(CriteriaBuilder builder, CriteriaQuery<LancamentoResumoDTO> criteria, Root<Lancamento> root) {
+        criteria.select(builder.construct(LancamentoResumoDTO.class
                 , root.get(Lancamento_.codigo), root.get(Lancamento_.descricao)
                 , root.get(Lancamento_.dataVencimento), root.get(Lancamento_.dataPagamento)
                 , root.get(Lancamento_.valor), root.get(Lancamento_.observacao)

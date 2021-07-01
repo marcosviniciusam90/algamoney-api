@@ -1,7 +1,7 @@
 package com.algamoney.api.controller;
 
 import com.algamoney.api.dto.LancamentoInputDTO;
-import com.algamoney.api.dto.LancamentoResponseDTO;
+import com.algamoney.api.dto.LancamentoResumoDTO;
 import com.algamoney.api.event.RecursoCriadoEvent;
 import com.algamoney.api.exceptionhandler.Erro;
 import com.algamoney.api.exceptionhandler.utils.ErroUtils;
@@ -46,29 +46,29 @@ public class LancamentoController {
     @PreAuthorize("hasAuthority('ROLE_PESQUISAR_LANCAMENTO') and #oauth2.hasScope('read')")
     @GetMapping(params = "resumo")
     @ResponseStatus(HttpStatus.OK)
-    public Page<LancamentoResponseDTO> resumir (LancamentoFilter lancamentoFilter, Pageable pageable) {
+    public Page<LancamentoResumoDTO> resumir (LancamentoFilter lancamentoFilter, Pageable pageable) {
         return lancamentoRepository.resumir(lancamentoFilter, pageable);
     }
 
     @PreAuthorize("hasAuthority('ROLE_PESQUISAR_LANCAMENTO') and #oauth2.hasScope('read')")
     @GetMapping("/{codigo}")
     @ResponseStatus(HttpStatus.OK)
-    public LancamentoResponseDTO buscarPeloCodigo(@PathVariable Long codigo) {
+    public LancamentoResumoDTO buscarPeloCodigo(@PathVariable Long codigo) {
         return lancamentoService.findDTOById(codigo);
     }
 
     @PreAuthorize("hasAuthority('ROLE_CADASTRAR_LANCAMENTO') and #oauth2.hasScope('write')")
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public LancamentoResponseDTO criar(@Valid @RequestBody LancamentoInputDTO lancamentoInputDTO, HttpServletResponse response) {
-        LancamentoResponseDTO lancamentoDTO = lancamentoService.criar(lancamentoInputDTO);
+    public LancamentoResumoDTO criar(@Valid @RequestBody LancamentoInputDTO lancamentoInputDTO, HttpServletResponse response) {
+        LancamentoResumoDTO lancamentoDTO = lancamentoService.criar(lancamentoInputDTO);
         publisher.publishEvent(new RecursoCriadoEvent(this, lancamentoDTO.getCodigo(), response));
         return lancamentoDTO;
     }
 
     @PreAuthorize("hasAuthority('ROLE_CADASTRAR_LANCAMENTO') and #oauth2.hasScope('write')")
     @PutMapping("/{codigo}")
-    public LancamentoResponseDTO atualizar(@PathVariable Long codigo, @Valid @RequestBody LancamentoInputDTO lancamentoInputDTO) {
+    public LancamentoResumoDTO atualizar(@PathVariable Long codigo, @Valid @RequestBody LancamentoInputDTO lancamentoInputDTO) {
         return lancamentoService.atualizar(codigo, lancamentoInputDTO);
     }
 

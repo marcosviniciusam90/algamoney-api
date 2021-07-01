@@ -1,7 +1,7 @@
 package com.algamoney.api.utils;
 
 import com.algamoney.api.dto.LancamentoInputDTO;
-import com.algamoney.api.dto.LancamentoResponseDTO;
+import com.algamoney.api.dto.LancamentoResumoDTO;
 import com.algamoney.api.dto.id.CategoriaIdDTO;
 import com.algamoney.api.dto.id.PessoaIdDTO;
 import com.algamoney.api.model.Lancamento;
@@ -28,8 +28,8 @@ public class LancamentoUtils {
                 .build();
     }
 
-    public static LancamentoResponseDTO createLancamentoResponseDTO() {
-        return LancamentoResponseDTO.builder()
+    public static LancamentoResumoDTO createLancamentoResumoDTO() {
+        return LancamentoResumoDTO.builder()
                 .codigo(FAKER.number().randomNumber())
                 .descricao(FAKER.commerce().productName())
                 .dataVencimento(LocalDate.now())
