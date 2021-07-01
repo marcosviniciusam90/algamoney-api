@@ -1,6 +1,7 @@
 package com.algamoney.api.mapper;
 
 import com.algamoney.api.dto.LancamentoInputDTO;
+import com.algamoney.api.dto.LancamentoResponseDTO;
 import com.algamoney.api.dto.LancamentoResumoDTO;
 import com.algamoney.api.model.Lancamento;
 import org.mapstruct.Mapper;
@@ -23,4 +24,6 @@ public interface LancamentoMapper {
     @Mapping(source = "pessoa.nome", target = "pessoa")
     @Mapping(source = "categoria.nome", target = "categoria")
     LancamentoResumoDTO entityToResumoDTO(Lancamento entity);
+
+    LancamentoResponseDTO entityToResponseDTO(Lancamento entity);
 }

@@ -1,6 +1,7 @@
 package com.algamoney.api.utils;
 
 import com.algamoney.api.dto.LancamentoInputDTO;
+import com.algamoney.api.dto.LancamentoResponseDTO;
 import com.algamoney.api.dto.LancamentoResumoDTO;
 import com.algamoney.api.dto.id.CategoriaIdDTO;
 import com.algamoney.api.dto.id.PessoaIdDTO;
@@ -10,6 +11,9 @@ import com.github.javafaker.Faker;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+
+import static com.algamoney.api.utils.CategoriaUtils.createCategoriaDTO;
+import static com.algamoney.api.utils.PessoaUtils.createPessoaResumoDTO;
 
 public class LancamentoUtils {
 
@@ -39,6 +43,20 @@ public class LancamentoUtils {
                 .tipo(TipoLancamento.DESPESA)
                 .categoria(FAKER.commerce().department())
                 .pessoa(FAKER.dragonBall().character())
+                .build();
+    }
+
+    public static LancamentoResponseDTO createLancamentoResponseDTO() {
+        return LancamentoResponseDTO.builder()
+                .codigo(FAKER.number().randomNumber())
+                .descricao(FAKER.commerce().productName())
+                .dataVencimento(LocalDate.now())
+                .dataPagamento(LocalDate.now().minusDays(1))
+                .valor(BigDecimal.valueOf(FAKER.number().randomDouble(2, 0, 1000)))
+                .observacao(FAKER.shakespeare().romeoAndJulietQuote())
+                .tipo(TipoLancamento.DESPESA)
+                .categoria(createCategoriaDTO())
+                .pessoa(createPessoaResumoDTO())
                 .build();
     }
 

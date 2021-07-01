@@ -1,7 +1,7 @@
 package com.algamoney.api.controller;
 
 import com.algamoney.api.dto.LancamentoInputDTO;
-import com.algamoney.api.dto.LancamentoResumoDTO;
+import com.algamoney.api.dto.LancamentoResponseDTO;
 import com.algamoney.api.event.RecursoCriadoEvent;
 import com.algamoney.api.mapper.LancamentoMapper;
 import com.algamoney.api.model.Lancamento;
@@ -29,7 +29,7 @@ import java.util.Objects;
 import static com.algamoney.api.utils.JsonUtils.toJsonString;
 import static com.algamoney.api.utils.JsonUtils.toObject;
 import static com.algamoney.api.utils.LancamentoUtils.createLancamentoInputDTO;
-import static com.algamoney.api.utils.LancamentoUtils.createLancamentoResumoDTO;
+import static com.algamoney.api.utils.LancamentoUtils.createLancamentoResponseDTO;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.*;
@@ -72,21 +72,21 @@ class LancamentoControllerTests {
     void testCriarLancamentoComSucesso() throws Exception {
         LancamentoInputDTO lancamentoInputDTO = createLancamentoInputDTO();
         Lancamento lancamento = LANCAMENTO_MAPPER.inputDTOToEntity(lancamentoInputDTO);
-        LancamentoResumoDTO expectedLancamentoResumoDTO = LANCAMENTO_MAPPER.entityToResumoDTO(lancamento);
+        LancamentoResponseDTO expectedResponseDTO = LANCAMENTO_MAPPER.entityToResponseDTO(lancamento);
 
-        expectedLancamentoResumoDTO.setCodigo(FAKER.number().randomNumber());
+        expectedResponseDTO.setCodigo(FAKER.number().randomNumber());
 
-        when(lancamentoService.criar(lancamentoInputDTO)).thenReturn(expectedLancamentoResumoDTO);
+        when(lancamentoService.criar(lancamentoInputDTO)).thenReturn(expectedResponseDTO);
 
         MvcResult mvcResult = mockMvc.perform(post(API_URL_PATH)
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(toJsonString(lancamentoInputDTO)))
                 .andExpect(status().isCreated())
-                //.andExpect(MockMvcResultMatchers.jsonPath("$.codigo", Is.is(expectedLancamentoResumoDTO.getCodigo().intValue())))
+                //.andExpect(MockMvcResultMatchers.jsonPath("$.codigo", Is.is(expectedResponseDTO.getCodigo().intValue())))
                 .andReturn();
 
-        LancamentoResumoDTO actualLancamentoResumoDTO = toObject(mvcResult, LancamentoResumoDTO.class);
-        assertEquals(expectedLancamentoResumoDTO, actualLancamentoResumoDTO);
+        LancamentoResponseDTO actualResponseDTO = toObject(mvcResult, LancamentoResponseDTO.class);
+        assertEquals(expectedResponseDTO, actualResponseDTO);
 
         verify(lancamentoService, times(1)).criar(lancamentoInputDTO);
         verify(publisher, times(1)).publishEvent(any(RecursoCriadoEvent.class));
@@ -102,7 +102,7 @@ class LancamentoControllerTests {
                 .content(toJsonString(lancamentoInputDTO)))
                 .andExpect(status().isBadRequest())
                 .andExpect(result -> assertTrue(result.getResolvedException() instanceof MethodArgumentNotValidException))
-                .andExpect(result -> assertTrue(Objects.requireNonNull(result.getResolvedException()).getMessage().contains("O campo {0} é obrigatório")));
+                .andExpect(result -> assertTrue(Objects.requireNonNull(result.getResolvedException()).getMessage().contains("descricao")));
     }
 
     @Test
@@ -121,17 +121,17 @@ class LancamentoControllerTests {
 
     @Test
     void testBuscarLancamentoPorCodigo() throws Exception {
-        LancamentoResumoDTO expectedLancamentoResumoDTO = createLancamentoResumoDTO();
-        Long codigo = expectedLancamentoResumoDTO.getCodigo();
+        LancamentoResponseDTO expectedResponseDTO = createLancamentoResponseDTO();
+        Long codigo = expectedResponseDTO.getCodigo();
 
-        when(lancamentoService.findDTOById(codigo)).thenReturn(expectedLancamentoResumoDTO);
+        when(lancamentoService.findDTOById(codigo)).thenReturn(expectedResponseDTO);
 
         MvcResult mvcResult = mockMvc.perform(get(API_URL_PATH + "/" + codigo)
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andReturn();
 
-        String expectedResponseBody = toJsonString(expectedLancamentoResumoDTO);
+        String expectedResponseBody = toJsonString(expectedResponseDTO);
         String actualResponseBody = toJsonString(mvcResult);
 
         assertEquals(expectedResponseBody, actualResponseBody);

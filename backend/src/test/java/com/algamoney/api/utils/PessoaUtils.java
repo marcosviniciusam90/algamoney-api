@@ -1,5 +1,6 @@
 package com.algamoney.api.utils;
 
+import com.algamoney.api.dto.PessoaResumoDTO;
 import com.algamoney.api.model.Pessoa;
 import com.github.javafaker.Faker;
 
@@ -14,6 +15,14 @@ public class PessoaUtils {
                 .cpf(FAKER.regexify("[0-9]{3}\\.[0-9]{3}\\.[0-9]{3}\\-[0-9]{2}"))
                 .ativo(ativo)
                 .endereco(EnderecoUtils.createEndereco())
+                .build();
+
+    }
+
+    public static PessoaResumoDTO createPessoaResumoDTO() {
+        return PessoaResumoDTO.builder()
+                .codigo(5L)
+                .nome(FAKER.superhero().name())
                 .build();
 
     }
