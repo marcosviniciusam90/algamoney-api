@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
 import { Categoria } from 'src/app/categorias/categoria.model';
 import { CategoriaService } from 'src/app/categorias/categoria.service';
@@ -32,7 +32,8 @@ export class LancamentoCadastroComponent implements OnInit{
       private lancamentoService: LancamentoService,
       private errorHandlerService: ErrorHandlerService,
       private messageService: MessageService,
-      private route: ActivatedRoute
+      private route: ActivatedRoute,
+      private router: Router
     ) {}
 
     ngOnInit(): void {
@@ -76,21 +77,20 @@ export class LancamentoCadastroComponent implements OnInit{
       .catch(erro => this.errorHandlerService.handle(erro));
     }
 
-    salvar(form: NgForm): void {
+    salvar(): void {
       if (this.editando) {
         this.atualizarLancamento();
       } else {
-        this.adicionarLancamento(form);
+        this.adicionarLancamento();
       }
     }
 
-    adicionarLancamento(form: NgForm): void {
+    adicionarLancamento(): void {
       this.lancamentoService.adicionar(this.lancamento)
-      .then(() => {
+      .then(lancamentoAdicionado => {
         this.messageService.add({ severity: 'success', detail: 'Lançamento adicionado com sucesso!' });
 
-        form.reset();
-        this.lancamento = new Lancamento();
+        this.router.navigate(['/lancamentos', lancamentoAdicionado.codigo]);
       })
       .catch(erro => this.errorHandlerService.handle(erro));
     }
@@ -103,6 +103,12 @@ export class LancamentoCadastroComponent implements OnInit{
         this.messageService.add({ severity: 'success', detail: 'Lançamento alterado com sucesso!' });
       })
       .catch(erro => this.errorHandlerService.handle(erro));
+    }
+
+    novo(form: NgForm): void {
+      form.reset(new Lancamento());
+
+      this.router.navigate(['/lancamentos/novo']);
     }
 
 

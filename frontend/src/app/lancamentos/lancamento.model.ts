@@ -8,7 +8,7 @@ export class Lancamento {
   dataPagamento: Date;
   valor: number;
   observacao: string;
-  tipo: string;
+  tipo = 'RECEITA';
   categoria = new Categoria();
   pessoa = new PessoaResumo();
 }

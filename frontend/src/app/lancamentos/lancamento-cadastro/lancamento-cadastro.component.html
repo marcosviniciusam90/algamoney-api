@@ -1,6 +1,6 @@
 <div class="container">
 
-    <form #lancamentoForm="ngForm" (ngSubmit)="salvar(lancamentoForm)">
+    <form #lancamentoForm="ngForm" (ngSubmit)="salvar()">
 
         <div class="p-grid">
 
@@ -85,7 +85,8 @@
                 <button class="p-button-info col-mr" pButton type="submit" label="Salvar"
                 [disabled]="!lancamentoForm.valid"></button>
 
-                <button class="col-mr" pButton type="button" label="Novo"></button>
+                <button class="col-mr" pButton type="button" label="Novo"
+                  (click)="novo(lancamentoForm)"></button>
                 <a routerLink="/lancamentos">Voltar para a pesquisa</a>
             </div>
 
