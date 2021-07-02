@@ -15,3 +15,8 @@ class Endereco {
   cidade: string;
   estado: string;
 }
+
+export class PessoaResumo {
+  codigo: number;
+  nome: string;
+}

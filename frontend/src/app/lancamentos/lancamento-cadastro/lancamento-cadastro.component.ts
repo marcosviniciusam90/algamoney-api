@@ -2,9 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { MessageService } from 'primeng/api';
-import { Categoria, CategoriaService } from 'src/app/categorias/categoria.service';
+import { Categoria } from 'src/app/categorias/categoria.model';
+import { CategoriaService } from 'src/app/categorias/categoria.service';
 import { ErrorHandlerService } from 'src/app/core/error-handler.service';
-import { Pessoa } from 'src/app/pessoas/pessoa.model';
+import { PessoaResumo } from 'src/app/pessoas/pessoa.model';
 import { PessoaService } from 'src/app/pessoas/pessoa.service';
 import { Lancamento } from '../lancamento.model';
 import { LancamentoService } from '../lancamento.service';
@@ -21,8 +22,8 @@ export class LancamentoCadastroComponent implements OnInit{
         { label: 'Despesa', value: 'DESPESA'}
     ];
 
-    categorias: any = [];
-    pessoas: any = [];
+    categorias: any[];
+    pessoas: any[];
     lancamento = new Lancamento();
 
     constructor(
@@ -53,7 +54,7 @@ export class LancamentoCadastroComponent implements OnInit{
     carregarPessoas(): void {
       this.pessoaService.listarTodas()
       .then(response => {
-        const pessoas = response.content as Pessoa[];
+        const pessoas = response.content as PessoaResumo[];
         this.pessoas = pessoas.map(pes => ({ label: pes.nome, value: pes.codigo }));
       })
       .catch(erro => this.errorHandlerService.handle(erro));

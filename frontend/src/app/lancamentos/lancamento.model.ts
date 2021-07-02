@@ -1,3 +1,6 @@
+import { Categoria } from '../categorias/categoria.model';
+import { PessoaResumo } from '../pessoas/pessoa.model';
+
 export class Lancamento {
   codigo: number;
   descricao: string;
@@ -5,17 +8,9 @@ export class Lancamento {
   dataPagamento: Date;
   valor: number;
   observacao: string;
-  tipo = 'RECEITA';
-  categoria = new CategoriaId();
-  pessoa = new PessoaId();
-}
-
-class CategoriaId {
-  codigo: number;
-}
-
-class PessoaId {
-  codigo: number;
+  tipo: string;
+  categoria = new Categoria();
+  pessoa = new PessoaResumo();
 }
 
 export class LancamentoResumo {
