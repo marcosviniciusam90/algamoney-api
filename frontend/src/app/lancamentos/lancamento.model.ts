@@ -17,3 +17,15 @@ class CategoriaId {
 class PessoaId {
   codigo: number;
 }
+
+export class LancamentoResumo {
+  codigo: number;
+  descricao: string;
+  dataVencimento: Date;
+  dataPagamento: Date;
+  valor: number;
+  observacao: string;
+  tipo: string;
+  categoria: string;
+  pessoa: string;
+}

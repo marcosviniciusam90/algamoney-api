@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, Output, ViewChild } from '@angular/core';
 import { ConfirmationService, LazyLoadEvent } from 'primeng/api';
 import { Table } from 'primeng/table';
+import { LancamentoResumo } from '../lancamento.model';
 
 @Component({
   selector: 'app-lancamentos-grid',
@@ -9,7 +10,7 @@ import { Table } from 'primeng/table';
 })
 export class LancamentosGridComponent {
 
-    @Input() lancamentos: any = [];
+    @Input() lancamentos: LancamentoResumo[];
 
     @Input() itensPorPagina: number;
     @Input() totalRegistros: number;

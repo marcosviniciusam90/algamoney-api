@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { MessageService } from 'primeng/api';
 import { ErrorHandlerService } from 'src/app/core/error-handler.service';
+import { LancamentoResumo } from '../lancamento.model';
 import { LancamentoFiltro, LancamentoService } from '../lancamento.service';
 
 @Component({
@@ -12,7 +13,7 @@ export class LancamentosPesquisaComponent {
 
     filtro = new LancamentoFiltro();
 
-    lancamentos: any = [];
+    lancamentos: LancamentoResumo[];
     totalRegistros = 0;
 
     constructor(
