@@ -14,11 +14,11 @@ import { PessoasModule } from './pessoas/pessoas.module';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     CoreModule,
     LancamentosModule,
     PessoasModule,
-    HttpClientModule
+    HttpClientModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
