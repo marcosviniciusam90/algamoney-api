@@ -4,6 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
 
+import { JwtModule, JwtHelperService } from '@auth0/angular-jwt';
+
 import { LoginComponent } from './login/login.component';
 import { SegurancaRoutingModule } from './seguranca-routing.module';
 
@@ -17,7 +19,16 @@ import { SegurancaRoutingModule } from './seguranca-routing.module';
     SegurancaRoutingModule,
     InputTextModule,
     ButtonModule,
-    FormsModule
-  ]
+    FormsModule,
+
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: () => {
+          return '';
+        }
+      }
+    })
+  ],
+  providers: [JwtHelperService]
 })
 export class SegurancaModule { }
