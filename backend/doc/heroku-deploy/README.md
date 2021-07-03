@@ -30,14 +30,16 @@
 - `heroku logs --tail`
 
 
-**Uma alternativa é criar o app no próprio site do Heroku e depois associar o repositório git local**
+**Uma alternativa é criar o app no próprio site do Heroku e depois associar ao repositório git local**
 
-> heroku -v  <br/>
-> heroku login <br/>
-> heroku git:remote -a <nome-do-app> <br/>
-> git remote -v <br/>
-> git subtree push --prefix backend heroku master &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -> **Faz push de um diretório específico dado prefixo**
-
+```
+heroku -v
+heroku login
+heroku git:remote -a [nome-do-app]
+git remote -v
+git subtree push --prefix backend heroku master
+```
+O comando **git subtree push --prefix [diretório] heroku [branch]** faz push de um diretório específico.
 
 
 -------------------------------------------------------------------------------------------------------------
