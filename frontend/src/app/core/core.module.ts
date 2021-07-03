@@ -5,6 +5,7 @@ import { MessageService } from 'primeng/api';
 import {ConfirmDialogModule} from 'primeng/confirmdialog';
 import {ConfirmationService} from 'primeng/api';
 import { RouterModule } from '@angular/router';
+import { Title } from '@angular/platform-browser';
 
 import { registerLocaleData } from '@angular/common';
 import localePt from '@angular/common/locales/pt';
@@ -39,6 +40,8 @@ registerLocaleData(localePt);
 
     MessageService,
     ConfirmationService,
+    Title,
+
     LancamentoService,
     PessoaService,
     ErrorHandlerService,

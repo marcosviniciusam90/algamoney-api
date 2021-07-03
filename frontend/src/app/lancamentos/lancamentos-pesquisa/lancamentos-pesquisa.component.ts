@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { MessageService } from 'primeng/api';
 import { ErrorHandlerService } from 'src/app/core/error-handler.service';
 import { LancamentoResumo } from '../lancamento.model';
@@ -9,7 +10,7 @@ import { LancamentoFiltro, LancamentoService } from '../lancamento.service';
   templateUrl: './lancamentos-pesquisa.component.html',
   styleUrls: ['./lancamentos-pesquisa.component.css']
 })
-export class LancamentosPesquisaComponent {
+export class LancamentosPesquisaComponent implements OnInit {
 
     filtro = new LancamentoFiltro();
 
@@ -19,8 +20,13 @@ export class LancamentosPesquisaComponent {
     constructor(
       private lancamentoService: LancamentoService,
       private messageService: MessageService,
-      private errorHandlerService: ErrorHandlerService
+      private errorHandlerService: ErrorHandlerService,
+      private title: Title
     ) {}
+
+    ngOnInit(): void {
+      this.title.setTitle('Pesquisa de lançamentos');
+    }
 
     pesquisar(pagina = 0): void {
       this.filtro.pagina = pagina;
