@@ -36,7 +36,7 @@
 > heroku login <br/>
 > heroku git:remote -a <nome-do-app> <br/>
 > git remote -v <br/>
-> git subtree push --prefix backend heroku main &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -> **Faz push de um diretório específico dado prefixo**
+> git subtree push --prefix backend heroku master &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -> **Faz push de um diretório específico dado prefixo**
 
 
 
