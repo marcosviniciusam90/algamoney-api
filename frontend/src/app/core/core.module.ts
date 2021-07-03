@@ -16,6 +16,7 @@ import { PessoaService } from '../pessoas/pessoa.service';
 import { ErrorHandlerService } from './error-handler.service';
 import { CategoriaService } from '../categorias/categoria.service';
 import { PaginaNaoEncontradaComponent } from './pagina-nao-encontrada.component';
+import { AuthService } from '../seguranca/auth.service';
 
 registerLocaleData(localePt);
 
@@ -45,7 +46,8 @@ registerLocaleData(localePt);
     LancamentoService,
     PessoaService,
     ErrorHandlerService,
-    CategoriaService
+    CategoriaService,
+    AuthService
   ]
 })
 export class CoreModule { }

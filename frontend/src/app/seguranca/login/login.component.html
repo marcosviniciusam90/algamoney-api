@@ -1,6 +1,6 @@
 <div class="container center">
 
-  <form autocomplete="off" #form="ngForm">
+  <form #form="ngForm">
     <div class="p-grid p-fluid" style="max-width: 400px;">
 
       <div class="p-col-12">
@@ -13,7 +13,7 @@
       </div>
 
       <div class="p-col-12">
-        <input pInputText type="password" name="senha" placeholder="Senha"
+        <input autocomplete="on" pInputText type="password" name="senha" placeholder="Senha"
           ngModel required #senha>
       </div>
 
