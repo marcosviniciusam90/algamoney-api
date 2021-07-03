@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { MessageService } from 'primeng/api';
 import { ErrorHandlerService } from 'src/app/core/error-handler.service';
 import { PessoaFiltro, PessoaService } from '../pessoa.service';
@@ -8,7 +9,7 @@ import { PessoaFiltro, PessoaService } from '../pessoa.service';
   templateUrl: './pessoas-pesquisa.component.html',
   styleUrls: ['./pessoas-pesquisa.component.css']
 })
-export class PessoasPesquisaComponent {
+export class PessoasPesquisaComponent implements OnInit {
 
     filtro = new PessoaFiltro();
 
@@ -18,8 +19,13 @@ export class PessoasPesquisaComponent {
     constructor(
       private pessoaService: PessoaService,
       private messageService: MessageService,
-      private errorHandlerService: ErrorHandlerService
+      private errorHandlerService: ErrorHandlerService,
+      private title: Title
     ) {}
+
+    ngOnInit(): void {
+      this.title.setTitle('Pesquisa de pessoas');
+    }
 
     pesquisar(pagina = 0): void {
       this.filtro.pagina = pagina;

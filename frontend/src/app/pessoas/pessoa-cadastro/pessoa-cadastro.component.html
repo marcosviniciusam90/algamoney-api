@@ -1,11 +1,11 @@
 <div class="container">
 
-    <form #pessoaForm="ngForm" (ngSubmit)="salvar(pessoaForm)">
+    <form #pessoaForm="ngForm" (ngSubmit)="salvar()">
 
         <div class="p-grid">
 
             <div class="p-col-12">
-                <h1>Nova Pessoa</h1>
+                <h1>{{ editando ? 'Alterando' : 'Nova'}} Pessoa</h1>
                 <p class="danger">* Campos obrigatórios</p>
             </div>
 
@@ -92,7 +92,8 @@
                 <button class="p-button-info col-mr" pButton type="submit" label="Salvar"
                 [disabled]="!pessoaForm.valid"></button>
 
-                <button class="col-mr" pButton type="button" label="Novo"></button>
+                <button class="col-mr" pButton type="button" label="Novo"
+                  (click)="novo(pessoaForm)"></button>
                 <a routerLink="/pessoas">Voltar para a pesquisa</a>
             </div>
 
