@@ -7,6 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { CoreModule } from './core/core.module';
 import { LancamentosModule } from './lancamentos/lancamentos.module';
 import { PessoasModule } from './pessoas/pessoas.module';
+import { SegurancaModule } from './seguranca/seguranca.module';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { PessoasModule } from './pessoas/pessoas.module';
     LancamentosModule,
     PessoasModule,
     HttpClientModule,
+    SegurancaModule,
     AppRoutingModule
   ],
   providers: [],
