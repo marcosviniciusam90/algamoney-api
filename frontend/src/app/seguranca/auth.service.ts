@@ -38,6 +38,10 @@ export class AuthService {
       });
   }
 
+  temPermissao(permissao: string): boolean {
+    return this.jwtPayload && this.jwtPayload.authorities.includes(permissao);
+  }
+
   private armazenarToken(token: string): void {
     this.jwtPayload = this.jwtHelper.decodeToken(token);
     localStorage.setItem('token', token);
