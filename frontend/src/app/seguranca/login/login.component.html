@@ -2,7 +2,7 @@
 
   <form #form="ngForm">
     <div class="p-grid p-fluid" style="max-width: 400px;">
-      {{ authService.jwtPayload | json }}
+
       <div class="p-col-12">
         <h1>Login</h1>
       </div>
@@ -19,7 +19,7 @@
 
       <div class="p-col-12">
         <button pButton type="submit" label="Login" [disabled]="!form.valid"
-          (click)="login(usuario.value, senha.value)"></button>
+          (click)="login(usuario.value, senha.value); senha.value = ''; senha.focus();"></button>
       </div>
 
     </div>
