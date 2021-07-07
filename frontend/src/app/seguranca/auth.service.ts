@@ -60,6 +60,11 @@ export class AuthService {
       });
   }
 
+  isAccessTokenInvalido(): boolean {
+    const token = localStorage.getItem('token');
+    return !token || this.jwtHelper.isTokenExpired(token);
+  }
+
   temPermissao(permissao: string): boolean {
     return this.jwtPayload && this.jwtPayload.authorities.includes(permissao);
   }
