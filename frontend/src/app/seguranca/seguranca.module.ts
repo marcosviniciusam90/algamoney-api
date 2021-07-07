@@ -11,6 +11,7 @@ import { MoneyHttpInterceptor } from './money-http-interceptor';
 
 import { LoginComponent } from './login/login.component';
 import { SegurancaRoutingModule } from './seguranca-routing.module';
+import { AuthGuard } from './auth.guard';
 
 export function tokenGetter(): string {
   return localStorage.getItem('token');
@@ -42,7 +43,9 @@ export function tokenGetter(): string {
       provide: HTTP_INTERCEPTORS,
       useClass: MoneyHttpInterceptor,
       multi: true
-    }
+    },
+
+    AuthGuard
   ]
 })
 export class SegurancaModule { }

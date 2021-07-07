@@ -1,4 +1,5 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { ThrowStmt } from '@angular/compiler';
 import { Injectable } from '@angular/core';
 import { JwtHelperService } from '@auth0/angular-jwt';
 
@@ -67,6 +68,15 @@ export class AuthService {
 
   temPermissao(permissao: string): boolean {
     return this.jwtPayload && this.jwtPayload.authorities.includes(permissao);
+  }
+
+  temQualquerPermissao(roles: string[]): boolean {
+    for (const role of roles) {
+      if (this.temPermissao(role)){
+        return true;
+      }
+    }
+    return false;
   }
 
   private armazenarToken(token: string): void {
