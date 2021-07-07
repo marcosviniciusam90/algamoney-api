@@ -166,7 +166,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJhZG1pbkBhbGdhbW9uZXkuY29tIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sIm5vbWUiOiJBZG1pbmlzdHJhZG9yIiwiZXhwIjoxNjE5Njk1NDY4LCJhdXRob3JpdGllcyI6WyJST0xFX0NBREFTVFJBUl9DQVRFR09SSUEiLCJST0xFX1BFU1FVSVNBUl9QRVNTT0EiLCJST0xFX1JFTU9WRVJfUEVTU09BIiwiUk9MRV9DQURBU1RSQVJfTEFOQ0FNRU5UTyIsIlJPTEVfUEVTUVVJU0FSX0xBTkNBTUVOVE8iLCJST0xFX1JFTU9WRVJfTEFOQ0FNRU5UTyIsIlJPTEVfQ0FEQVNUUkFSX1BFU1NPQSIsIlJPTEVfUEVTUVVJU0FSX0NBVEVHT1JJQSJdLCJqdGkiOiI4OWVmYjc4My04MjcwLTQ0M2EtYjMyYS0zNmUwOTAzMmUwYjEiLCJjbGllbnRfaWQiOiJhbmd1bGFyIn0.3aDKTloWM2cxZAOVTwDa5qDeLrUdZV6aq88qPOaVz-4",
+									"value": "{{token}}",
 									"type": "string"
 								}
 							]
@@ -178,7 +178,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "http://localhost:8080/pessoas?nome=isa&sort=nome&size=5&page=0",
+							"raw": "http://localhost:8080/pessoas?nome=vaniele&sort=nome&size=5&page=0",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -190,7 +190,7 @@
 							"query": [
 								{
 									"key": "nome",
-									"value": "isa"
+									"value": "vaniele"
 								},
 								{
 									"key": "sort",
@@ -234,7 +234,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "http://localhost:8080/pessoas?sort=nome&size=5&page=0&nome=anton",
+							"raw": "http://localhost:8080/pessoas?sort=nome&size=5&page=0&nome=ricardo",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -258,7 +258,7 @@
 								},
 								{
 									"key": "nome",
-									"value": "anton"
+									"value": "ricardo"
 								}
 							]
 						}
@@ -481,7 +481,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "http://localhost:8080/lancamentos?dataVencimentoDe=2017-06-10&dataVencimentoAte=2018-03-10",
+							"raw": "http://localhost:8080/lancamentos?descricao=tv",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -492,12 +492,8 @@
 							],
 							"query": [
 								{
-									"key": "dataVencimentoDe",
-									"value": "2017-06-10"
-								},
-								{
-									"key": "dataVencimentoAte",
-									"value": "2018-03-10"
+									"key": "descricao",
+									"value": "tv"
 								}
 							]
 						}
@@ -529,7 +525,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "http://localhost:8080/lancamentos?resumo&page=0&size=5&descricao=galego",
+							"raw": "http://localhost:8080/lancamentos?resumo&page=0&size=5&descricao=crepe",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -553,7 +549,7 @@
 								},
 								{
 									"key": "descricao",
-									"value": "galego"
+									"value": "crepe"
 								}
 							]
 						}
@@ -979,7 +975,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2MTgzNTMyNjgsInVzZXJfbmFtZSI6ImFkbWluQGFsZ2Ftb25leS5jb20iLCJhdXRob3JpdGllcyI6WyJST0xFX0NBREFTVFJBUl9DQVRFR09SSUEiLCJST0xFX1BFU1FVSVNBUl9QRVNTT0EiLCJST0xFX1JFTU9WRVJfUEVTU09BIiwiUk9MRV9DQURBU1RSQVJfTEFOQ0FNRU5UTyIsIlJPTEVfUEVTUVVJU0FSX0xBTkNBTUVOVE8iLCJST0xFX1JFTU9WRVJfTEFOQ0FNRU5UTyIsIlJPTEVfQ0FEQVNUUkFSX1BFU1NPQSIsIlJPTEVfUEVTUVVJU0FSX0NBVEVHT1JJQSJdLCJqdGkiOiJjZWIyNTU1Zi1jZjM2LTQ0OGQtYmFmNi0yOWZhMDgwMTU0NTIiLCJjbGllbnRfaWQiOiJtb2JpbGUiLCJzY29wZSI6WyJyZWFkIl19.XFQ5vXV2uIkgYIQoTFcDIDA4fn2lR3b7L88edgC5kBk",
+									"value": "{{token}}",
 									"type": "string"
 								}
 							]
