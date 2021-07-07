@@ -18,7 +18,7 @@ export class AuthService {
     this.carregarToken();
   }
 
-  login(usuario: string, senha: string): Promise<any> {
+  login(usuario: string, senha: string): Promise<void> {
     const headers = new HttpHeaders()
       .append('Authorization', 'Basic YW5ndWxhcjphbmd1bGFyMTIz')
       .append('Content-Type', 'application/x-www-form-urlencoded');
