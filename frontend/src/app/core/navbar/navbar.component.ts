@@ -12,8 +12,4 @@ export class NavbarComponent {
 
     constructor(public authService: AuthService) {}
 
-    criarNovoAccessToken(): void {
-      this.authService.obterNovoAccessToken();
-    }
-
 }
