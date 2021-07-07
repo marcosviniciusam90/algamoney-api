@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, Output, ViewChild } from '@angular/core';
 import { ConfirmationService, LazyLoadEvent } from 'primeng/api';
 import { Table } from 'primeng/table';
+import { AuthService } from 'src/app/seguranca/auth.service';
 import { LancamentoResumo } from '../lancamento.model';
 
 @Component({
@@ -20,7 +21,10 @@ export class LancamentosGridComponent {
 
     @ViewChild('tabela') grid: Table;
 
-    constructor(private confirmationService: ConfirmationService) {}
+    constructor(
+      private confirmationService: ConfirmationService,
+      public authService: AuthService
+    ) {}
 
     aoMudarPagina(event: LazyLoadEvent): void {
       const pagina = event.first / event.rows;
