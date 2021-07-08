@@ -1,9 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { MessageService } from 'primeng/api';
+
 import { ErrorHandlerService } from 'src/app/core/error-handler.service';
 import { LancamentoResumo } from '../lancamento.model';
 import { LancamentoFiltro, LancamentoService } from '../lancamento.service';
+import { LancamentosGridComponent } from '../lancamentos-grid/lancamentos-grid.component';
 
 @Component({
   selector: 'app-lancamentos-pesquisa',
@@ -12,10 +14,12 @@ import { LancamentoFiltro, LancamentoService } from '../lancamento.service';
 })
 export class LancamentosPesquisaComponent implements OnInit {
 
-    filtro = new LancamentoFiltro();
-
     lancamentos: LancamentoResumo[];
+
+    filtro = new LancamentoFiltro();
     totalRegistros = 0;
+
+    @ViewChild(LancamentosGridComponent) gridComponent: LancamentosGridComponent;
 
     constructor(
       private lancamentoService: LancamentoService,
@@ -35,14 +39,16 @@ export class LancamentosPesquisaComponent implements OnInit {
         .then(response => {
           this.lancamentos = response.content;
           this.totalRegistros = response.totalElements;
+
+          this.gridComponent.setPage(pagina);
         })
         .catch(erro => this.errorHandlerService.handle(erro));
     }
 
-    excluir(lancamento: any): void {
-      this.lancamentoService.excluir(lancamento.codigo)
+    excluir(exclusao: any): void {
+      this.lancamentoService.excluir(exclusao.lancamentoCodigo)
         .then(() => {
-          this.pesquisar();
+          this.pesquisar(exclusao.paginaAtual);
           this.messageService.add({ severity: 'success', detail: 'Lançamento excluído com sucesso!' });
         })
         .catch(erro => this.errorHandlerService.handle(erro));

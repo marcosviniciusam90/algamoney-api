@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, Output, ViewChild } from '@angular/core';
 import { ConfirmationService, LazyLoadEvent } from 'primeng/api';
 import { Table } from 'primeng/table';
+
 import { AuthService } from 'src/app/seguranca/auth.service';
 import { LancamentoResumo } from '../lancamento.model';
 
@@ -21,28 +22,34 @@ export class LancamentosGridComponent {
 
     @ViewChild('tabela') grid: Table;
 
+    paginaAtual = 0;
+
     constructor(
       private confirmationService: ConfirmationService,
       public authService: AuthService
     ) {}
 
-    aoMudarPagina(event: LazyLoadEvent): void {
-      const pagina = event.first / event.rows;
-      this.paginaAlterada.emit(pagina);
+    setPage(pagina: number): void {
+      this.grid.first = pagina * this.grid.rows;
     }
 
-    confirmarExclusao(lancamento: any): void {
+    aoMudarPagina(event: LazyLoadEvent): void {
+      this.paginaAtual = event.first / event.rows;
+      this.paginaAlterada.emit(this.paginaAtual);
+    }
+
+    confirmarExclusao(lancamento: LancamentoResumo): void {
       this.confirmationService.confirm({
+        header: `Excluir: ${lancamento.descricao}`,
         message: 'Tem certeza que deseja excluir?',
-        accept: () => this.excluir(lancamento)
+        accept: () => this.excluir(lancamento.codigo)
         // reject
       });
 
     }
 
-    excluir(lancamento: any): void {
-      this.lancamentoExcluido.emit(lancamento);
-      this.grid.reset();
+    excluir(lancamentoCodigo: number): void {
+      this.lancamentoExcluido.emit({ lancamentoCodigo, paginaAtual: this.paginaAtual });
     }
 
 }
