@@ -1,7 +1,9 @@
 import { Component, EventEmitter, Input, Output, ViewChild } from '@angular/core';
 import { ConfirmationService, LazyLoadEvent } from 'primeng/api';
 import { Table } from 'primeng/table';
+
 import { AuthService } from 'src/app/seguranca/auth.service';
+import { Pessoa } from '../pessoa.model';
 
 @Component({
   selector: 'app-pessoas-grid',
@@ -10,7 +12,7 @@ import { AuthService } from 'src/app/seguranca/auth.service';
 })
 export class PessoasGridComponent {
 
-    @Input() pessoas: any = [];
+    @Input() pessoas: Pessoa[];
 
     @Input() itensPorPagina: number;
     @Input() totalRegistros: number;
@@ -21,31 +23,37 @@ export class PessoasGridComponent {
 
     @ViewChild('tabela') grid: Table;
 
+    paginaAtual = 0;
+
     constructor(
       private confirmationService: ConfirmationService,
       public authService: AuthService
     ) {}
 
-    aoMudarPagina(event: LazyLoadEvent): void {
-      const pagina = event.first / event.rows;
-      this.paginaAlterada.emit(pagina);
+    setPage(pagina: number): void {
+      this.grid.first = pagina * this.grid.rows;
     }
 
-    confirmarExclusao(pessoa: any): void {
+    aoMudarPagina(event: LazyLoadEvent): void {
+      this.paginaAtual = event.first / event.rows;
+      this.paginaAlterada.emit(this.paginaAtual);
+    }
+
+    confirmarExclusao(pessoa: Pessoa): void {
       this.confirmationService.confirm({
+        header: `Excluir: ${pessoa.nome}`,
         message: 'Tem certeza que deseja excluir?',
-        accept: () => this.excluir(pessoa)
+        accept: () => this.excluir(pessoa.codigo)
         // reject
       });
 
     }
 
-    excluir(pessoa: any): void {
-      this.pessoaExcluida.emit(pessoa);
-      this.grid.reset();
+    excluir(pessoaCodigo: number): void {
+      this.pessoaExcluida.emit({ pessoaCodigo, paginaAtual: this.paginaAtual });
     }
 
-    alterarStatus(pessoa: any): void {
+    alterarStatus(pessoa: Pessoa): void {
       this.statusAlterado.emit(pessoa);
     }
 

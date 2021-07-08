@@ -1,8 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { MessageService } from 'primeng/api';
+
 import { ErrorHandlerService } from 'src/app/core/error-handler.service';
+import { Pessoa } from '../pessoa.model';
 import { PessoaFiltro, PessoaService } from '../pessoa.service';
+import { PessoasGridComponent } from '../pessoas-grid/pessoas-grid.component';
 
 @Component({
   selector: 'app-pessoas-pesquisa',
@@ -11,10 +14,12 @@ import { PessoaFiltro, PessoaService } from '../pessoa.service';
 })
 export class PessoasPesquisaComponent implements OnInit {
 
-    filtro = new PessoaFiltro();
+    pessoas: Pessoa[];
 
-    pessoas: any = [];
+    filtro = new PessoaFiltro();
     totalRegistros = 0;
+
+    @ViewChild(PessoasGridComponent) gridComponent: PessoasGridComponent;
 
     constructor(
       private pessoaService: PessoaService,
@@ -34,20 +39,22 @@ export class PessoasPesquisaComponent implements OnInit {
         .then(response => {
           this.pessoas = response.content;
           this.totalRegistros = response.totalElements;
+
+          this.gridComponent.setPage(pagina);
         })
         .catch(erro => this.errorHandlerService.handle(erro));
     }
 
-    excluir(pessoa: any): void {
-      this.pessoaService.excluir(pessoa.codigo)
+    excluir(exclusao: any): void {
+      this.pessoaService.excluir(exclusao.pessoaCodigo)
         .then(() => {
-          this.pesquisar();
+          this.pesquisar(exclusao.paginaAtual);
           this.messageService.add({ severity: 'success', detail: 'Pessoa excluída com sucesso!' });
         })
         .catch(erro => this.errorHandlerService.handle(erro));
     }
 
-    alterarStatus(pessoa: any): void {
+    alterarStatus(pessoa: Pessoa): void {
       const novoStatus = !pessoa.ativo;
       this.pessoaService.alterarStatus(pessoa.codigo, novoStatus)
         .then(() => {
