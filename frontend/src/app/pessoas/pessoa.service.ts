@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Pessoa } from './pessoa.model';
+import { environment } from 'src/environments/environment';
 
 export class PessoaFiltro {
   nome: string;
@@ -13,7 +14,7 @@ export class PessoaFiltro {
 })
 export class PessoaService {
 
-  pessoasUrl = 'http://localhost:8080/pessoas';
+  pessoasUrl = `${environment.apiUrl}/pessoas`;
 
   constructor(
     private http: HttpClient
