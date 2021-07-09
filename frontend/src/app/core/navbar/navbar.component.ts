@@ -22,6 +22,7 @@ export class NavbarComponent implements AfterViewInit {
     ngAfterViewInit(): void {
         this.clickLinksDoMenuEscondeMenu();
         this.clickForaDoMenuEscondeMenu();
+        this.efeitoBotaoTopo();
     }
 
     logout(): void {
@@ -30,6 +31,11 @@ export class NavbarComponent implements AfterViewInit {
           this.router.navigate(['/login']);
         })
         .catch(erro => this.errorHandlerService.handle(erro));
+    }
+
+    irParaTopo(): void {
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
     }
 
     private clickLinksDoMenuEscondeMenu(): void {
@@ -49,6 +55,20 @@ export class NavbarComponent implements AfterViewInit {
           this.exibindoMenu = false;
         }
 
+      });
+    }
+
+    private efeitoBotaoTopo(): void {
+      const botaoTopo = document.getElementById('top-button');
+      // const alturaJanela = window.innerHeight;
+
+      window.addEventListener('scroll', () => {
+
+        if (window.scrollY > 100) {
+          botaoTopo.classList.add('show');
+        } else {
+          botaoTopo.classList.remove('show');
+        }
       });
     }
 
