@@ -48,6 +48,10 @@ a:hover, a:focus {
     }
 }
 
+.mr {
+  margin-right: 1em!important;
+}
+
 .col-mr {
     margin-right: 0.50em!important;
 }
