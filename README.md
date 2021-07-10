@@ -1,18 +1,20 @@
-# Algamoney-api
+# Algamoney-api (ainda em construção)
 
 Fonte do aprendizado: https://www.algaworks.com/curso/fullstack-angular-e-spring
 
-O projeto ainda está em construção (**70% concluido**)
-
-Projeto com arquitetura SOFEA, no qual o frontend (Angular) da aplicação irá manipular dados de um servidor via requisições REST.<br/>
-Será feito deploy no Heroku, tanto do frontend como da API (backend).
-
-## Backend
-> API em produção: https://mvam-algamoney.herokuapp.com <br/>
-> Coleção do Postman para testar requisições: [Link](https://github.com/marcosviniciusam90/algamoney-api/blob/master/backend/doc/AlgaMoney.postman_collection.json)
+> Projeto com arquitetura SOFEA, no qual o frontend (Angular) da aplicação irá manipular dados de um servidor via requisições REST.
 
 
-### O que foi utilizado?<br/>
+## Em produção
+[![Netlify Status](https://api.netlify.com/api/v1/badges/f58316e1-0e43-45dc-9230-433e5c43ffdd/deploy-status)](https://app.netlify.com/sites/mvam-algamoney/deploys)
+- Aplicação (frontend): https://mvam-algamoney.netlify.app
+- API (backend): https://mvam-algamoney-api.herokuapp.com 
+- Coleção e variáveis do Postman: [Link](https://github.com/marcosviniciusam90/algamoney-api/blob/master/backend/doc)
+
+
+## Backend (90% concluído)
+
+### O que foi utilizado?
 - Java
 - Spring
 - REST
@@ -25,7 +27,7 @@ Será feito deploy no Heroku, tanto do frontend como da API (backend).
 - Mockito
 - entre outros;
 
-### Conceitos<br/>
+### Recursos
 - Bean Validation
 - Bean Configuration
 - Properties Configuration
@@ -35,20 +37,34 @@ Será feito deploy no Heroku, tanto do frontend como da API (backend).
 - Criteria Query (com uso de classes Metamodel)
 - Pagination/Sorting
 - CORS
-- Spring Security (Basic, OAuth2 + JWT, Roles/Privileges)
-- Spring Profiles
-- Spring MockMvc &nbsp;&nbsp;&nbsp;&nbsp; -> **Para os testes automáticos das requisições REST**
+- Spring Security (Basic e OAuth2/JWT + controle de permissões por usuário)
+- Spring Profiles (alterna os tipos de segurança da aplicação entre Basic (basic-security) e OAuth2 (oauth-security)
+- Spring MockMvc (para os testes automáticos das requisições REST)
 - entre outros;
 
 
-## Frontend
-> Em construção
+## Frontend (80% concluído)
 
-### O que foi utilizado?<br>
+### O que foi utilizado?
 - Angular 11
+- JavaScript/TypeScript
+- HTML
+- CSS
 - PrimeNG 11
 - NPM
 
+### Recursos
+- Property binding e two-way data binding
+- Requisições REST
+- HttpInterceptor (intercepta requisições HTTP e adiciona o access token)
+- Diretivas
+- Pipes
+- Serviços (injeção de dependências)
+- Formulários com validação dos dados de entrada
+- Tabelas de dados com paginação Lazy
+- Toast
+- Rotas com guarda de rotas (CanActivate)
+
 
 ## TODO
-- Gerar documentação swagger da API usando SpringFox / io.swagger.annotations
+- Gerar documentação swagger da API com SpringFox / Spring OpenAPI
