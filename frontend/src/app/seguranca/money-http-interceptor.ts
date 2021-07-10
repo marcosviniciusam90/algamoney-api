@@ -5,7 +5,7 @@ import { mergeMap } from 'rxjs/operators';
 
 import { AuthService } from './auth.service';
 
-export class NotAuthenticatedError {}
+export class NotAuthenticatedError { }
 
 @Injectable()
 export class MoneyHttpInterceptor implements HttpInterceptor {
@@ -13,25 +13,30 @@ export class MoneyHttpInterceptor implements HttpInterceptor {
   constructor(private authService: AuthService) { }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    if (!req.url.includes('/oauth/token') && this.authService.isAccessTokenInvalido()) {
-      return from(this.authService.obterNovoAccessToken())
-        .pipe(
-          mergeMap(() => {
-
-            // não conseguiu renovar token, pois o refresh token expirou
-            if (this.authService.isAccessTokenInvalido()) {
-              throw new NotAuthenticatedError();
-            }
-
-            req = req.clone({
-              setHeaders: {
-                Authorization: `Bearer ${localStorage.getItem('token')}`
+    if (!req.url.includes('/oauth/token')) {
+      if (this.authService.isAccessTokenInvalido()) {
+        return from(this.authService.obterNovoAccessToken())
+          .pipe(
+            mergeMap(() => {
+              if (this.authService.isAccessTokenInvalido()) {
+                throw new NotAuthenticatedError();
               }
-            });
+              req = req.clone({
+                setHeaders: {
+                  Authorization: `Bearer ${localStorage.getItem('token')}`
+                }
+              });
 
-            return next.handle(req);
-          })
-        );
+              return next.handle(req);
+            })
+          );
+      }
+      console.log('adicionando bearer');
+      req = req.clone({
+        setHeaders: {
+          Authorization: `Bearer ${localStorage.getItem('token')}`
+        }
+      });
     }
 
     return next.handle(req);
