@@ -10,6 +10,7 @@ Fonte do aprendizado: https://www.algaworks.com/curso/fullstack-angular-e-spring
 - Aplicação (frontend): https://mvam-algamoney.netlify.app
 - API (backend): https://mvam-algamoney-api.herokuapp.com 
 - Coleção e variáveis do Postman: [Link](https://github.com/marcosviniciusam90/algamoney-api/blob/master/backend/doc)
+- **Instruções para acesso à aplicação**: [Link](https://github.com/marcosviniciusam90/algamoney-api#autorizacao)
 
 
 ## Backend (90% concluído)
@@ -64,6 +65,11 @@ Fonte do aprendizado: https://www.algaworks.com/curso/fullstack-angular-e-spring
 - Tabelas de dados com paginação Lazy
 - Toast
 - Rotas com guarda de rotas (CanActivate)
+
+<h3 id="autorizacao">Acesso à aplicação</h3>
+
+- Usuário/senha: `admin@algamoney.com/admin` ou `maria@algamoney.com/maria`<br>
+Obs: o usuário **maria** só tem permissão para realizar as consultas, já o usuário **admin** possui todas as permissões.
 
 
 ## TODO
