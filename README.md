@@ -10,7 +10,7 @@ Fonte do aprendizado: https://www.algaworks.com/curso/fullstack-angular-e-spring
 - Aplicação (frontend): https://mvam-algamoney.netlify.app
 - API (backend): https://mvam-algamoney-api.herokuapp.com 
 - Coleção e variáveis do Postman: [Link](https://github.com/marcosviniciusam90/algamoney-api/blob/master/backend/doc)
-- **Instruções para acesso à aplicação**: [Link](https://github.com/marcosviniciusam90/algamoney-api#autorizacao)
+- **Instruções para acesso à aplicação**: [Link](#autorizacao)
 
 
 ## Backend (90% concluído)
