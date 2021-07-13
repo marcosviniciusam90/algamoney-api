@@ -6,6 +6,7 @@ import {ConfirmDialogModule} from 'primeng/confirmdialog';
 import {ConfirmationService} from 'primeng/api';
 import { RouterModule } from '@angular/router';
 import { Title } from '@angular/platform-browser';
+import {ProgressSpinnerModule} from 'primeng/progressspinner';
 
 import { registerLocaleData } from '@angular/common';
 import localePt from '@angular/common/locales/pt';
@@ -18,6 +19,8 @@ import { CategoriaService } from '../categorias/categoria.service';
 import { PaginaNaoEncontradaComponent } from './pagina-nao-encontrada.component';
 import { AuthService } from '../seguranca/auth.service';
 import { NaoAutorizadoComponent } from './nao-autorizado.component';
+import { LoadingComponent } from './loading/loading.component';
+import { LoadingService } from './loading/loading.service';
 
 registerLocaleData(localePt);
 
@@ -25,18 +28,21 @@ registerLocaleData(localePt);
   declarations: [
       NavbarComponent,
       PaginaNaoEncontradaComponent,
-      NaoAutorizadoComponent
+      NaoAutorizadoComponent,
+      LoadingComponent
   ],
   imports: [
     CommonModule,
     ToastModule,
     ConfirmDialogModule,
-    RouterModule
+    RouterModule,
+    ProgressSpinnerModule
   ],
   exports: [
       NavbarComponent,
       ToastModule,
-      ConfirmDialogModule
+      ConfirmDialogModule,
+      LoadingComponent
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'pt-BR' },
@@ -49,7 +55,8 @@ registerLocaleData(localePt);
     PessoaService,
     ErrorHandlerService,
     CategoriaService,
-    AuthService
+    AuthService,
+    LoadingService
   ]
 })
 export class CoreModule { }
